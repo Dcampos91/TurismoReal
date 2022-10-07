@@ -31,10 +31,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtBuscarCliente = new System.Windows.Forms.TextBox();
             this.btnBuscarCliente = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvCliente = new System.Windows.Forms.DataGridView();
             this.btnAtras = new System.Windows.Forms.Button();
             this.btnAgregarCliente = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -63,15 +63,15 @@
             this.btnBuscarCliente.Text = "Buscar";
             this.btnBuscarCliente.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvCliente
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 124);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(811, 326);
-            this.dataGridView1.TabIndex = 3;
+            this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCliente.Location = new System.Drawing.Point(13, 124);
+            this.dgvCliente.Name = "dgvCliente";
+            this.dgvCliente.RowHeadersWidth = 51;
+            this.dgvCliente.RowTemplate.Height = 24;
+            this.dgvCliente.Size = new System.Drawing.Size(811, 326);
+            this.dgvCliente.TabIndex = 3;
             // 
             // btnAtras
             // 
@@ -100,13 +100,13 @@
             this.ClientSize = new System.Drawing.Size(836, 518);
             this.Controls.Add(this.btnAgregarCliente);
             this.Controls.Add(this.btnAtras);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvCliente);
             this.Controls.Add(this.btnBuscarCliente);
             this.Controls.Add(this.txtBuscarCliente);
             this.Controls.Add(this.label1);
             this.Name = "MantenedorCliente";
             this.Text = "MantenedorCliente";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -117,7 +117,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtBuscarCliente;
         private System.Windows.Forms.Button btnBuscarCliente;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvCliente;
         private System.Windows.Forms.Button btnAtras;
         private System.Windows.Forms.Button btnAgregarCliente;
     }

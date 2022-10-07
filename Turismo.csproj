@@ -129,6 +129,8 @@
     <Compile Include="Models\Mantenimiento.Designer.cs">
       <DependentUpon>Mantenimiento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Request\ClienteRequest.cs" />
+    <Compile Include="PostViewCliente.cs" />
     <Compile Include="Models\Request\DepartamentoRequest.cs" />
     <Compile Include="PostViewDepartamento.cs" />
     <Compile Include="Program.cs" />
