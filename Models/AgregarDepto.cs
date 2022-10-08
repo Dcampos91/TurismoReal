@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 using System.Windows.Forms;
-using Turismo.Models.Request;
+//using Turismo.Models.Request;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using JsonSerializer = System.Text.Json.JsonSerializer;
@@ -43,13 +43,13 @@ namespace Turismo
                 NOM_DEPTO = txtNomdepto.Text,
                 DESC_DEPTO = txtDesc.Text,
                 DIRECCION = txtdireccion.Text,
-                CANT_HABITACION = int.Parse(txtHabitacion.Text),
-                CANT_BANIO = int.Parse(txtBanio.Text),
-                CALEFACCION = txtCalefacion.Text,
-                INTERNET = txtInternet.Text,
-                AMOBLADO = txtAmoblado.Text,
-                TELEVISION = txtTelevision.Text,
-                DISPONIBLE = txtDisponibilidad.Text,
+                CANT_HABITACION = int.Parse(cbxHabitacion.Text),
+                CANT_BANIO = int.Parse(cbxBanio.Text),
+                CALEFACCION = cbxCalefaccion.Text,
+                INTERNET = cbxInternet.Text,
+                AMOBLADO = cbxAmoblado.Text,
+                TELEVISION = cbxTelevision.Text,
+                DISPONIBLE = cbxDisponibilidad.Text,
                 VALOR_DIA = int.Parse(txtValor.Text),
                 COMUNA_ID_COMUNA = int.Parse(txtIDcomuna.Text),
             };
@@ -62,6 +62,8 @@ namespace Turismo
                 var result = await httpResponse.Content.ReadAsStringAsync();
 
                 var postResult = JsonSerializer.Deserialize<PostViewDepartamento>(result);
+
+                MessageBox.Show("Creado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             
             

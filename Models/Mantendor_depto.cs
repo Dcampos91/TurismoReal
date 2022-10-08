@@ -12,8 +12,7 @@ using System.Windows.Forms;
 using System.Net;
 using System.IO;
 using Newtonsoft.Json;
-
-
+using System.Net.Http;
 
 namespace Turismo
 {
@@ -56,9 +55,21 @@ namespace Turismo
 
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private async void btnBuscar_Click(object sender, EventArgs e)
         {
-           
+            string respuesta = await GetHttp();
+            List<PostViewDepartamento> lst = JsonConvert.DeserializeObject<List<PostViewDepartamento>>(respuesta);
+            dgvDepartamento.DataSource = lst;
+
+            async Task<string> GetHttp()
+            {
+                string url = "http://127.0.0.1:8000/departamento/7";
+                WebRequest oRequest = WebRequest.Create(url);
+                WebResponse oResponse = oRequest.GetResponse();
+                StreamReader sr = new StreamReader(oResponse.GetResponseStream());
+                return await sr.ReadToEndAsync();
+
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -66,6 +77,29 @@ namespace Turismo
             this.Hide();//cierra la pantalla para pasar a la siguiente
             VentanaPrincipal v1 = new VentanaPrincipal();//llama al siguiente formulario
             v1.Show();
+        }
+
+        private async void btnEliminarDepto_Click(object sender, EventArgs e)
+        {
+            string url = "http://127.0.0.1:8000/departamento/eliminar/30";
+            var depto = new HttpClient();
+
+            PostViewDepartamento post = new PostViewDepartamento()
+            {
+               
+            };
+           
+            var httpResponse = await depto.DeleteAsync(url);
+
+            if (httpResponse.IsSuccessStatusCode)
+            {
+                var result = await httpResponse.Content.ReadAsStringAsync();
+                
+
+                MessageBox.Show("Eliminado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+
         }
     }
 }

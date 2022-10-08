@@ -10,6 +10,8 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Turismo;
+
 
 namespace Turismo.Models
 {
@@ -33,12 +35,7 @@ namespace Turismo.Models
             VentanaPrincipal v1 = new VentanaPrincipal();//llama al siguiente formulario
             v1.Show();
         }
-        private async void Mantendor_cliente_Load(object sender, EventArgs e)
-        {
-            string respuesta = await GetHttp();
-            List<PostViewCliente> lst = JsonConvert.DeserializeObject<List<PostViewCliente>>(respuesta);
-            dgvCliente.DataSource = lst;
-        }
+       
 
         public async Task<string> GetHttp()
         {
@@ -47,6 +44,14 @@ namespace Turismo.Models
             WebResponse oResponse = oRequest.GetResponse();
             StreamReader sr = new StreamReader(oResponse.GetResponseStream());
             return await sr.ReadToEndAsync();
+
+        }
+
+        private async void MantenedorCliente_Load_1(object sender, EventArgs e)
+        {
+            string respuesta = await GetHttp();
+            List<PostViewCliente> lst = JsonConvert.DeserializeObject<List<PostViewCliente>>(respuesta);
+            dgvCliente.DataSource = lst;
 
         }
     }

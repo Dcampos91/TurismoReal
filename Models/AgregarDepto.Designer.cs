@@ -47,14 +47,14 @@
             this.txtDesc = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtdireccion = new System.Windows.Forms.TextBox();
-            this.txtBanio = new System.Windows.Forms.TextBox();
-            this.txtHabitacion = new System.Windows.Forms.TextBox();
-            this.txtCalefacion = new System.Windows.Forms.TextBox();
-            this.txtInternet = new System.Windows.Forms.TextBox();
-            this.txtAmoblado = new System.Windows.Forms.TextBox();
-            this.txtTelevision = new System.Windows.Forms.TextBox();
-            this.txtDisponibilidad = new System.Windows.Forms.TextBox();
             this.txtValor = new System.Windows.Forms.TextBox();
+            this.cbxHabitacion = new System.Windows.Forms.ComboBox();
+            this.cbxBanio = new System.Windows.Forms.ComboBox();
+            this.cbxCalefaccion = new System.Windows.Forms.ComboBox();
+            this.cbxInternet = new System.Windows.Forms.ComboBox();
+            this.cbxAmoblado = new System.Windows.Forms.ComboBox();
+            this.cbxTelevision = new System.Windows.Forms.ComboBox();
+            this.cbxDisponibilidad = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -75,7 +75,6 @@
             this.label2.Size = new System.Drawing.Size(57, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Comuna";
-            //this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -227,55 +226,6 @@
             this.txtdireccion.Size = new System.Drawing.Size(100, 22);
             this.txtdireccion.TabIndex = 33;
             // 
-            // txtBanio
-            // 
-            this.txtBanio.Location = new System.Drawing.Point(344, 155);
-            this.txtBanio.Name = "txtBanio";
-            this.txtBanio.Size = new System.Drawing.Size(100, 22);
-            this.txtBanio.TabIndex = 34;
-            // 
-            // txtHabitacion
-            // 
-            this.txtHabitacion.Location = new System.Drawing.Point(344, 98);
-            this.txtHabitacion.Name = "txtHabitacion";
-            this.txtHabitacion.Size = new System.Drawing.Size(100, 22);
-            this.txtHabitacion.TabIndex = 35;
-            // 
-            // txtCalefacion
-            // 
-            this.txtCalefacion.Location = new System.Drawing.Point(344, 213);
-            this.txtCalefacion.Name = "txtCalefacion";
-            this.txtCalefacion.Size = new System.Drawing.Size(100, 22);
-            this.txtCalefacion.TabIndex = 36;
-            // 
-            // txtInternet
-            // 
-            this.txtInternet.Location = new System.Drawing.Point(344, 273);
-            this.txtInternet.Name = "txtInternet";
-            this.txtInternet.Size = new System.Drawing.Size(100, 22);
-            this.txtInternet.TabIndex = 37;
-            // 
-            // txtAmoblado
-            // 
-            this.txtAmoblado.Location = new System.Drawing.Point(344, 338);
-            this.txtAmoblado.Name = "txtAmoblado";
-            this.txtAmoblado.Size = new System.Drawing.Size(100, 22);
-            this.txtAmoblado.TabIndex = 38;
-            // 
-            // txtTelevision
-            // 
-            this.txtTelevision.Location = new System.Drawing.Point(344, 397);
-            this.txtTelevision.Name = "txtTelevision";
-            this.txtTelevision.Size = new System.Drawing.Size(100, 22);
-            this.txtTelevision.TabIndex = 39;
-            // 
-            // txtDisponibilidad
-            // 
-            this.txtDisponibilidad.Location = new System.Drawing.Point(344, 467);
-            this.txtDisponibilidad.Name = "txtDisponibilidad";
-            this.txtDisponibilidad.Size = new System.Drawing.Size(100, 22);
-            this.txtDisponibilidad.TabIndex = 40;
-            // 
             // txtValor
             // 
             this.txtValor.Location = new System.Drawing.Point(344, 521);
@@ -283,19 +233,105 @@
             this.txtValor.Size = new System.Drawing.Size(100, 22);
             this.txtValor.TabIndex = 41;
             // 
+            // cbxHabitacion
+            // 
+            this.cbxHabitacion.FormattingEnabled = true;
+            this.cbxHabitacion.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.cbxHabitacion.Location = new System.Drawing.Point(344, 96);
+            this.cbxHabitacion.Name = "cbxHabitacion";
+            this.cbxHabitacion.Size = new System.Drawing.Size(121, 24);
+            this.cbxHabitacion.TabIndex = 42;
+            // 
+            // cbxBanio
+            // 
+            this.cbxBanio.FormattingEnabled = true;
+            this.cbxBanio.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.cbxBanio.Location = new System.Drawing.Point(344, 155);
+            this.cbxBanio.Name = "cbxBanio";
+            this.cbxBanio.Size = new System.Drawing.Size(121, 24);
+            this.cbxBanio.TabIndex = 43;
+            // 
+            // cbxCalefaccion
+            // 
+            this.cbxCalefaccion.FormattingEnabled = true;
+            this.cbxCalefaccion.Items.AddRange(new object[] {
+            "Si",
+            "No"});
+            this.cbxCalefaccion.Location = new System.Drawing.Point(344, 211);
+            this.cbxCalefaccion.Name = "cbxCalefaccion";
+            this.cbxCalefaccion.Size = new System.Drawing.Size(121, 24);
+            this.cbxCalefaccion.TabIndex = 44;
+            // 
+            // cbxInternet
+            // 
+            this.cbxInternet.FormattingEnabled = true;
+            this.cbxInternet.Items.AddRange(new object[] {
+            "Si",
+            "No"});
+            this.cbxInternet.Location = new System.Drawing.Point(344, 272);
+            this.cbxInternet.Name = "cbxInternet";
+            this.cbxInternet.Size = new System.Drawing.Size(121, 24);
+            this.cbxInternet.TabIndex = 45;
+            // 
+            // cbxAmoblado
+            // 
+            this.cbxAmoblado.FormattingEnabled = true;
+            this.cbxAmoblado.Items.AddRange(new object[] {
+            "Si",
+            "No"});
+            this.cbxAmoblado.Location = new System.Drawing.Point(344, 337);
+            this.cbxAmoblado.Name = "cbxAmoblado";
+            this.cbxAmoblado.Size = new System.Drawing.Size(121, 24);
+            this.cbxAmoblado.TabIndex = 46;
+            // 
+            // cbxTelevision
+            // 
+            this.cbxTelevision.FormattingEnabled = true;
+            this.cbxTelevision.Items.AddRange(new object[] {
+            "Si",
+            "No"});
+            this.cbxTelevision.Location = new System.Drawing.Point(344, 396);
+            this.cbxTelevision.Name = "cbxTelevision";
+            this.cbxTelevision.Size = new System.Drawing.Size(121, 24);
+            this.cbxTelevision.TabIndex = 47;
+            // 
+            // cbxDisponibilidad
+            // 
+            this.cbxDisponibilidad.FormattingEnabled = true;
+            this.cbxDisponibilidad.Items.AddRange(new object[] {
+            "Si",
+            "No"});
+            this.cbxDisponibilidad.Location = new System.Drawing.Point(344, 455);
+            this.cbxDisponibilidad.Name = "cbxDisponibilidad";
+            this.cbxDisponibilidad.Size = new System.Drawing.Size(121, 24);
+            this.cbxDisponibilidad.TabIndex = 48;
+            // 
             // AgregarDepto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(477, 621);
+            this.Controls.Add(this.cbxDisponibilidad);
+            this.Controls.Add(this.cbxTelevision);
+            this.Controls.Add(this.cbxAmoblado);
+            this.Controls.Add(this.cbxInternet);
+            this.Controls.Add(this.cbxCalefaccion);
+            this.Controls.Add(this.cbxBanio);
+            this.Controls.Add(this.cbxHabitacion);
             this.Controls.Add(this.txtValor);
-            this.Controls.Add(this.txtDisponibilidad);
-            this.Controls.Add(this.txtTelevision);
-            this.Controls.Add(this.txtAmoblado);
-            this.Controls.Add(this.txtInternet);
-            this.Controls.Add(this.txtCalefacion);
-            this.Controls.Add(this.txtHabitacion);
-            this.Controls.Add(this.txtBanio);
             this.Controls.Add(this.txtdireccion);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.txtDesc);
@@ -344,13 +380,13 @@
         private System.Windows.Forms.TextBox txtDesc;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtdireccion;
-        private System.Windows.Forms.TextBox txtBanio;
-        private System.Windows.Forms.TextBox txtHabitacion;
-        private System.Windows.Forms.TextBox txtCalefacion;
-        private System.Windows.Forms.TextBox txtInternet;
-        private System.Windows.Forms.TextBox txtAmoblado;
-        private System.Windows.Forms.TextBox txtTelevision;
-        private System.Windows.Forms.TextBox txtDisponibilidad;
         private System.Windows.Forms.TextBox txtValor;
+        private System.Windows.Forms.ComboBox cbxHabitacion;
+        private System.Windows.Forms.ComboBox cbxBanio;
+        private System.Windows.Forms.ComboBox cbxCalefaccion;
+        private System.Windows.Forms.ComboBox cbxInternet;
+        private System.Windows.Forms.ComboBox cbxAmoblado;
+        private System.Windows.Forms.ComboBox cbxTelevision;
+        private System.Windows.Forms.ComboBox cbxDisponibilidad;
     }
 }

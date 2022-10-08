@@ -239,6 +239,7 @@
             this.btnGuardarCliente.TabIndex = 22;
             this.btnGuardarCliente.Text = "Guardad";
             this.btnGuardarCliente.UseVisualStyleBackColor = true;
+            this.btnGuardarCliente.Click += new System.EventHandler(this.btnGuardarCliente_Click);
             // 
             // label12
             // 

@@ -34,6 +34,7 @@
             this.dgvCliente = new System.Windows.Forms.DataGridView();
             this.btnAtras = new System.Windows.Forms.Button();
             this.btnAgregarCliente = new System.Windows.Forms.Button();
+            this.btnEliminarCliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,7 +72,7 @@
             this.dgvCliente.RowHeadersWidth = 51;
             this.dgvCliente.RowTemplate.Height = 24;
             this.dgvCliente.Size = new System.Drawing.Size(811, 326);
-            this.dgvCliente.TabIndex = 3;
+            this.dgvCliente.TabIndex = 1;
             // 
             // btnAtras
             // 
@@ -93,11 +94,22 @@
             this.btnAgregarCliente.UseVisualStyleBackColor = true;
             this.btnAgregarCliente.Click += new System.EventHandler(this.btnAgregarCliente_Click);
             // 
+            // btnEliminarCliente
+            // 
+            this.btnEliminarCliente.Location = new System.Drawing.Point(237, 67);
+            this.btnEliminarCliente.Name = "btnEliminarCliente";
+            this.btnEliminarCliente.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnEliminarCliente.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminarCliente.TabIndex = 6;
+            this.btnEliminarCliente.Text = "Eliminar";
+            this.btnEliminarCliente.UseVisualStyleBackColor = true;
+            // 
             // MantenedorCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(836, 518);
+            this.Controls.Add(this.btnEliminarCliente);
             this.Controls.Add(this.btnAgregarCliente);
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.dgvCliente);
@@ -106,6 +118,7 @@
             this.Controls.Add(this.label1);
             this.Name = "MantenedorCliente";
             this.Text = "MantenedorCliente";
+            this.Load += new System.EventHandler(this.MantenedorCliente_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -120,5 +133,6 @@
         private System.Windows.Forms.DataGridView dgvCliente;
         private System.Windows.Forms.Button btnAtras;
         private System.Windows.Forms.Button btnAgregarCliente;
+        private System.Windows.Forms.Button btnEliminarCliente;
     }
 }

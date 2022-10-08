@@ -31,9 +31,10 @@
             this.dgvDepartamento = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.txtBuscarDepto = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnAtras = new System.Windows.Forms.Button();
+            this.btnEliminarDepto = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartamento)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,14 +70,14 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // txtBuscar
+            // txtBuscarDepto
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(27, 100);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(100, 22);
-            this.txtBuscar.TabIndex = 5;
-            this.txtBuscar.Text = "Buscar...";
+            this.txtBuscarDepto.Location = new System.Drawing.Point(27, 100);
+            this.txtBuscarDepto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtBuscarDepto.Name = "txtBuscarDepto";
+            this.txtBuscarDepto.Size = new System.Drawing.Size(100, 22);
+            this.txtBuscarDepto.TabIndex = 5;
+            this.txtBuscarDepto.Text = "Buscar...";
             // 
             // btnBuscar
             // 
@@ -92,7 +93,7 @@
             // btnAtras
             // 
             this.btnAtras.Location = new System.Drawing.Point(13, 477);
-            this.btnAtras.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAtras.Margin = new System.Windows.Forms.Padding(4);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(100, 28);
             this.btnAtras.TabIndex = 7;
@@ -100,14 +101,26 @@
             this.btnAtras.UseVisualStyleBackColor = true;
             this.btnAtras.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnEliminarDepto
+            // 
+            this.btnEliminarDepto.Location = new System.Drawing.Point(267, 100);
+            this.btnEliminarDepto.Name = "btnEliminarDepto";
+            this.btnEliminarDepto.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnEliminarDepto.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminarDepto.TabIndex = 8;
+            this.btnEliminarDepto.Text = "Eliminar";
+            this.btnEliminarDepto.UseVisualStyleBackColor = true;
+            this.btnEliminarDepto.Click += new System.EventHandler(this.btnEliminarDepto_Click);
+            // 
             // Mantendor_depto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(836, 518);
+            this.Controls.Add(this.btnEliminarDepto);
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.txtBuscar);
+            this.Controls.Add(this.txtBuscarDepto);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvDepartamento);
@@ -125,9 +138,10 @@
         private System.Windows.Forms.DataGridView dgvDepartamento;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.TextBox txtBuscarDepto;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnAtras;
+        private System.Windows.Forms.Button btnEliminarDepto;
     }
 }
 
