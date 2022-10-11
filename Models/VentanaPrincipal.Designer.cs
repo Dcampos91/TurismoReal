@@ -28,332 +28,492 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VentanaPrincipal));
             this.label1 = new System.Windows.Forms.Label();
-            this.btnAdminDepto = new System.Windows.Forms.Button();
-            this.btnAdminCliente = new System.Windows.Forms.Button();
-            this.btnAdminDisponibilidad = new System.Windows.Forms.Button();
-            this.btnManteDepartamento = new System.Windows.Forms.Button();
-            this.btnInventario = new System.Windows.Forms.Button();
-            this.btnRecibitPago = new System.Windows.Forms.Button();
-            this.btnServiExtra = new System.Windows.Forms.Button();
-            this.btnPlanificarTrans = new System.Windows.Forms.Button();
-            this.btnInforme = new System.Windows.Forms.Button();
-            this.btnEstadistica = new System.Windows.Forms.Button();
-            this.btnAutenticarCliente = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnMinimizar = new FontAwesome.Sharp.IconButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.BtnMaximizar = new FontAwesome.Sharp.IconButton();
+            this.LogoMenu = new System.Windows.Forms.Panel();
+            this.btnMenu = new FontAwesome.Sharp.IconButton();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.iconButton3 = new FontAwesome.Sharp.IconButton();
+            this.iconButton10 = new FontAwesome.Sharp.IconButton();
+            this.PrincipalMenu = new System.Windows.Forms.Panel();
+            this.iconButton7 = new FontAwesome.Sharp.IconButton();
+            this.iconButton6 = new FontAwesome.Sharp.IconButton();
+            this.iconButton5 = new FontAwesome.Sharp.IconButton();
+            this.iconButton4 = new FontAwesome.Sharp.IconButton();
+            this.PanelSubMenuCliente = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.PanelSubMenuDepa = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.PanelTr = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
+            this.LogoMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            this.PrincipalMenu.SuspendLayout();
+            this.PanelSubMenuCliente.SuspendLayout();
+            this.PanelSubMenuDepa.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(437, 22);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(328, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(181, 29);
+            this.label1.Size = new System.Drawing.Size(141, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Menu Principal";
             // 
-            // btnAdminDepto
+            // panel1
             // 
-            this.btnAdminDepto.Location = new System.Drawing.Point(63, 149);
-            this.btnAdminDepto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnAdminDepto.Name = "btnAdminDepto";
-            this.btnAdminDepto.Size = new System.Drawing.Size(133, 65);
-            this.btnAdminDepto.TabIndex = 1;
-            this.btnAdminDepto.Text = "Administrar Departamento";
-            this.btnAdminDepto.UseVisualStyleBackColor = true;
-            this.btnAdminDepto.Click += new System.EventHandler(this.btnAdminDepto_Click);
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.BtnMinimizar);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.BtnMaximizar);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(150, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(834, 40);
+            this.panel1.TabIndex = 24;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
-            // btnAdminCliente
+            // BtnMinimizar
             // 
-            this.btnAdminCliente.Location = new System.Drawing.Point(264, 149);
-            this.btnAdminCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnAdminCliente.Name = "btnAdminCliente";
-            this.btnAdminCliente.Size = new System.Drawing.Size(133, 65);
-            this.btnAdminCliente.TabIndex = 2;
-            this.btnAdminCliente.Text = "Administrar Datos Clientes";
-            this.btnAdminCliente.UseVisualStyleBackColor = true;
-            this.btnAdminCliente.Click += new System.EventHandler(this.btnAdminCliente_Click);
+            this.BtnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnMinimizar.BackColor = System.Drawing.Color.RoyalBlue;
+            this.BtnMinimizar.FlatAppearance.BorderSize = 0;
+            this.BtnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnMinimizar.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
+            this.BtnMinimizar.IconColor = System.Drawing.Color.White;
+            this.BtnMinimizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnMinimizar.IconSize = 20;
+            this.BtnMinimizar.Location = new System.Drawing.Point(764, 0);
+            this.BtnMinimizar.Name = "BtnMinimizar";
+            this.BtnMinimizar.Size = new System.Drawing.Size(35, 25);
+            this.BtnMinimizar.TabIndex = 5;
+            this.BtnMinimizar.UseVisualStyleBackColor = false;
+            this.BtnMinimizar.Click += new System.EventHandler(this.BtnMinimizar_Click);
             // 
-            // btnAdminDisponibilidad
+            // label2
             // 
-            this.btnAdminDisponibilidad.Location = new System.Drawing.Point(469, 149);
-            this.btnAdminDisponibilidad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnAdminDisponibilidad.Name = "btnAdminDisponibilidad";
-            this.btnAdminDisponibilidad.Size = new System.Drawing.Size(133, 65);
-            this.btnAdminDisponibilidad.TabIndex = 3;
-            this.btnAdminDisponibilidad.Text = "Administrar Disponibilidad";
-            this.btnAdminDisponibilidad.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(34, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(104, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "BIENVENIDO/A";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // btnManteDepartamento
+            // BtnMaximizar
             // 
-            this.btnManteDepartamento.Location = new System.Drawing.Point(667, 149);
-            this.btnManteDepartamento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnManteDepartamento.Name = "btnManteDepartamento";
-            this.btnManteDepartamento.Size = new System.Drawing.Size(133, 65);
-            this.btnManteDepartamento.TabIndex = 4;
-            this.btnManteDepartamento.Text = "Ingrear Mantención Departamento";
-            this.btnManteDepartamento.UseVisualStyleBackColor = true;
-            this.btnManteDepartamento.Click += new System.EventHandler(this.btnManteDepartamento_Click);
+            this.BtnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnMaximizar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.BtnMaximizar.FlatAppearance.BorderSize = 0;
+            this.BtnMaximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnMaximizar.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
+            this.BtnMaximizar.IconColor = System.Drawing.Color.White;
+            this.BtnMaximizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnMaximizar.IconSize = 20;
+            this.BtnMaximizar.Location = new System.Drawing.Point(799, 0);
+            this.BtnMaximizar.Name = "BtnMaximizar";
+            this.BtnMaximizar.Size = new System.Drawing.Size(35, 25);
+            this.BtnMaximizar.TabIndex = 3;
+            this.BtnMaximizar.UseVisualStyleBackColor = false;
+            this.BtnMaximizar.Click += new System.EventHandler(this.iconButton12_Click);
             // 
-            // btnInventario
+            // LogoMenu
             // 
-            this.btnInventario.Location = new System.Drawing.Point(876, 149);
-            this.btnInventario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnInventario.Name = "btnInventario";
-            this.btnInventario.Size = new System.Drawing.Size(133, 65);
-            this.btnInventario.TabIndex = 5;
-            this.btnInventario.Text = "Ingresar Inventario";
-            this.btnInventario.UseVisualStyleBackColor = true;
-            this.btnInventario.Click += new System.EventHandler(this.btnInventario_Click);
+            this.LogoMenu.Controls.Add(this.btnMenu);
+            this.LogoMenu.Controls.Add(this.pictureBox12);
+            this.LogoMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LogoMenu.Location = new System.Drawing.Point(0, 0);
+            this.LogoMenu.Name = "LogoMenu";
+            this.LogoMenu.Size = new System.Drawing.Size(150, 102);
+            this.LogoMenu.TabIndex = 0;
             // 
-            // btnRecibitPago
+            // btnMenu
             // 
-            this.btnRecibitPago.Location = new System.Drawing.Point(63, 314);
-            this.btnRecibitPago.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnRecibitPago.Name = "btnRecibitPago";
-            this.btnRecibitPago.Size = new System.Drawing.Size(133, 65);
-            this.btnRecibitPago.TabIndex = 6;
-            this.btnRecibitPago.Text = "Recibir Pago";
-            this.btnRecibitPago.UseVisualStyleBackColor = true;
+            this.btnMenu.FlatAppearance.BorderSize = 0;
+            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenu.IconChar = FontAwesome.Sharp.IconChar.ArrowLeftLong;
+            this.btnMenu.IconColor = System.Drawing.Color.White;
+            this.btnMenu.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMenu.IconSize = 30;
+            this.btnMenu.Location = new System.Drawing.Point(103, 35);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(30, 30);
+            this.btnMenu.TabIndex = 2;
+            this.btnMenu.Tag = "menuButton";
+            this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
-            // btnServiExtra
+            // pictureBox12
             // 
-            this.btnServiExtra.Location = new System.Drawing.Point(264, 314);
-            this.btnServiExtra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnServiExtra.Name = "btnServiExtra";
-            this.btnServiExtra.Size = new System.Drawing.Size(133, 65);
-            this.btnServiExtra.TabIndex = 7;
-            this.btnServiExtra.Text = "Administrar Servicios Extra";
-            this.btnServiExtra.UseVisualStyleBackColor = true;
+            this.pictureBox12.Image = global::Turismo.Properties.Resources.TurismoReal_removebg_preview__1_1;
+            this.pictureBox12.Location = new System.Drawing.Point(32, 16);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox12.TabIndex = 0;
+            this.pictureBox12.TabStop = false;
             // 
-            // btnPlanificarTrans
+            // iconButton2
             // 
-            this.btnPlanificarTrans.Location = new System.Drawing.Point(469, 314);
-            this.btnPlanificarTrans.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnPlanificarTrans.Name = "btnPlanificarTrans";
-            this.btnPlanificarTrans.Size = new System.Drawing.Size(133, 65);
-            this.btnPlanificarTrans.TabIndex = 8;
-            this.btnPlanificarTrans.Text = "Planificar Transporte";
-            this.btnPlanificarTrans.UseVisualStyleBackColor = true;
+            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton2.FlatAppearance.BorderSize = 0;
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.ForeColor = System.Drawing.Color.White;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Home;
+            this.iconButton2.IconColor = System.Drawing.Color.White;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.IconSize = 30;
+            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton2.Location = new System.Drawing.Point(0, 102);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.iconButton2.Size = new System.Drawing.Size(150, 38);
+            this.iconButton2.TabIndex = 1;
+            this.iconButton2.Tag = "Home";
+            this.iconButton2.Text = "  Home";
+            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton2.UseVisualStyleBackColor = true;
+            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
             // 
-            // btnInforme
+            // iconButton3
             // 
-            this.btnInforme.Location = new System.Drawing.Point(667, 314);
-            this.btnInforme.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnInforme.Name = "btnInforme";
-            this.btnInforme.Size = new System.Drawing.Size(133, 65);
-            this.btnInforme.TabIndex = 9;
-            this.btnInforme.Text = "Generar Informe Reserva";
-            this.btnInforme.UseVisualStyleBackColor = true;
+            this.iconButton3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton3.FlatAppearance.BorderSize = 0;
+            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton3.ForeColor = System.Drawing.Color.White;
+            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Building;
+            this.iconButton3.IconColor = System.Drawing.Color.White;
+            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton3.IconSize = 30;
+            this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton3.Location = new System.Drawing.Point(0, 140);
+            this.iconButton3.Name = "iconButton3";
+            this.iconButton3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.iconButton3.Size = new System.Drawing.Size(150, 38);
+            this.iconButton3.TabIndex = 2;
+            this.iconButton3.Tag = "Departamento";
+            this.iconButton3.Text = "  Departamento";
+            this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton3.UseVisualStyleBackColor = true;
+            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
+            this.iconButton3.MouseLeave += new System.EventHandler(this.iconButton3_MouseLeave);
+            this.iconButton3.MouseHover += new System.EventHandler(this.iconButton3_MouseHover);
             // 
-            // btnEstadistica
+            // iconButton10
             // 
-            this.btnEstadistica.Location = new System.Drawing.Point(876, 314);
-            this.btnEstadistica.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnEstadistica.Name = "btnEstadistica";
-            this.btnEstadistica.Size = new System.Drawing.Size(133, 65);
-            this.btnEstadistica.TabIndex = 10;
-            this.btnEstadistica.Text = "Generar Estadística";
-            this.btnEstadistica.UseVisualStyleBackColor = true;
+            this.iconButton10.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.iconButton10.FlatAppearance.BorderSize = 0;
+            this.iconButton10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton10.ForeColor = System.Drawing.Color.White;
+            this.iconButton10.IconChar = FontAwesome.Sharp.IconChar.SignOut;
+            this.iconButton10.IconColor = System.Drawing.Color.White;
+            this.iconButton10.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton10.IconSize = 30;
+            this.iconButton10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton10.Location = new System.Drawing.Point(0, 625);
+            this.iconButton10.Name = "iconButton10";
+            this.iconButton10.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.iconButton10.Size = new System.Drawing.Size(150, 38);
+            this.iconButton10.TabIndex = 9;
+            this.iconButton10.Tag = "Salir";
+            this.iconButton10.Text = "  Cerrar sesión";
+            this.iconButton10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton10.UseVisualStyleBackColor = true;
+            this.iconButton10.Click += new System.EventHandler(this.iconButton10_Click_1);
             // 
-            // btnAutenticarCliente
+            // PrincipalMenu
             // 
-            this.btnAutenticarCliente.Location = new System.Drawing.Point(63, 480);
-            this.btnAutenticarCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnAutenticarCliente.Name = "btnAutenticarCliente";
-            this.btnAutenticarCliente.Size = new System.Drawing.Size(133, 65);
-            this.btnAutenticarCliente.TabIndex = 11;
-            this.btnAutenticarCliente.Text = "Autenticar Cliente";
-            this.btnAutenticarCliente.UseVisualStyleBackColor = true;
+            this.PrincipalMenu.AutoScroll = true;
+            this.PrincipalMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(31)))), ((int)(((byte)(56)))));
+            this.PrincipalMenu.Controls.Add(this.iconButton7);
+            this.PrincipalMenu.Controls.Add(this.iconButton6);
+            this.PrincipalMenu.Controls.Add(this.iconButton5);
+            this.PrincipalMenu.Controls.Add(this.iconButton4);
+            this.PrincipalMenu.Controls.Add(this.PanelSubMenuCliente);
+            this.PrincipalMenu.Controls.Add(this.iconButton1);
+            this.PrincipalMenu.Controls.Add(this.PanelSubMenuDepa);
+            this.PrincipalMenu.Controls.Add(this.iconButton10);
+            this.PrincipalMenu.Controls.Add(this.iconButton3);
+            this.PrincipalMenu.Controls.Add(this.iconButton2);
+            this.PrincipalMenu.Controls.Add(this.LogoMenu);
+            this.PrincipalMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PrincipalMenu.Location = new System.Drawing.Point(0, 0);
+            this.PrincipalMenu.Name = "PrincipalMenu";
+            this.PrincipalMenu.Size = new System.Drawing.Size(150, 663);
+            this.PrincipalMenu.TabIndex = 23;
+            this.PrincipalMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // pictureBox1
+            // iconButton7
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(63, 80);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(133, 62);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.iconButton7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton7.FlatAppearance.BorderSize = 0;
+            this.iconButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton7.ForeColor = System.Drawing.Color.White;
+            this.iconButton7.IconChar = FontAwesome.Sharp.IconChar.PenToSquare;
+            this.iconButton7.IconColor = System.Drawing.Color.White;
+            this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton7.IconSize = 30;
+            this.iconButton7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton7.Location = new System.Drawing.Point(0, 529);
+            this.iconButton7.Name = "iconButton7";
+            this.iconButton7.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.iconButton7.Size = new System.Drawing.Size(150, 38);
+            this.iconButton7.TabIndex = 16;
+            this.iconButton7.Tag = "Informes";
+            this.iconButton7.Text = "  Informes";
+            this.iconButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton7.UseVisualStyleBackColor = true;
             // 
-            // pictureBox2
+            // iconButton6
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(264, 80);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(133, 62);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 13;
-            this.pictureBox2.TabStop = false;
+            this.iconButton6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton6.FlatAppearance.BorderSize = 0;
+            this.iconButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton6.ForeColor = System.Drawing.Color.White;
+            this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.StarOfLife;
+            this.iconButton6.IconColor = System.Drawing.Color.White;
+            this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton6.IconSize = 30;
+            this.iconButton6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton6.Location = new System.Drawing.Point(0, 491);
+            this.iconButton6.Name = "iconButton6";
+            this.iconButton6.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.iconButton6.Size = new System.Drawing.Size(150, 38);
+            this.iconButton6.TabIndex = 15;
+            this.iconButton6.Tag = "Servicios";
+            this.iconButton6.Text = "  Servicios";
+            this.iconButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton6.UseVisualStyleBackColor = true;
             // 
-            // pictureBox3
+            // iconButton5
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(469, 80);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(133, 62);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 14;
-            this.pictureBox3.TabStop = false;
+            this.iconButton5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton5.FlatAppearance.BorderSize = 0;
+            this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton5.ForeColor = System.Drawing.Color.White;
+            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.MoneyCheck;
+            this.iconButton5.IconColor = System.Drawing.Color.White;
+            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton5.IconSize = 30;
+            this.iconButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton5.Location = new System.Drawing.Point(0, 453);
+            this.iconButton5.Name = "iconButton5";
+            this.iconButton5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.iconButton5.Size = new System.Drawing.Size(150, 38);
+            this.iconButton5.TabIndex = 14;
+            this.iconButton5.Tag = "Pagos";
+            this.iconButton5.Text = "  Pagos";
+            this.iconButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton5.UseVisualStyleBackColor = true;
             // 
-            // pictureBox4
+            // iconButton4
             // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(667, 80);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(133, 62);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 15;
-            this.pictureBox4.TabStop = false;
+            this.iconButton4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton4.FlatAppearance.BorderSize = 0;
+            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton4.ForeColor = System.Drawing.Color.White;
+            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.Bus;
+            this.iconButton4.IconColor = System.Drawing.Color.White;
+            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton4.IconSize = 30;
+            this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton4.Location = new System.Drawing.Point(0, 415);
+            this.iconButton4.Name = "iconButton4";
+            this.iconButton4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.iconButton4.Size = new System.Drawing.Size(150, 38);
+            this.iconButton4.TabIndex = 13;
+            this.iconButton4.Tag = "Transporte";
+            this.iconButton4.Text = "  Transporte";
+            this.iconButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton4.UseVisualStyleBackColor = true;
             // 
-            // pictureBox5
+            // PanelSubMenuCliente
             // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(876, 80);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(133, 62);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 16;
-            this.pictureBox5.TabStop = false;
+            this.PanelSubMenuCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(17)))), ((int)(((byte)(39)))));
+            this.PanelSubMenuCliente.Controls.Add(this.button5);
+            this.PanelSubMenuCliente.Controls.Add(this.button8);
+            this.PanelSubMenuCliente.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelSubMenuCliente.Location = new System.Drawing.Point(0, 353);
+            this.PanelSubMenuCliente.Name = "PanelSubMenuCliente";
+            this.PanelSubMenuCliente.Size = new System.Drawing.Size(150, 62);
+            this.PanelSubMenuCliente.TabIndex = 12;
             // 
-            // pictureBox6
+            // button5
             // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(63, 245);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(133, 62);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 17;
-            this.pictureBox6.TabStop = false;
+            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Location = new System.Drawing.Point(0, 24);
+            this.button5.Name = "button5";
+            this.button5.Padding = new System.Windows.Forms.Padding(32, 0, 0, 0);
+            this.button5.Size = new System.Drawing.Size(150, 24);
+            this.button5.TabIndex = 1;
+            this.button5.Text = "Autenticar";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.UseVisualStyleBackColor = true;
             // 
-            // pictureBox7
+            // button8
             // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(264, 245);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(133, 62);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 18;
-            this.pictureBox7.TabStop = false;
+            this.button8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.ForeColor = System.Drawing.Color.White;
+            this.button8.Location = new System.Drawing.Point(0, 0);
+            this.button8.Name = "button8";
+            this.button8.Padding = new System.Windows.Forms.Padding(32, 0, 0, 0);
+            this.button8.Size = new System.Drawing.Size(150, 24);
+            this.button8.TabIndex = 0;
+            this.button8.Text = "Administrar";
+            this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // pictureBox8
+            // iconButton1
             // 
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(469, 245);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(133, 62);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox8.TabIndex = 19;
-            this.pictureBox8.TabStop = false;
+            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.ForeColor = System.Drawing.Color.White;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Users;
+            this.iconButton1.IconColor = System.Drawing.Color.White;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 30;
+            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.Location = new System.Drawing.Point(0, 315);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.iconButton1.Size = new System.Drawing.Size(150, 38);
+            this.iconButton1.TabIndex = 11;
+            this.iconButton1.Tag = "Clientes";
+            this.iconButton1.Text = "  Clientes";
+            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton1.UseVisualStyleBackColor = true;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click_1);
             // 
-            // pictureBox9
+            // PanelSubMenuDepa
             // 
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(667, 245);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(133, 62);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox9.TabIndex = 20;
-            this.pictureBox9.TabStop = false;
+            this.PanelSubMenuDepa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(17)))), ((int)(((byte)(39)))));
+            this.PanelSubMenuDepa.Controls.Add(this.button4);
+            this.PanelSubMenuDepa.Controls.Add(this.button3);
+            this.PanelSubMenuDepa.Controls.Add(this.button2);
+            this.PanelSubMenuDepa.Controls.Add(this.button1);
+            this.PanelSubMenuDepa.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelSubMenuDepa.Location = new System.Drawing.Point(0, 178);
+            this.PanelSubMenuDepa.Name = "PanelSubMenuDepa";
+            this.PanelSubMenuDepa.Size = new System.Drawing.Size(150, 137);
+            this.PanelSubMenuDepa.TabIndex = 10;
             // 
-            // pictureBox10
+            // button4
             // 
-            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(876, 245);
-            this.pictureBox10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(133, 62);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox10.TabIndex = 21;
-            this.pictureBox10.TabStop = false;
+            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Location = new System.Drawing.Point(0, 90);
+            this.button4.Name = "button4";
+            this.button4.Padding = new System.Windows.Forms.Padding(32, 0, 0, 0);
+            this.button4.Size = new System.Drawing.Size(150, 30);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "Disponibilidad";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
             // 
-            // pictureBox11
+            // button3
             // 
-            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
-            this.pictureBox11.Location = new System.Drawing.Point(63, 411);
-            this.pictureBox11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(133, 62);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox11.TabIndex = 22;
-            this.pictureBox11.TabStop = false;
+            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(0, 60);
+            this.button3.Name = "button3";
+            this.button3.Padding = new System.Windows.Forms.Padding(32, 0, 0, 0);
+            this.button3.Size = new System.Drawing.Size(150, 30);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Inventario";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(0, 30);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(32, 0, 0, 0);
+            this.button2.Size = new System.Drawing.Size(150, 30);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Mantención";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(32, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(150, 30);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Administrar";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // PanelTr
+            // 
+            this.PanelTr.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.PanelTr.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelTr.Location = new System.Drawing.Point(150, 40);
+            this.PanelTr.Name = "PanelTr";
+            this.PanelTr.Size = new System.Drawing.Size(834, 623);
+            this.PanelTr.TabIndex = 25;
+            this.PanelTr.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelTr_Paint);
             // 
             // VentanaPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.pictureBox11);
-            this.Controls.Add(this.pictureBox10);
-            this.Controls.Add(this.pictureBox9);
-            this.Controls.Add(this.pictureBox8);
-            this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnAutenticarCliente);
-            this.Controls.Add(this.btnEstadistica);
-            this.Controls.Add(this.btnInforme);
-            this.Controls.Add(this.btnPlanificarTrans);
-            this.Controls.Add(this.btnServiExtra);
-            this.Controls.Add(this.btnRecibitPago);
-            this.Controls.Add(this.btnInventario);
-            this.Controls.Add(this.btnManteDepartamento);
-            this.Controls.Add(this.btnAdminDisponibilidad);
-            this.Controls.Add(this.btnAdminCliente);
-            this.Controls.Add(this.btnAdminDepto);
+            this.ClientSize = new System.Drawing.Size(984, 663);
+            this.Controls.Add(this.PanelTr);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Controls.Add(this.PrincipalMenu);
             this.Name = "VentanaPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VentanaPrincipal";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            this.Load += new System.EventHandler(this.VentanaPrincipal_Load);
+            this.Resize += new System.EventHandler(this.VentanaPrincipal_Resize);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.LogoMenu.ResumeLayout(false);
+            this.LogoMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            this.PrincipalMenu.ResumeLayout(false);
+            this.PanelSubMenuCliente.ResumeLayout(false);
+            this.PanelSubMenuDepa.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -362,27 +522,30 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnAdminDepto;
-        private System.Windows.Forms.Button btnAdminCliente;
-        private System.Windows.Forms.Button btnAdminDisponibilidad;
-        private System.Windows.Forms.Button btnManteDepartamento;
-        private System.Windows.Forms.Button btnInventario;
-        private System.Windows.Forms.Button btnRecibitPago;
-        private System.Windows.Forms.Button btnServiExtra;
-        private System.Windows.Forms.Button btnPlanificarTrans;
-        private System.Windows.Forms.Button btnInforme;
-        private System.Windows.Forms.Button btnEstadistica;
-        private System.Windows.Forms.Button btnAutenticarCliente;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label2;
+        private FontAwesome.Sharp.IconButton BtnMaximizar;
+        private FontAwesome.Sharp.IconButton BtnMinimizar;
+        private System.Windows.Forms.Panel LogoMenu;
+        private FontAwesome.Sharp.IconButton btnMenu;
+        private System.Windows.Forms.PictureBox pictureBox12;
+        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton iconButton3;
+        private FontAwesome.Sharp.IconButton iconButton10;
+        private System.Windows.Forms.Panel PrincipalMenu;
+        private System.Windows.Forms.Panel PanelTr;
+        private FontAwesome.Sharp.IconButton iconButton7;
+        private FontAwesome.Sharp.IconButton iconButton6;
+        private FontAwesome.Sharp.IconButton iconButton5;
+        private FontAwesome.Sharp.IconButton iconButton4;
+        private System.Windows.Forms.Panel PanelSubMenuCliente;
+        private System.Windows.Forms.Button button8;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private System.Windows.Forms.Panel PanelSubMenuDepa;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button5;
     }
 }
