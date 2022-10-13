@@ -54,6 +54,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.PanelTr = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.LogoMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
@@ -145,7 +147,7 @@
             // 
             this.btnMenu.FlatAppearance.BorderSize = 0;
             this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenu.IconChar = FontAwesome.Sharp.IconChar.ArrowLeftLong;
+            this.btnMenu.IconChar = FontAwesome.Sharp.IconChar.DownLeftAndUpRightToCenter;
             this.btnMenu.IconColor = System.Drawing.Color.White;
             this.btnMenu.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMenu.IconSize = 30;
@@ -224,7 +226,7 @@
             this.iconButton10.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton10.IconSize = 30;
             this.iconButton10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton10.Location = new System.Drawing.Point(0, 625);
+            this.iconButton10.Location = new System.Drawing.Point(0, 635);
             this.iconButton10.Name = "iconButton10";
             this.iconButton10.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.iconButton10.Size = new System.Drawing.Size(150, 38);
@@ -253,7 +255,7 @@
             this.PrincipalMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.PrincipalMenu.Location = new System.Drawing.Point(0, 0);
             this.PrincipalMenu.Name = "PrincipalMenu";
-            this.PrincipalMenu.Size = new System.Drawing.Size(150, 663);
+            this.PrincipalMenu.Size = new System.Drawing.Size(150, 673);
             this.PrincipalMenu.TabIndex = 23;
             this.PrincipalMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -268,7 +270,7 @@
             this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton7.IconSize = 30;
             this.iconButton7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton7.Location = new System.Drawing.Point(0, 529);
+            this.iconButton7.Location = new System.Drawing.Point(0, 579);
             this.iconButton7.Name = "iconButton7";
             this.iconButton7.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.iconButton7.Size = new System.Drawing.Size(150, 38);
@@ -289,7 +291,7 @@
             this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton6.IconSize = 30;
             this.iconButton6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton6.Location = new System.Drawing.Point(0, 491);
+            this.iconButton6.Location = new System.Drawing.Point(0, 541);
             this.iconButton6.Name = "iconButton6";
             this.iconButton6.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.iconButton6.Size = new System.Drawing.Size(150, 38);
@@ -310,7 +312,7 @@
             this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton5.IconSize = 30;
             this.iconButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton5.Location = new System.Drawing.Point(0, 453);
+            this.iconButton5.Location = new System.Drawing.Point(0, 503);
             this.iconButton5.Name = "iconButton5";
             this.iconButton5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.iconButton5.Size = new System.Drawing.Size(150, 38);
@@ -331,7 +333,7 @@
             this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton4.IconSize = 30;
             this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton4.Location = new System.Drawing.Point(0, 415);
+            this.iconButton4.Location = new System.Drawing.Point(0, 465);
             this.iconButton4.Name = "iconButton4";
             this.iconButton4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.iconButton4.Size = new System.Drawing.Size(150, 38);
@@ -344,12 +346,13 @@
             // PanelSubMenuCliente
             // 
             this.PanelSubMenuCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(17)))), ((int)(((byte)(39)))));
+            this.PanelSubMenuCliente.Controls.Add(this.button7);
             this.PanelSubMenuCliente.Controls.Add(this.button5);
             this.PanelSubMenuCliente.Controls.Add(this.button8);
             this.PanelSubMenuCliente.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanelSubMenuCliente.Location = new System.Drawing.Point(0, 353);
+            this.PanelSubMenuCliente.Location = new System.Drawing.Point(0, 372);
             this.PanelSubMenuCliente.Name = "PanelSubMenuCliente";
-            this.PanelSubMenuCliente.Size = new System.Drawing.Size(150, 62);
+            this.PanelSubMenuCliente.Size = new System.Drawing.Size(150, 93);
             this.PanelSubMenuCliente.TabIndex = 12;
             // 
             // button5
@@ -358,7 +361,7 @@
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(0, 24);
+            this.button5.Location = new System.Drawing.Point(0, 29);
             this.button5.Name = "button5";
             this.button5.Padding = new System.Windows.Forms.Padding(32, 0, 0, 0);
             this.button5.Size = new System.Drawing.Size(150, 24);
@@ -376,7 +379,7 @@
             this.button8.Location = new System.Drawing.Point(0, 0);
             this.button8.Name = "button8";
             this.button8.Padding = new System.Windows.Forms.Padding(32, 0, 0, 0);
-            this.button8.Size = new System.Drawing.Size(150, 24);
+            this.button8.Size = new System.Drawing.Size(150, 29);
             this.button8.TabIndex = 0;
             this.button8.Text = "Administrar";
             this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -394,7 +397,7 @@
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 30;
             this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(0, 315);
+            this.iconButton1.Location = new System.Drawing.Point(0, 334);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.iconButton1.Size = new System.Drawing.Size(150, 38);
@@ -408,6 +411,7 @@
             // PanelSubMenuDepa
             // 
             this.PanelSubMenuDepa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(17)))), ((int)(((byte)(39)))));
+            this.PanelSubMenuDepa.Controls.Add(this.button6);
             this.PanelSubMenuDepa.Controls.Add(this.button4);
             this.PanelSubMenuDepa.Controls.Add(this.button3);
             this.PanelSubMenuDepa.Controls.Add(this.button2);
@@ -415,7 +419,7 @@
             this.PanelSubMenuDepa.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelSubMenuDepa.Location = new System.Drawing.Point(0, 178);
             this.PanelSubMenuDepa.Name = "PanelSubMenuDepa";
-            this.PanelSubMenuDepa.Size = new System.Drawing.Size(150, 137);
+            this.PanelSubMenuDepa.Size = new System.Drawing.Size(150, 156);
             this.PanelSubMenuDepa.TabIndex = 10;
             // 
             // button4
@@ -429,7 +433,7 @@
             this.button4.Padding = new System.Windows.Forms.Padding(32, 0, 0, 0);
             this.button4.Size = new System.Drawing.Size(150, 30);
             this.button4.TabIndex = 3;
-            this.button4.Text = "Disponibilidad";
+            this.button4.Text = "Listar departamento";
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click_1);
@@ -488,15 +492,47 @@
             this.PanelTr.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelTr.Location = new System.Drawing.Point(150, 40);
             this.PanelTr.Name = "PanelTr";
-            this.PanelTr.Size = new System.Drawing.Size(834, 623);
+            this.PanelTr.Size = new System.Drawing.Size(834, 633);
             this.PanelTr.TabIndex = 25;
             this.PanelTr.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelTr_Paint);
+            // 
+            // button6
+            // 
+            this.button6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.ForeColor = System.Drawing.Color.White;
+            this.button6.Location = new System.Drawing.Point(0, 120);
+            this.button6.Name = "button6";
+            this.button6.Padding = new System.Windows.Forms.Padding(32, 0, 0, 0);
+            this.button6.Size = new System.Drawing.Size(150, 30);
+            this.button6.TabIndex = 4;
+            this.button6.Text = "Disponibilidad";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button7
+            // 
+            this.button7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.ForeColor = System.Drawing.Color.White;
+            this.button7.Location = new System.Drawing.Point(0, 53);
+            this.button7.Name = "button7";
+            this.button7.Padding = new System.Windows.Forms.Padding(32, 0, 0, 0);
+            this.button7.Size = new System.Drawing.Size(150, 34);
+            this.button7.TabIndex = 2;
+            this.button7.Text = "Listar usuario";
+            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // VentanaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 663);
+            this.ClientSize = new System.Drawing.Size(984, 673);
             this.Controls.Add(this.PanelTr);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
@@ -547,5 +583,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
     }
 }

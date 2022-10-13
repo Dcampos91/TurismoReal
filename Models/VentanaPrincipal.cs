@@ -357,8 +357,8 @@ namespace Turismo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new AgregarDepto());
-            
+            openChildFormInPanel(new AgregarDepto());
+
         }
 
         
@@ -390,17 +390,17 @@ namespace Turismo
 
         private void button4_Click_1(object sender, EventArgs e)
         {
-
+            openChildFormInPanel(new Mantendor_depto());
         }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new Mantenimiento());
+            openChildFormInPanel(new Mantenimiento());
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new AgregarDepto());
+            openChildFormInPanel(new AgregarDepto());
         }
 
         private void iconButton1_Click_1(object sender, EventArgs e)
@@ -410,12 +410,23 @@ namespace Turismo
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new IngresarInventario());
+            openChildFormInPanel(new IngresarInventario());
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new AgregarCliente());
+            openChildFormInPanel(new AgregarCliente());
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            openChildFormInPanel(new MantenedorCliente());
         }
     }
 }
