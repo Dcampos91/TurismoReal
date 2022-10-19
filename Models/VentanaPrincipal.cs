@@ -20,9 +20,7 @@ namespace Turismo
             hideSubMenu();
             this.Padding = new Padding(borderSize);
             this.BackColor = Color.FromArgb(22, 31, 56);
-        }
-        
-      
+        }   
 
 
         //Drag Form
@@ -335,15 +333,8 @@ namespace Turismo
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            openChildFormInPanel(new AgregarDepto());
-            //..
-            //your codes
-            //..
-            hideSubMenu();
+          
         }
-
-
-
 
         private void VentanaPrincipal_Load(object sender, EventArgs e) 
         {
@@ -353,15 +344,7 @@ namespace Turismo
         private void button4_Click(object sender, EventArgs e) 
         {
             
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            openChildFormInPanel(new AgregarDepto());
-
-        }
-
-        
+        }        
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -400,7 +383,7 @@ namespace Turismo
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            openChildFormInPanel(new AgregarDepto());
+            //openChildFormInPanel(new AgregarDepto());
         }
 
         private void iconButton1_Click_1(object sender, EventArgs e)
@@ -415,7 +398,7 @@ namespace Turismo
 
         private void button8_Click(object sender, EventArgs e)
         {
-            openChildFormInPanel(new AgregarCliente());
+            openChildFormInPanel(new MantenedorUsuario());
 
         }
 

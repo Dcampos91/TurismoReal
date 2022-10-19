@@ -7,11 +7,15 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Runtime.InteropServices;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 using System.Windows.Forms;
-using Turismo;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using JsonSerializer = System.Text.Json.JsonSerializer;
+using System.Runtime.InteropServices;
 
 
 namespace Turismo.Models
@@ -119,32 +123,129 @@ namespace Turismo.Models
             }
             base.WndProc(ref m);
         }
-        private void btnAgregarCliente_Click(object sender, EventArgs e)
+              
+
+        public async Task<string> GetHttp() // cargar los clientes en el datagrid
         {
-            this.Hide();//cierra la pantalla para pasar a la siguiente
-            AgregarCliente v3 = new AgregarCliente();
-            v3.Show();
+         
+                string url = "http://127.0.0.1:8000/usuario/";
+                WebRequest oRequest = WebRequest.Create(url);
+                WebResponse oResponse = oRequest.GetResponse();
+                StreamReader sr = new StreamReader(oResponse.GetResponseStream());
+                return await sr.ReadToEndAsync();
+            
+            
+
+            
         }
 
-        private void btnAtras_Click(object sender, EventArgs e)
+        private async void MantenedorCliente_Load_1(object sender, EventArgs e)// cargar los clientes en el datagrid
         {
-            this.Hide();//cierra la pantalla para pasar a la siguiente
-            VentanaPrincipal v1 = new VentanaPrincipal();//llama al siguiente formulario
-            v1.Show();
-        }
-       
-
-        public async Task<string> GetHttp()
-        {
-            string url = "http://127.0.0.1:8000/cliente/";
-            WebRequest oRequest = WebRequest.Create(url);
-            WebResponse oResponse = oRequest.GetResponse();
-            StreamReader sr = new StreamReader(oResponse.GetResponseStream());
-            return await sr.ReadToEndAsync();
+            string respuesta = await GetHttp();
+            List<PostViewCliente> lst = JsonConvert.DeserializeObject<List<PostViewCliente>>(respuesta);
+            dgvCliente.DataSource = lst;
+            
 
         }
 
-        private async void MantenedorCliente_Load_1(object sender, EventArgs e)
+        private async void btnGuardarCliente_Click(object sender, EventArgs e)//agregar cliente
+        {
+            string url = "http://127.0.0.1:8000/cliente/crear/";
+            var cliente = new HttpClient();
+
+            PostViewCliente post = new PostViewCliente()
+            {
+                RUT_CLIENTE = txtRutCliente.Text,
+                NOM_CLIENTE = txtNombreCliente.Text,
+                APELLIDO_PATERNO = txtApellidoPaterno.Text,
+                APELLIDO_MATERMO = txtApellidoPaterno.Text,
+                EDAD = int.Parse(txtEdad.Text),
+                NACIONALIDAD = cbxNacionalidad.Text,
+                GENERO = cbxGenero.Text,
+                DIRECCION_CLIENTE = txtDireccion.Text,
+                TELEFONO = int.Parse(txtTelefono.Text),
+                EMAIL = txtCorreo.Text,
+                USUARIO_ID_USUARIO = int.Parse(txtTipoCliente.Text),
+
+            };
+            var data = JsonSerializer.Serialize<PostViewCliente>(post);
+            HttpContent content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+            var httpResponse = await cliente.PostAsync(url, content);
+
+            if (httpResponse.IsSuccessStatusCode)
+            {
+                var result = await httpResponse.Content.ReadAsStringAsync();
+
+                var postResult = JsonSerializer.Deserialize<PostViewDepartamento>(result);
+
+                MessageBox.Show("Creado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Error al crear el cliente intenta de nuevo", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private async void btnBuscarCliente_Click(object sender, EventArgs e)// Buscar cliente por ID
+        {
+            string respuesta = await GetHttp();
+            List<PostViewDepartamento> lst = JsonConvert.DeserializeObject<List<PostViewDepartamento>>(respuesta);
+            dgvCliente.DataSource = lst;
+
+            async Task<string> GetHttp()
+            {
+                string url = "http://127.0.0.1:8000/cliente/7";
+                WebRequest oRequest = WebRequest.Create(url);
+                WebResponse oResponse = oRequest.GetResponse();
+                StreamReader sr = new StreamReader(oResponse.GetResponseStream());
+                return await sr.ReadToEndAsync();
+
+            }
+        }
+
+        private async void btnEliminarCliente_Click(object sender, EventArgs e)// Eliminar cliente
+        {
+            string url = "http://127.0.0.1:8000/cliente/eliminar/30";
+            var depto = new HttpClient();
+
+            PostViewCliente post = new PostViewCliente()
+            {
+
+            };
+
+            var httpResponse = await depto.DeleteAsync(url);
+
+            if (httpResponse.IsSuccessStatusCode)
+            {
+                var result = await httpResponse.Content.ReadAsStringAsync();
+
+
+                MessageBox.Show("Eliminado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Error al Eliminar el cliente intenta de nuevo", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgvCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)//autorellenar el datagrid
+        {
+            txtRutCliente.Text = dgvCliente.CurrentRow.Cells[11].Value.ToString();
+            txtNombreCliente.Text = dgvCliente.CurrentRow.Cells[0].Value.ToString();
+            txtApellidoPaterno.Text = dgvCliente.CurrentRow.Cells[2].Value.ToString();
+            txtApellidoMaterno.Text = dgvCliente.CurrentRow.Cells[1].Value.ToString();
+            txtEdad.Text = dgvCliente.CurrentRow.Cells[3].Value.ToString();
+            cbxNacionalidad.Text = dgvCliente.CurrentRow.Cells[4].Value.ToString();
+            cbxGenero.Text = dgvCliente.CurrentRow.Cells[5].Value.ToString();
+            txtDireccion.Text = dgvCliente.CurrentRow.Cells[6].Value.ToString();
+            txtTelefono.Text = dgvCliente.CurrentRow.Cells[7].Value.ToString();
+            txtCorreo.Text = dgvCliente.CurrentRow.Cells[8].Value.ToString();
+            txtTipoCliente.Text = dgvCliente.CurrentRow.Cells[9].Value.ToString();
+            
+        }
+
+        private async void btnActualizar_Click(object sender, EventArgs e)//Actualizar el datagrid
         {
             string respuesta = await GetHttp();
             List<PostViewCliente> lst = JsonConvert.DeserializeObject<List<PostViewCliente>>(respuesta);

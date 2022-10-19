@@ -1,29 +1,37 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.OracleClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 using System.Windows.Forms;
-using System.Net;
-using System.IO;
-using Newtonsoft.Json;
-using System.Net.Http;
+//using Turismo.Models.Request;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 using System.Runtime.InteropServices;
+using System.Data.OracleClient;
+using System.Data.SqlClient;
 
 namespace Turismo
 {
     public partial class Mantendor_depto : Form
     {
         
-        //OracleConnection ora = new OracleConnection("Data Source=orcl; User ID=C##TReal; Password=oracle");
+        OracleConnection ora = new OracleConnection("Data Source=orcl; User ID=C##TReal1; Password=oracle");
+
         public Mantendor_depto()
         {
             InitializeComponent();
+            cargaComuna();
+
         }
         //Drag Form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -39,7 +47,9 @@ namespace Turismo
         private Size formSize;
         private void Form1_Load(object sender, EventArgs e)
         {
+          
             formSize = this.ClientSize;
+          
         }
         protected override void WndProc(ref Message m)
         {
@@ -121,28 +131,74 @@ namespace Turismo
                     this.Size = formSize;
             }
             base.WndProc(ref m);
-        }
+        }//parte del diseño
 
-        private void dgvDepartamento_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvDepartamento_CellContentClick(object sender, DataGridViewCellEventArgs e)//auto rellenado de los textbox y combobox
         {
+            txtBuscarDepto.Text = dgvDepartamento.CurrentRow.Cells[0].Value.ToString();
+            txtNomdepto.Text = dgvDepartamento.CurrentRow.Cells[1].Value.ToString();
+            txtDesc.Text = dgvDepartamento.CurrentRow.Cells[2].Value.ToString();
+            txtdireccion.Text = dgvDepartamento.CurrentRow.Cells[3].Value.ToString();            
+            cbxHabitacion.Text = dgvDepartamento.CurrentRow.Cells[4].Value.ToString();
+            cbxBanio.Text = dgvDepartamento.CurrentRow.Cells[5].Value.ToString();
+            cbxCalefaccion.Text = dgvDepartamento.CurrentRow.Cells[6].Value.ToString();
+            cbxInternet.Text = dgvDepartamento.CurrentRow.Cells[7].Value.ToString();
+            cbxAmoblado.Text = dgvDepartamento.CurrentRow.Cells[8].Value.ToString();   
+            cbxTelevision.Text = dgvDepartamento.CurrentRow.Cells[9].Value.ToString();
+            cbxDisponibilidad.Text = dgvDepartamento.CurrentRow.Cells[10].Value.ToString();
+            txtValor.Text = dgvDepartamento.CurrentRow.Cells[11].Value.ToString();
+            cbxComuna.Text = dgvDepartamento.CurrentRow.Cells[12].Value.ToString();
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private async void button2_Click(object sender, EventArgs e)//agregar un departamento
         {
-            this.Hide();//cierra la pantalla para pasar a la siguiente
-            AgregarDepto form2 = new AgregarDepto();
-            form2.Show();
+            string url = "http://127.0.0.1:8000/departamento/crear/";
+            var depto = new HttpClient();
+            int idComuna = int.Parse(cbxComuna.SelectedValue.ToString());
+
+            PostViewDepartamento post = new PostViewDepartamento()
+            {
+                NOM_DEPTO = txtNomdepto.Text,
+                DESC_DEPTO = txtDesc.Text,
+                DIRECCION = txtdireccion.Text,
+                CANT_HABITACION = int.Parse(cbxHabitacion.Text),
+                CANT_BANIO = int.Parse(cbxBanio.Text),
+                CALEFACCION = cbxCalefaccion.Text,
+                INTERNET = cbxInternet.Text,
+                AMOBLADO = cbxAmoblado.Text,
+                TELEVISION = cbxTelevision.Text,
+                DISPONIBLE = cbxDisponibilidad.Text,
+                VALOR_DIA = int.Parse(txtValor.Text),
+                COMUNA_ID_COMUNA = idComuna,
+            };
+            var data = JsonSerializer.Serialize<PostViewDepartamento>(post);
+            HttpContent content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+            var httpResponse = await depto.PostAsync(url, content);
+
+            if (httpResponse.IsSuccessStatusCode)
+            {
+                var result = await httpResponse.Content.ReadAsStringAsync();
+
+                var postResult = JsonSerializer.Deserialize<PostViewDepartamento>(result);
+
+                MessageBox.Show("Creado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Error al crear departamento intenta de nuevo", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private async void Mantendor_depto_Load(object sender, EventArgs e)
+        private async void Mantendor_depto_Load(object sender, EventArgs e)// carga el datagrid
         {
             string respuesta = await GetHttp();
             List<PostViewDepartamento> lst = JsonConvert.DeserializeObject<List<PostViewDepartamento>>(respuesta);
             dgvDepartamento.DataSource = lst;
+            
         }
 
-        public async Task<string> GetHttp() 
+        public async Task<string> GetHttp() //cargar el datagrid
         {
             string url = "http://127.0.0.1:8000/departamento/";
             WebRequest oRequest = WebRequest.Create(url);
@@ -152,15 +208,16 @@ namespace Turismo
 
         }
 
-        private async void btnBuscar_Click(object sender, EventArgs e)
+        private async void btnBuscar_Click(object sender, EventArgs e)//busca un departamento por su ID
         {
+            var buscar = txtBuscarDepto.Text; 
             string respuesta = await GetHttp();
             List<PostViewDepartamento> lst = JsonConvert.DeserializeObject<List<PostViewDepartamento>>(respuesta);
             dgvDepartamento.DataSource = lst;
 
             async Task<string> GetHttp()
             {
-                string url = "http://127.0.0.1:8000/departamento/7";
+                string url = "http://127.0.0.1:8000/departamento/"+buscar;
                 WebRequest oRequest = WebRequest.Create(url);
                 WebResponse oResponse = oRequest.GetResponse();
                 StreamReader sr = new StreamReader(oResponse.GetResponseStream());
@@ -169,16 +226,10 @@ namespace Turismo
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void btnEliminarDepto_Click(object sender, EventArgs e)//elimina un departamento
         {
-            this.Hide();//cierra la pantalla para pasar a la siguiente
-            VentanaPrincipal v1 = new VentanaPrincipal();//llama al siguiente formulario
-            v1.Show();
-        }
-
-        private async void btnEliminarDepto_Click(object sender, EventArgs e)
-        {
-            string url = "http://127.0.0.1:8000/departamento/eliminar/30";
+            var buscar = txtBuscarDepto.Text;
+            string url = "http://127.0.0.1:8000/departamento/eliminar/"+buscar;
             var depto = new HttpClient();
 
             PostViewDepartamento post = new PostViewDepartamento()
@@ -195,8 +246,84 @@ namespace Turismo
 
                 MessageBox.Show("Eliminado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            else
+            {
+                MessageBox.Show("Error al Eliminar el departamento intenta de nuevo", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
 
         }
+
+        private async void btnActualizar_Click(object sender, EventArgs e) //actualizar el data grid
+        {
+            string respuesta = await GetHttp();
+            List<PostViewDepartamento> lst = JsonConvert.DeserializeObject<List<PostViewDepartamento>>(respuesta);
+            dgvDepartamento.DataSource = lst;
+
+
+
+        }
+
+        private async void btnActualizarDepto_Click(object sender, EventArgs e)
+        {
+            var buscar = txtBuscarDepto.Text;
+            string url = "http://127.0.0.1:8000/departamento/modificar/"+buscar;
+            var depto = new HttpClient();
+            int idComuna = int.Parse(cbxComuna.SelectedValue.ToString());
+
+            PostViewDepartamento post = new PostViewDepartamento()
+            {
+                NOM_DEPTO = txtNomdepto.Text,
+                DESC_DEPTO = txtDesc.Text,
+                DIRECCION = txtdireccion.Text,
+                CANT_HABITACION = int.Parse(cbxHabitacion.Text),
+                CANT_BANIO = int.Parse(cbxBanio.Text),
+                CALEFACCION = cbxCalefaccion.Text,
+                INTERNET = cbxInternet.Text,
+                AMOBLADO = cbxAmoblado.Text,
+                TELEVISION = cbxTelevision.Text,
+                DISPONIBLE = cbxDisponibilidad.Text,
+                VALOR_DIA = int.Parse(txtValor.Text),
+                COMUNA_ID_COMUNA = idComuna,
+            };
+            var data = JsonSerializer.Serialize<PostViewDepartamento>(post);
+            HttpContent content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+            var httpResponse = await depto.PostAsync(url, content);
+
+            if (httpResponse.IsSuccessStatusCode)
+            {
+                var result = await httpResponse.Content.ReadAsStringAsync();
+
+                var postResult = JsonSerializer.Deserialize<PostViewDepartamento>(result);
+
+                MessageBox.Show("Modificado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Error al modificar el departamento intenta de nuevo", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void cargaComuna() 
+        {
+            
+            ora.Open();
+            OracleCommand comando = new OracleCommand("SELECT id_comuna,nom_comuna FROM comuna ORDER BY nom_comuna ASC", ora);
+            OracleDataAdapter data = new OracleDataAdapter(comando);
+            DataTable dt = new DataTable();
+            data.Fill(dt);
+            ora.Close();
+
+            DataRow fila = dt.NewRow();
+            fila["nom_comuna"] = "Seleccionar Comuna";
+            dt.Rows.InsertAt(fila,0);
+
+            cbxComuna.ValueMember = "id_comuna";
+            cbxComuna.DisplayMember = "nom_comuna";
+            cbxComuna.DataSource = dt;
+        }
+
+       
     }
 }

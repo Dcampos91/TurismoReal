@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -120,9 +123,22 @@ namespace Turismo.Models
             v1.Show();
         }
 
-        private void Mantenimiento_Load(object sender, EventArgs e)
+        private async void Mantenimiento_Load(object sender, EventArgs e)
         {
+            string respuesta = await GetHttp();
+            List<PostViewDepartamento> lst = JsonConvert.DeserializeObject<List<PostViewDepartamento>>(respuesta);
+            dgvMTTO.DataSource = lst;
+        }
+
+        public async Task<string> GetHttp()
+        {
+            string url = "http://127.0.0.1:8000/departamento/";//cambiar la url para poder traer los mantenimientos
+            WebRequest oRequest = WebRequest.Create(url);
+            WebResponse oResponse = oRequest.GetResponse();
+            StreamReader sr = new StreamReader(oResponse.GetResponseStream());
+            return await sr.ReadToEndAsync();
 
         }
+        
     }
 }

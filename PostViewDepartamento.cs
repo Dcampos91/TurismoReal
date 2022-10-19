@@ -9,7 +9,7 @@ namespace Turismo
 {
     public class PostViewDepartamento
     {
-        //public int id_departamento { get; set; }
+        public int ID_DEPTO { get; set; }
         public string NOM_DEPTO { get; set; }
         public string DESC_DEPTO { get; set; }
         public string DIRECCION { get; set; }
