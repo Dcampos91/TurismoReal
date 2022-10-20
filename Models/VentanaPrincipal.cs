@@ -300,7 +300,10 @@ namespace Turismo
         {
             PanelSubMenuDepa.Visible = false;
             PanelSubMenuCliente.Visible = false;
-
+            PanelSubMenuTransporte.Visible = false;
+            PanelSubMenuPagos.Visible = false;
+            PanelSubMenuServicios.Visible = false;
+            PanelSubMenuInformes.Visible = false;
         }
         private void showSubMenu(Panel subMenu)
         {
@@ -410,6 +413,28 @@ namespace Turismo
         private void button7_Click(object sender, EventArgs e)
         {
             openChildFormInPanel(new MantenedorCliente());
+        }
+
+
+        
+        private void iconButton4_Click(object sender, EventArgs e)
+        {
+            showSubMenu(PanelSubMenuTransporte);
+        }
+
+        private void iconButton5_Click(object sender, EventArgs e)
+        {
+            showSubMenu(PanelSubMenuPagos);
+        }
+
+        private void iconButton6_Click(object sender, EventArgs e)
+        {
+            showSubMenu(PanelSubMenuServicios);
+        }
+
+        private void iconButton7_Click(object sender, EventArgs e)
+        {
+            showSubMenu(PanelSubMenuInformes);
         }
     }
 }
