@@ -183,11 +183,14 @@ namespace Turismo
                 var postResult = JsonSerializer.Deserialize<PostViewDepartamento>(result);
 
                 MessageBox.Show("Creado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                
             }
             else
             {
                 MessageBox.Show("Error al crear departamento intenta de nuevo", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+           
         }
 
         private async void Mantendor_depto_Load(object sender, EventArgs e)// carga el datagrid

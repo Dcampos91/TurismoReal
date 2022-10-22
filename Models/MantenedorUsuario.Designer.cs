@@ -37,8 +37,6 @@
             this.txtNomUsuario = new System.Windows.Forms.TextBox();
             this.txtCorreoUsuario = new System.Windows.Forms.TextBox();
             this.txtContraseniaUsuario = new System.Windows.Forms.TextBox();
-            this.txtEstadoUsuario = new System.Windows.Forms.TextBox();
-            this.txtTipoUsuario = new System.Windows.Forms.TextBox();
             this.dgvUsuario = new System.Windows.Forms.DataGridView();
             this.btnAgregarUsuario = new System.Windows.Forms.Button();
             this.btnModificarUsuario = new System.Windows.Forms.Button();
@@ -47,6 +45,8 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnActualizar = new System.Windows.Forms.Button();
+            this.cbxTipoUsuario = new System.Windows.Forms.ComboBox();
+            this.cbxEstado = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuario)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,20 +116,6 @@
             this.txtContraseniaUsuario.Size = new System.Drawing.Size(100, 22);
             this.txtContraseniaUsuario.TabIndex = 7;
             // 
-            // txtEstadoUsuario
-            // 
-            this.txtEstadoUsuario.Location = new System.Drawing.Point(199, 251);
-            this.txtEstadoUsuario.Name = "txtEstadoUsuario";
-            this.txtEstadoUsuario.Size = new System.Drawing.Size(100, 22);
-            this.txtEstadoUsuario.TabIndex = 8;
-            // 
-            // txtTipoUsuario
-            // 
-            this.txtTipoUsuario.Location = new System.Drawing.Point(51, 334);
-            this.txtTipoUsuario.Name = "txtTipoUsuario";
-            this.txtTipoUsuario.Size = new System.Drawing.Size(100, 22);
-            this.txtTipoUsuario.TabIndex = 9;
-            // 
             // dgvUsuario
             // 
             this.dgvUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -137,7 +123,7 @@
             this.dgvUsuario.Name = "dgvUsuario";
             this.dgvUsuario.RowHeadersWidth = 51;
             this.dgvUsuario.RowTemplate.Height = 24;
-            this.dgvUsuario.Size = new System.Drawing.Size(624, 361);
+            this.dgvUsuario.Size = new System.Drawing.Size(678, 361);
             this.dgvUsuario.TabIndex = 10;
             this.dgvUsuario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuario_CellContentClick);
             // 
@@ -203,7 +189,7 @@
             this.btnActualizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnActualizar.BackgroundImage")));
             this.btnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnActualizar.Location = new System.Drawing.Point(933, 125);
+            this.btnActualizar.Location = new System.Drawing.Point(997, 125);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnActualizar.Size = new System.Drawing.Size(35, 34);
@@ -211,11 +197,31 @@
             this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
+            // cbxTipoUsuario
+            // 
+            this.cbxTipoUsuario.FormattingEnabled = true;
+            this.cbxTipoUsuario.Location = new System.Drawing.Point(51, 320);
+            this.cbxTipoUsuario.Name = "cbxTipoUsuario";
+            this.cbxTipoUsuario.Size = new System.Drawing.Size(134, 24);
+            this.cbxTipoUsuario.TabIndex = 76;
+            // 
+            // cbxEstado
+            // 
+            this.cbxEstado.DisplayMember = "0";
+            this.cbxEstado.FormattingEnabled = true;
+            this.cbxEstado.Location = new System.Drawing.Point(199, 249);
+            this.cbxEstado.Name = "cbxEstado";
+            this.cbxEstado.Size = new System.Drawing.Size(121, 24);
+            this.cbxEstado.TabIndex = 77;
+            this.cbxEstado.Tag = "";
+            // 
             // MantenedorUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(990, 557);
+            this.ClientSize = new System.Drawing.Size(1044, 557);
+            this.Controls.Add(this.cbxEstado);
+            this.Controls.Add(this.cbxTipoUsuario);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.btnBuscar);
@@ -224,8 +230,6 @@
             this.Controls.Add(this.btnModificarUsuario);
             this.Controls.Add(this.btnAgregarUsuario);
             this.Controls.Add(this.dgvUsuario);
-            this.Controls.Add(this.txtTipoUsuario);
-            this.Controls.Add(this.txtEstadoUsuario);
             this.Controls.Add(this.txtContraseniaUsuario);
             this.Controls.Add(this.txtCorreoUsuario);
             this.Controls.Add(this.txtNomUsuario);
@@ -253,8 +257,6 @@
         private System.Windows.Forms.TextBox txtNomUsuario;
         private System.Windows.Forms.TextBox txtCorreoUsuario;
         private System.Windows.Forms.TextBox txtContraseniaUsuario;
-        private System.Windows.Forms.TextBox txtEstadoUsuario;
-        private System.Windows.Forms.TextBox txtTipoUsuario;
         private System.Windows.Forms.DataGridView dgvUsuario;
         private System.Windows.Forms.Button btnAgregarUsuario;
         private System.Windows.Forms.Button btnModificarUsuario;
@@ -263,5 +265,7 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.ComboBox cbxTipoUsuario;
+        private System.Windows.Forms.ComboBox cbxEstado;
     }
 }

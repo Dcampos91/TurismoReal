@@ -436,5 +436,15 @@ namespace Turismo
         {
             showSubMenu(PanelSubMenuInformes);
         }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            openChildFormInPanel(new ReporteDepartamento());
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            openChildFormInPanel(new ListarUsuario());
+        }
     }
 }

@@ -17,15 +17,23 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 using System.Runtime.InteropServices;
-
+using System.Data.OracleClient;
+using System.Data.SqlClient;
+using System.Windows.Controls;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using iText.Kernel.Pdf.Canvas.Wmf;
 
 namespace Turismo.Models
 {
+    
+
     public partial class MantenedorUsuario : Form
     {
+        OracleConnection ora = new OracleConnection("Data Source=orcl; User ID=C##TReal1; Password=oracle");
         public MantenedorUsuario()
         {
             InitializeComponent();
+            cargaUsuario();
         }
 
         private async void MantenedorUsuario_Load(object sender, EventArgs e)
@@ -33,10 +41,18 @@ namespace Turismo.Models
             string respuesta = await GetHttp();
             List<PostViewUsuario> lst = JsonConvert.DeserializeObject<List<PostViewUsuario>>(respuesta);
             dgvUsuario.DataSource = lst;
+
+            cbxEstado.Items.Add("Seleccionar");
+            cbxEstado.Items.Add("Habilitado");
+            cbxEstado.Items.Add("Deshabilitado");
+
+          
+
         }
         public async Task<string> GetHttp() //cargar el datagrid
         {
             string url = "http://127.0.0.1:8000/usuario/";
+            //string url = "http://127.0.0.1:8000/usuarioAdmin/";
             WebRequest oRequest = WebRequest.Create(url);
             WebResponse oResponse = oRequest.GetResponse();
             StreamReader sr = new StreamReader(oResponse.GetResponseStream());
@@ -64,17 +80,22 @@ namespace Turismo.Models
 
         private async void btnAgregarUsuario_Click(object sender, EventArgs e)//Crear Usuario
         {
+            int selectedIndex = cbxEstado.SelectedIndex;
+            Object selectedItem = cbxEstado.SelectedItem;
+
             string url = "http://127.0.0.1:8000/usuario/crear/";
             var usuario = new HttpClient();
+            string idTipoUsuario = cbxTipoUsuario.SelectedValue.ToString();
+            string Estado = "" + selectedIndex;
 
             PostViewUsuario post = new PostViewUsuario()
             {
                 NOM_USUARIO = txtNomUsuario.Text,
                 CORREO_USUARIO = txtCorreoUsuario.Text,
                 CONTRASENIA = txtContraseniaUsuario.Text,
-                ESTADO_USUARIO = char.Parse(txtEstadoUsuario.Text),
-                TIPO_USUARIO_ID_TIPO_USUARIO = int.Parse(txtTipoUsuario.Text)
-               
+                ESTADO_USUARIO = Estado,
+                TIPO_USUARIO_ID_TIPO_USUARIO = idTipoUsuario
+
             };
             var data = JsonSerializer.Serialize<PostViewUsuario>(post);
             HttpContent content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
@@ -129,17 +150,21 @@ namespace Turismo.Models
 
         private async void btnModificarUsuario_Click(object sender, EventArgs e)//modifcar Usuario
         {
+            int selectedIndex = cbxEstado.SelectedIndex;
+            Object selectedItem = cbxEstado.SelectedItem;
             var buscar = txtBuscar.Text;
             string url = "http://127.0.0.1:8000/usuario/modificar/"+buscar;
             var usuario = new HttpClient();
+            string idTipoUsuario = cbxTipoUsuario.SelectedValue.ToString();
+            string Estado = "" + selectedIndex;
 
             PostViewUsuario post = new PostViewUsuario()
             {
                 NOM_USUARIO = txtNomUsuario.Text,
                 CORREO_USUARIO = txtCorreoUsuario.Text,
                 CONTRASENIA = txtContraseniaUsuario.Text,
-                ESTADO_USUARIO = char.Parse(txtEstadoUsuario.Text),
-                TIPO_USUARIO_ID_TIPO_USUARIO = int.Parse(txtTipoUsuario.Text)
+                ESTADO_USUARIO = Estado,
+                TIPO_USUARIO_ID_TIPO_USUARIO = idTipoUsuario
 
             };
             var data = JsonSerializer.Serialize<PostViewUsuario>(post);
@@ -166,9 +191,31 @@ namespace Turismo.Models
             txtNomUsuario.Text = dgvUsuario.CurrentRow.Cells[1].Value.ToString();
             txtCorreoUsuario.Text = dgvUsuario.CurrentRow.Cells[2].Value.ToString();
             txtContraseniaUsuario.Text = dgvUsuario.CurrentRow.Cells[3].Value.ToString();
-            txtEstadoUsuario.Text = dgvUsuario.CurrentRow.Cells[4].Value.ToString();
-            txtTipoUsuario.Text = dgvUsuario.CurrentRow.Cells[5].Value.ToString();
+            cbxEstado.Text = dgvUsuario.CurrentRow.Cells[4].Value.ToString();
+            cbxTipoUsuario.Text = dgvUsuario.CurrentRow.Cells[5].Value.ToString();
             
         }
+
+        private void cargaUsuario()
+        {
+
+            ora.Open();
+            OracleCommand comando = new OracleCommand("SELECT id_tipo_usuario,tipo_usuario FROM tipo_usuario ORDER BY tipo_usuario ASC", ora);
+            OracleDataAdapter data = new OracleDataAdapter(comando);
+            DataTable dt = new DataTable();
+            data.Fill(dt);
+            ora.Close();
+
+            DataRow fila = dt.NewRow();
+            fila["tipo_usuario"] = "Tipo";
+            dt.Rows.InsertAt(fila, 0);
+
+            cbxTipoUsuario.ValueMember = "id_tipo_usuario";
+            cbxTipoUsuario.DisplayMember = "tipo_usuario";
+            cbxTipoUsuario.DataSource = dt;
+        }
+
+       
+
     }
 }
