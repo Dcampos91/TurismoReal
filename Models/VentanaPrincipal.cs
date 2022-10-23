@@ -400,7 +400,7 @@ namespace Turismo
 
         private void button6_Click(object sender, EventArgs e)
         {
-
+            AbrirSubFormulario(new ListadoDepartamento());
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -438,6 +438,11 @@ namespace Turismo
         private void button5_Click(object sender, EventArgs e)
         {
             AbrirSubFormulario(new ListarUsuario());
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            AbrirSubFormulario(new Reserva());
         }
     }
 }

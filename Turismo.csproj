@@ -202,10 +202,18 @@
     <Compile Include="Models\ReporteDepartamento.Designer.cs">
       <DependentUpon>ReporteDepartamento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Reserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Reserva.Designer.cs">
+      <DependentUpon>Reserva.cs</DependentUpon>
+    </Compile>
     <Compile Include="PostViewCliente.cs" />
     <Compile Include="PostViewDepartamento.cs" />
+    <Compile Include="PostViewListarDepartamento.cs" />
     <Compile Include="PostViewListarUsuario.cs" />
     <Compile Include="PostViewMTTO.cs" />
+    <Compile Include="PostViewReserva.cs" />
     <Compile Include="PostViewUsuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -244,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Models\ReporteDepartamento.resx">
       <DependentUpon>ReporteDepartamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Reserva.resx">
+      <DependentUpon>Reserva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

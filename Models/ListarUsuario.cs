@@ -34,7 +34,6 @@ namespace Turismo.Models
 
         public async Task<string> GetHttp() //cargar el datagrid
         {
-            //string url = "http://127.0.0.1:8000/usuario/";
             string url = "http://127.0.0.1:8000/usuarioAdmin/";
             WebRequest oRequest = WebRequest.Create(url);
             WebResponse oResponse = oRequest.GetResponse();
