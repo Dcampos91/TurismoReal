@@ -285,17 +285,7 @@ namespace Turismo
         {
 
         }
-        private void AbrirFormEnPanel(object Formhijo)
-        {
-            if (this.PanelTr.Controls.Count > 0)
-                this.PanelTr.Controls.RemoveAt(0);
-            Form fh = Formhijo as Form;
-            fh.TopLevel = false;
-            fh.Dock = DockStyle.Fill;
-            this.PanelTr.Controls.Add(fh);
-            this.PanelTr.Tag = fh;
-            fh.Show();
-        }
+        
         private void hideSubMenu()
         {
             PanelSubMenuDepa.Visible = false;
@@ -320,20 +310,7 @@ namespace Turismo
             showSubMenu(PanelSubMenuDepa);
             
         }
-        private Form activeForm = null;
-        private void openChildFormInPanel(Form childForm)
-        {
-            if (activeForm != null)
-                activeForm.Close();
-            activeForm = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            PanelTr.Controls.Add(childForm);
-            PanelTr.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
-        }
+        
         private void button2_Click(object sender, EventArgs e)
         {
           
@@ -373,15 +350,31 @@ namespace Turismo
         {
 
         }
-
+        private Form AbrirForms = null;
+        private void AbrirSubFormulario(Form subform)
+        {
+            if (AbrirForms != null)
+            {
+                AbrirForms.Close();
+            }
+            AbrirForms = subform;
+            subform.TopLevel = false;
+            subform.Dock = DockStyle.Fill;
+            subform.FormBorderStyle = FormBorderStyle.None;
+            panel2.Controls.Add(subform);
+            panel2.Tag = subform;
+            subform.BringToFront();
+            subform.Show();
+        }
         private void button4_Click_1(object sender, EventArgs e)
         {
-            openChildFormInPanel(new Mantendor_depto());
+        
+            AbrirSubFormulario(new Mantendor_depto());
         }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            openChildFormInPanel(new Mantenimiento());
+            AbrirSubFormulario(new Mantenimiento());
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -396,12 +389,12 @@ namespace Turismo
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            openChildFormInPanel(new IngresarInventario());
+            AbrirSubFormulario(new IngresarInventario());
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            openChildFormInPanel(new MantenedorUsuario());
+            AbrirSubFormulario(new MantenedorUsuario());
 
         }
 
@@ -412,7 +405,7 @@ namespace Turismo
 
         private void button7_Click(object sender, EventArgs e)
         {
-            openChildFormInPanel(new MantenedorCliente());
+            AbrirSubFormulario(new MantenedorCliente());
         }
 
 
@@ -439,12 +432,12 @@ namespace Turismo
 
         private void button15_Click(object sender, EventArgs e)
         {
-            openChildFormInPanel(new ReporteDepartamento());
+            AbrirSubFormulario(new ReporteDepartamento());
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            openChildFormInPanel(new ListarUsuario());
+            AbrirSubFormulario(new ListarUsuario());
         }
     }
 }
