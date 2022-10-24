@@ -40,7 +40,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cbxDepartamento = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.cbxUsuario = new System.Windows.Forms.ComboBox();
+            this.cbxCliente = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dgvReserva = new System.Windows.Forms.DataGridView();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -107,6 +107,9 @@
             // cbxEstadoReserva
             // 
             this.cbxEstadoReserva.FormattingEnabled = true;
+            this.cbxEstadoReserva.Items.AddRange(new object[] {
+            "Habilitado",
+            "Deshabilitado"});
             this.cbxEstadoReserva.Location = new System.Drawing.Point(187, 315);
             this.cbxEstadoReserva.Name = "cbxEstadoReserva";
             this.cbxEstadoReserva.Size = new System.Drawing.Size(121, 24);
@@ -144,22 +147,22 @@
             this.label6.TabIndex = 12;
             this.label6.Text = "Departamento";
             // 
-            // cbxUsuario
+            // cbxCliente
             // 
-            this.cbxUsuario.FormattingEnabled = true;
-            this.cbxUsuario.Location = new System.Drawing.Point(187, 387);
-            this.cbxUsuario.Name = "cbxUsuario";
-            this.cbxUsuario.Size = new System.Drawing.Size(121, 24);
-            this.cbxUsuario.TabIndex = 13;
+            this.cbxCliente.FormattingEnabled = true;
+            this.cbxCliente.Location = new System.Drawing.Point(187, 387);
+            this.cbxCliente.Name = "cbxCliente";
+            this.cbxCliente.Size = new System.Drawing.Size(121, 24);
+            this.cbxCliente.TabIndex = 13;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(184, 368);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(54, 16);
+            this.label7.Size = new System.Drawing.Size(48, 16);
             this.label7.TabIndex = 14;
-            this.label7.Text = "Usuario";
+            this.label7.Text = "Cliente";
             // 
             // dgvReserva
             // 
@@ -209,7 +212,7 @@
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dgvReserva);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.cbxUsuario);
+            this.Controls.Add(this.cbxCliente);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cbxDepartamento);
             this.Controls.Add(this.label5);
@@ -245,7 +248,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbxDepartamento;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cbxUsuario;
+        private System.Windows.Forms.ComboBox cbxCliente;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dgvReserva;
         private System.Windows.Forms.Button btnAgregar;

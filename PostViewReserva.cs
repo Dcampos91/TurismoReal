@@ -10,13 +10,13 @@ namespace Turismo
     internal class PostViewReserva
     {
         public int ID_RESERVA { get; set;}
-        public DateTime FECHA_INGRESO { get; set; }
-        public DateTime FECHA_SALIDA { get; set; }
+        public string FECHA_INGRESO { get; set; }
+        public string FECHA_SALIDA { get; set; }
         public int CANT_DIA_RESERVA { get; set; }
         public string ESTADO_RESERVA { get; set; }
-        public DateTime FECHA_ESTADO_RESERVA { get; set; }
+        public string FECHA_ESTADO_RESERVA { get; set; }
         public int DEPARTAMENTO_ID_DEPARTAMENTO { get; set; }
-        public int USUARIO_ID_USUAIRO { get; set; }
+        public int USUARIO_ID_USUARIO { get; set; }
     }
     
 }
