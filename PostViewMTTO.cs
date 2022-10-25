@@ -10,8 +10,9 @@ namespace Turismo
 {
     public class PostViewMTTO
     {
-        public DateTime FECHA_INGRESO { get; set; }
-        public DateTime FECHA_SALIDA { get; set; }
+        public int ID_MTTO { get; set; }
+        public string FECHA_INGRESO { get; set; }
+        public string FECHA_SALIDA { get; set; }
         public string DESCRIPCION_MTTO { get; set; }
         public string DISPONIBILIDAD { get; set; }
         public int DEPARTAMENTO_ID_DEPARTAMENTO { get; set; }

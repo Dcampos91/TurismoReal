@@ -28,7 +28,7 @@ namespace Turismo.Models
         public Reserva()
         {
             InitializeComponent();
-            //cargaDepartamento();
+            cargaDepartamento();
             cargaCliente();
         }
 
@@ -58,6 +58,8 @@ namespace Turismo.Models
             var Ingreso = ingreso.ToString("yyyy/MM/dd");
             var Salida = salida.ToString("yyyy/MM/dd");
             var Modificacion = modificacion.ToString("yyyy/MM/dd");
+            int idCliente = int.Parse(cbxCliente.SelectedValue.ToString());
+            int idDepartamento = int.Parse(cbxDepartamento.SelectedValue.ToString());
             PostViewReserva post = new PostViewReserva()
             {
                 FECHA_INGRESO = Ingreso,
@@ -65,8 +67,8 @@ namespace Turismo.Models
                 CANT_DIA_RESERVA = int.Parse(txtCantidadDias.Text),
                 ESTADO_RESERVA = cbxEstadoReserva.Text,
                 FECHA_ESTADO_RESERVA = Modificacion,
-                DEPARTAMENTO_ID_DEPARTAMENTO = int.Parse(cbxDepartamento.Text),
-                USUARIO_ID_USUARIO = int.Parse(cbxCliente.Text)
+                DEPARTAMENTO_ID_DEPARTAMENTO = idDepartamento,
+                USUARIO_ID_USUARIO = idCliente,
 
 
             };
@@ -123,6 +125,112 @@ namespace Turismo.Models
             cbxDepartamento.ValueMember = "id_departamento";
             cbxDepartamento.DisplayMember = "nom_depto";
             cbxDepartamento.DataSource = dt;
+        }
+
+        private async void btnModificar_Click(object sender, EventArgs e)
+        {
+            DateTime ingreso = FechaIngreso.SelectionStart;
+            DateTime salida = FechaSalida.SelectionStart;
+            DateTime modificacion = FechaEstado.SelectionStart;
+            string url = "http://127.0.0.1:8000/reserva/crear";
+            var reserva = new HttpClient();
+            var Ingreso = ingreso.ToString("yyyy/MM/dd");
+            var Salida = salida.ToString("yyyy/MM/dd");
+            var Modificacion = modificacion.ToString("yyyy/MM/dd");
+            int idCliente = int.Parse(cbxCliente.SelectedValue.ToString());
+            int idDepartamento = int.Parse(cbxDepartamento.SelectedValue.ToString());
+            PostViewReserva post = new PostViewReserva()
+            {
+                FECHA_INGRESO = Ingreso,
+                FECHA_SALIDA = Salida,
+                CANT_DIA_RESERVA = int.Parse(txtCantidadDias.Text),
+                ESTADO_RESERVA = cbxEstadoReserva.Text,
+                FECHA_ESTADO_RESERVA = Modificacion,
+                DEPARTAMENTO_ID_DEPARTAMENTO = idDepartamento,
+                USUARIO_ID_USUARIO = idCliente,
+
+
+            };
+            var data = JsonSerializer.Serialize<PostViewReserva>(post);
+            HttpContent content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+            var httpResponse = await reserva.PostAsync(url, content);
+
+            if (httpResponse.IsSuccessStatusCode)
+            {
+                var result = await httpResponse.Content.ReadAsStringAsync();
+
+                var postResult = JsonSerializer.Deserialize<PostViewDepartamento>(result);
+
+                MessageBox.Show("Modificado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Error al Modificar la reserva intenta de nuevo", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void dgvReserva_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtBuscar.Text = dgvReserva.CurrentRow.Cells[0].Value.ToString();
+            FechaIngreso.Text = dgvReserva.CurrentRow.Cells[1].Value.ToString();
+            FechaSalida.Text = dgvReserva.CurrentRow.Cells[2].Value.ToString();
+            txtCantidadDias.Text = dgvReserva.CurrentRow.Cells[3].Value.ToString();
+            cbxEstadoReserva.Text = dgvReserva.CurrentRow.Cells[4].Value.ToString();
+            //FechaEstado.Text = dgvReserva.CurrentRow.Cells[5].Value.ToString();
+            cbxDepartamento.Text = dgvReserva.CurrentRow.Cells[6].Value.ToString();
+            cbxCliente.Text = dgvReserva.CurrentRow.Cells[7].Value.ToString();
+        }
+
+        private async void btnEliminar_Click(object sender, EventArgs e)
+        {
+            var buscar = txtBuscar.Text;
+            string url = "http://127.0.0.1:8000/reserva/eliminar/" + buscar;
+            var depto = new HttpClient();
+
+            PostViewDepartamento post = new PostViewDepartamento()
+            {
+
+            };
+
+            var httpResponse = await depto.DeleteAsync(url);
+
+            if (httpResponse.IsSuccessStatusCode)
+            {
+                var result = await httpResponse.Content.ReadAsStringAsync();
+
+
+                MessageBox.Show("Eliminado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Error al Eliminar la reserva intenta de nuevo", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void btnBuscar_Click(object sender, EventArgs e)
+        {
+            var buscar = txtBuscar.Text;
+            string respuesta = await GetHttp();
+            List<PostViewReserva> lst = JsonConvert.DeserializeObject<List<PostViewReserva>>(respuesta);
+            dgvReserva.DataSource = lst;
+
+            async Task<string> GetHttp()
+            {
+                string url = "http://127.0.0.1:8000/reserva/" + buscar;
+                WebRequest oRequest = WebRequest.Create(url);
+                WebResponse oResponse = oRequest.GetResponse();
+                StreamReader sr = new StreamReader(oResponse.GetResponseStream());
+                return await sr.ReadToEndAsync();
+
+            }
+        }
+
+        private async void btnActualizar_Click(object sender, EventArgs e)
+        {
+            string respuesta = await GetHttp();
+            List<PostViewReserva> lst = JsonConvert.DeserializeObject<List<PostViewReserva>>(respuesta);
+            dgvReserva.DataSource = lst;
         }
     }
 }
