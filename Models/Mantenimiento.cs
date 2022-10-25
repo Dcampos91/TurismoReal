@@ -262,5 +262,58 @@ namespace Turismo.Models
             cbxDepartamento.Text = dgvMTTO.CurrentRow.Cells[5].Value.ToString();
 
         }
+
+        private async void btnEliminarMtto_Click(object sender, EventArgs e)
+        {
+            var buscar = txtBuscar.Text;
+            string url = "http://127.0.0.1:8000/mttoDepartamento/eliminar/" + buscar;
+            var depto = new HttpClient();
+
+            PostViewMTTO post = new PostViewMTTO()
+            {
+
+            };
+
+            var httpResponse = await depto.DeleteAsync(url);
+
+            if (httpResponse.IsSuccessStatusCode)
+            {
+                var result = await httpResponse.Content.ReadAsStringAsync();
+
+
+                MessageBox.Show("Eliminado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Error al Eliminar la Orden de Matenimiento, intenta de nuevo", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void btnBuscar_Click(object sender, EventArgs e)
+        {
+            var buscar = txtBuscar.Text;
+            string respuesta = await GetHttp();
+            List<PostViewMTTO> lst = JsonConvert.DeserializeObject<List<PostViewMTTO>>(respuesta);
+            dgvMTTO.DataSource = lst;
+
+            async Task<string> GetHttp()
+            {
+                string url = "http://127.0.0.1:8000/mttoDepartamento/" + buscar;
+                WebRequest oRequest = WebRequest.Create(url);
+                WebResponse oResponse = oRequest.GetResponse();
+                StreamReader sr = new StreamReader(oResponse.GetResponseStream());
+                return await sr.ReadToEndAsync();
+
+            }
+        }
+       
+
+        private async void btnActualizar_Click_1(object sender, EventArgs e)
+        {
+            string respuesta = await GetHttp();
+            List<PostViewMTTO> lst = JsonConvert.DeserializeObject<List<PostViewMTTO>>(respuesta);
+            dgvMTTO.DataSource = lst;
+
+        }
     }
 }

@@ -188,6 +188,7 @@
             this.btnEliminarMtto.TabIndex = 16;
             this.btnEliminarMtto.Text = "Eliminar";
             this.btnEliminarMtto.UseVisualStyleBackColor = true;
+            this.btnEliminarMtto.Click += new System.EventHandler(this.btnEliminarMtto_Click);
             // 
             // FechaSalida
             // 
@@ -223,6 +224,7 @@
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtBuscar
             // 
@@ -245,6 +247,7 @@
             this.btnActualizar.Size = new System.Drawing.Size(37, 35);
             this.btnActualizar.TabIndex = 76;
             this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click_1);
             // 
             // Mantenimiento
             // 
