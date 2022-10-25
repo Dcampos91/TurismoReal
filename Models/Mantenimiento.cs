@@ -126,13 +126,13 @@ namespace Turismo.Models
         private async void Mantenimiento_Load(object sender, EventArgs e)
         {
             string respuesta = await GetHttp();
-            List<PostViewDepartamento> lst = JsonConvert.DeserializeObject<List<PostViewDepartamento>>(respuesta);
+            List<PostViewMTTO> lst = JsonConvert.DeserializeObject<List<PostViewMTTO>>(respuesta);
             dgvMTTO.DataSource = lst;
         }
 
         public async Task<string> GetHttp()
         {
-            string url = "http://127.0.0.1:8000/departamento/";//cambiar la url para poder traer los mantenimientos
+            string url = "http://127.0.0.1:8000/mttoDepartamento/";
             WebRequest oRequest = WebRequest.Create(url);
             WebResponse oResponse = oRequest.GetResponse();
             StreamReader sr = new StreamReader(oResponse.GetResponseStream());
