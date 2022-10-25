@@ -28,35 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.MonthCalendar FechaSalida;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mantenimiento));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.FechaIngreso = new System.Windows.Forms.MonthCalendar();
             this.txtDescripcionMtto = new System.Windows.Forms.TextBox();
-            this.txtDisponible = new System.Windows.Forms.TextBox();
             this.dgvMTTO = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAgregarMTTO = new System.Windows.Forms.Button();
             this.btnModificarMtto = new System.Windows.Forms.Button();
             this.btnEliminarMtto = new System.Windows.Forms.Button();
-            FechaSalida = new System.Windows.Forms.MonthCalendar();
+            this.FechaSalida = new System.Windows.Forms.MonthCalendar();
+            this.cbxDepartamento = new System.Windows.Forms.ComboBox();
+            this.cbxDisponibilidad = new System.Windows.Forms.ComboBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.btnActualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMTTO)).BeginInit();
             this.SuspendLayout();
-            // 
-            // FechaSalida
-            // 
-            FechaSalida.BackColor = System.Drawing.SystemColors.Window;
-            FechaSalida.Cursor = System.Windows.Forms.Cursors.Hand;
-            FechaSalida.Location = new System.Drawing.Point(27, 425);
-            FechaSalida.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
-            FechaSalida.MinDate = new System.DateTime(2021, 1, 1, 0, 0, 0, 0);
-            FechaSalida.Name = "FechaSalida";
-            FechaSalida.TabIndex = 8;
             // 
             // label1
             // 
@@ -124,14 +117,6 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "Crear Mantenimiento";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(29, 80);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(88, 23);
-            this.textBox1.TabIndex = 6;
-            // 
             // FechaIngreso
             // 
             this.FechaIngreso.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -150,14 +135,6 @@
             this.txtDescripcionMtto.Size = new System.Drawing.Size(338, 152);
             this.txtDescripcionMtto.TabIndex = 9;
             // 
-            // txtDisponible
-            // 
-            this.txtDisponible.Location = new System.Drawing.Point(201, 80);
-            this.txtDisponible.Margin = new System.Windows.Forms.Padding(2);
-            this.txtDisponible.Name = "txtDisponible";
-            this.txtDisponible.Size = new System.Drawing.Size(88, 23);
-            this.txtDisponible.TabIndex = 10;
-            // 
             // dgvMTTO
             // 
             this.dgvMTTO.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -168,28 +145,30 @@
             this.dgvMTTO.RowTemplate.Height = 24;
             this.dgvMTTO.Size = new System.Drawing.Size(545, 332);
             this.dgvMTTO.TabIndex = 11;
+            this.dgvMTTO.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMTTO_CellContentClick);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(362, 281);
+            this.label7.Location = new System.Drawing.Point(460, 275);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(219, 17);
             this.label7.TabIndex = 12;
             this.label7.Text = "Listado Departamentos en MTTO";
             // 
-            // button1
+            // btnAgregarMTTO
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(789, 80);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 71);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Ingresar Orden de MTTO";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAgregarMTTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarMTTO.Location = new System.Drawing.Point(789, 80);
+            this.btnAgregarMTTO.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAgregarMTTO.Name = "btnAgregarMTTO";
+            this.btnAgregarMTTO.Size = new System.Drawing.Size(121, 71);
+            this.btnAgregarMTTO.TabIndex = 13;
+            this.btnAgregarMTTO.Text = "Ingresar Orden de MTTO";
+            this.btnAgregarMTTO.UseVisualStyleBackColor = true;
+            this.btnAgregarMTTO.Click += new System.EventHandler(this.btnAgregarMTTO_Click);
             // 
             // btnModificarMtto
             // 
@@ -199,6 +178,7 @@
             this.btnModificarMtto.TabIndex = 15;
             this.btnModificarMtto.Text = "Modificar";
             this.btnModificarMtto.UseVisualStyleBackColor = true;
+            this.btnModificarMtto.Click += new System.EventHandler(this.btnModificarMtto_Click);
             // 
             // btnEliminarMtto
             // 
@@ -209,21 +189,81 @@
             this.btnEliminarMtto.Text = "Eliminar";
             this.btnEliminarMtto.UseVisualStyleBackColor = true;
             // 
+            // FechaSalida
+            // 
+            this.FechaSalida.Location = new System.Drawing.Point(29, 430);
+            this.FechaSalida.Name = "FechaSalida";
+            this.FechaSalida.TabIndex = 17;
+            // 
+            // cbxDepartamento
+            // 
+            this.cbxDepartamento.FormattingEnabled = true;
+            this.cbxDepartamento.Location = new System.Drawing.Point(29, 80);
+            this.cbxDepartamento.Name = "cbxDepartamento";
+            this.cbxDepartamento.Size = new System.Drawing.Size(121, 25);
+            this.cbxDepartamento.TabIndex = 18;
+            // 
+            // cbxDisponibilidad
+            // 
+            this.cbxDisponibilidad.FormattingEnabled = true;
+            this.cbxDisponibilidad.Items.AddRange(new object[] {
+            "Habilitado",
+            "Deshabilitado"});
+            this.cbxDisponibilidad.Location = new System.Drawing.Point(196, 80);
+            this.cbxDisponibilidad.Name = "cbxDisponibilidad";
+            this.cbxDisponibilidad.Size = new System.Drawing.Size(121, 25);
+            this.cbxDisponibilidad.TabIndex = 19;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(835, 272);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 20;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(729, 272);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(100, 23);
+            this.txtBuscar.TabIndex = 21;
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.BackColor = System.Drawing.SystemColors.Menu;
+            this.btnActualizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnActualizar.BackgroundImage")));
+            this.btnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizar.Location = new System.Drawing.Point(363, 258);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnActualizar.Size = new System.Drawing.Size(37, 35);
+            this.btnActualizar.TabIndex = 76;
+            this.btnActualizar.UseVisualStyleBackColor = false;
+            // 
             // Mantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(957, 692);
+            this.Controls.Add(this.btnActualizar);
+            this.Controls.Add(this.txtBuscar);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.cbxDisponibilidad);
+            this.Controls.Add(this.cbxDepartamento);
+            this.Controls.Add(this.FechaSalida);
             this.Controls.Add(this.btnEliminarMtto);
             this.Controls.Add(this.btnModificarMtto);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAgregarMTTO);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dgvMTTO);
-            this.Controls.Add(this.txtDisponible);
             this.Controls.Add(this.txtDescripcionMtto);
-            this.Controls.Add(FechaSalida);
             this.Controls.Add(this.FechaIngreso);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -249,14 +289,18 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.MonthCalendar FechaIngreso;
         private System.Windows.Forms.TextBox txtDescripcionMtto;
-        private System.Windows.Forms.TextBox txtDisponible;
         private System.Windows.Forms.DataGridView dgvMTTO;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAgregarMTTO;
         private System.Windows.Forms.Button btnModificarMtto;
         private System.Windows.Forms.Button btnEliminarMtto;
+        private System.Windows.Forms.MonthCalendar FechaSalida;
+        private System.Windows.Forms.ComboBox cbxDepartamento;
+        private System.Windows.Forms.ComboBox cbxDisponibilidad;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Button btnActualizar;
     }
 }

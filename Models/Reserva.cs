@@ -129,10 +129,11 @@ namespace Turismo.Models
 
         private async void btnModificar_Click(object sender, EventArgs e)
         {
+            var buscar = txtBuscar.Text;
             DateTime ingreso = FechaIngreso.SelectionStart;
             DateTime salida = FechaSalida.SelectionStart;
             DateTime modificacion = FechaEstado.SelectionStart;
-            string url = "http://127.0.0.1:8000/reserva/crear";
+            string url = "http://127.0.0.1:8000/reserva/modificar/"+buscar;
             var reserva = new HttpClient();
             var Ingreso = ingreso.ToString("yyyy/MM/dd");
             var Salida = salida.ToString("yyyy/MM/dd");
@@ -148,8 +149,6 @@ namespace Turismo.Models
                 FECHA_ESTADO_RESERVA = Modificacion,
                 DEPARTAMENTO_ID_DEPARTAMENTO = idDepartamento,
                 USUARIO_ID_USUARIO = idCliente,
-
-
             };
             var data = JsonSerializer.Serialize<PostViewReserva>(post);
             HttpContent content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
