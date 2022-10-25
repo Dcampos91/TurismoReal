@@ -7,18 +7,29 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Runtime.InteropServices;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 using System.Windows.Forms;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using JsonSerializer = System.Text.Json.JsonSerializer;
+using System.Runtime.InteropServices;
+using iText.Kernel.Geom;
+using System.Globalization;
+using System.Data.OracleClient;
+using Point = System.Drawing.Point;
 
 namespace Turismo.Models
 {
     public partial class Mantenimiento : Form
     {
+        OracleConnection ora = new OracleConnection("Data Source=orcl; User ID=C##TReal1; Password=oracle");
         public Mantenimiento()
         {
             InitializeComponent();
+            cargaDepartamento();
         }
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -139,6 +150,117 @@ namespace Turismo.Models
             return await sr.ReadToEndAsync();
 
         }
-        
+
+        private async void btnAgregarMTTO_Click(object sender, EventArgs e)
+        {
+            DateTime ingreso = FechaIngreso.SelectionStart;
+            DateTime salida = FechaSalida.SelectionStart;
+            
+            string url = "http://127.0.0.1:8000/mttoDepartamento/crear/";
+            var reserva = new HttpClient();
+            var Ingreso = ingreso.ToString("yyyy/MM/dd");
+            var Salida = salida.ToString("yyyy/MM/dd");
+   
+           
+            int idDepartamento = int.Parse(cbxDepartamento.SelectedValue.ToString());
+
+            PostViewMTTO post = new PostViewMTTO()
+            {
+                FECHA_INGRESO = Ingreso,
+                FECHA_SALIDA = Salida,
+                DESCRIPCION_MTTO = txtDescripcionMtto.Text,
+                DISPONIBILIDAD = cbxDisponibilidad.Text,
+                DEPARTAMENTO_ID_DEPARTAMENTO = idDepartamento,
+
+            };
+            var data = JsonSerializer.Serialize<PostViewMTTO>(post);
+            HttpContent content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+            var httpResponse = await reserva.PostAsync(url, content);
+
+            if (httpResponse.IsSuccessStatusCode)
+            {
+                var result = await httpResponse.Content.ReadAsStringAsync();
+
+                var postResult = JsonSerializer.Deserialize<PostViewMTTO>(result);
+
+                MessageBox.Show("Creado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Error al Modificar la orden de MTTO, intenta de nuevo", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void cargaDepartamento()
+        {
+
+            ora.Open();
+            OracleCommand comando = new OracleCommand("SELECT nom_depto,id_departamento FROM departamento ORDER BY nom_depto ASC", ora);
+            OracleDataAdapter data = new OracleDataAdapter(comando);
+            DataTable dt = new DataTable();
+            data.Fill(dt);
+            ora.Close();
+
+            DataRow fila = dt.NewRow();
+            fila["nom_depto"] = "Nombre";
+            dt.Rows.InsertAt(fila, 0);
+
+            cbxDepartamento.ValueMember = "id_departamento";
+            cbxDepartamento.DisplayMember = "nom_depto";
+            cbxDepartamento.DataSource = dt;
+        }
+
+        private async void btnModificarMtto_Click(object sender, EventArgs e)
+        {
+            var buscar = txtBuscar.Text;
+            DateTime ingreso = FechaIngreso.SelectionStart;
+            DateTime salida = FechaSalida.SelectionStart;
+
+            string url = "http://127.0.0.1:8000/mttoDepartamento/modificar/"+buscar;
+            var reserva = new HttpClient();
+            var Ingreso = ingreso.ToString("yyyy/MM/dd");
+            var Salida = salida.ToString("yyyy/MM/dd");
+
+
+            int idDepartamento = int.Parse(cbxDepartamento.SelectedValue.ToString());
+
+            PostViewMTTO post = new PostViewMTTO()
+            {
+                FECHA_INGRESO = Ingreso,
+                FECHA_SALIDA = Salida,
+                DESCRIPCION_MTTO = txtDescripcionMtto.Text,
+                DISPONIBILIDAD = cbxDisponibilidad.Text,
+                DEPARTAMENTO_ID_DEPARTAMENTO = idDepartamento,
+
+            };
+            var data = JsonSerializer.Serialize<PostViewMTTO>(post);
+            HttpContent content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+            var httpResponse = await reserva.PostAsync(url, content);
+
+            if (httpResponse.IsSuccessStatusCode)
+            {
+                var result = await httpResponse.Content.ReadAsStringAsync();
+
+                var postResult = JsonSerializer.Deserialize<PostViewMTTO>(result);
+
+                MessageBox.Show("Modificado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Error al Modificar la orden de MTTO, intenta de nuevo", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+        }
+
+        private void dgvMTTO_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtBuscar.Text = dgvMTTO.CurrentRow.Cells[0].Value.ToString();
+            FechaIngreso.Text = dgvMTTO.CurrentRow.Cells[1].Value.ToString();
+            FechaSalida.Text = dgvMTTO.CurrentRow.Cells[2].Value.ToString();
+            txtDescripcionMtto.Text = dgvMTTO.CurrentRow.Cells[3].Value.ToString();
+            cbxDisponibilidad.Text = dgvMTTO.CurrentRow.Cells[4].Value.ToString();
+            cbxDepartamento.Text = dgvMTTO.CurrentRow.Cells[5].Value.ToString();
+
+        }
     }
 }
