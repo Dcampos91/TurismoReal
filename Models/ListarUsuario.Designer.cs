@@ -45,21 +45,23 @@
             this.dgvListarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvListarUsuario.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dgvListarUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListarUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListarUsuario.Location = new System.Drawing.Point(27, 115);
+            this.dgvListarUsuario.Location = new System.Drawing.Point(40, 115);
             this.dgvListarUsuario.Name = "dgvListarUsuario";
             this.dgvListarUsuario.ReadOnly = true;
             this.dgvListarUsuario.RowHeadersWidth = 51;
             this.dgvListarUsuario.RowTemplate.Height = 24;
-            this.dgvListarUsuario.Size = new System.Drawing.Size(761, 378);
+            this.dgvListarUsuario.Size = new System.Drawing.Size(899, 434);
             this.dgvListarUsuario.TabIndex = 0;
             this.dgvListarUsuario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListarUsuario_CellContentClick);
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(704, 74);
+            this.btnBuscar.Location = new System.Drawing.Point(864, 62);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.Size = new System.Drawing.Size(75, 44);
             this.btnBuscar.TabIndex = 1;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -67,7 +69,8 @@
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(589, 75);
+            this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBuscar.Location = new System.Drawing.Point(758, 76);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(100, 20);
             this.txtBuscar.TabIndex = 2;
@@ -78,7 +81,7 @@
             this.btnActualizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnActualizar.BackgroundImage")));
             this.btnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnActualizar.Location = new System.Drawing.Point(27, 75);
+            this.btnActualizar.Location = new System.Drawing.Point(40, 75);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnActualizar.Size = new System.Drawing.Size(35, 34);
@@ -89,16 +92,16 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(305, 9);
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(336, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(169, 20);
+            this.label2.Size = new System.Drawing.Size(263, 28);
             this.label2.TabIndex = 77;
-            this.label2.Text = "Listado de Usuarios";
+            this.label2.Text = "LISTADO DE USUARIOS";
             // 
             // ListarUsuario
             // 
-            this.ClientSize = new System.Drawing.Size(833, 557);
+            this.ClientSize = new System.Drawing.Size(971, 613);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.txtBuscar);

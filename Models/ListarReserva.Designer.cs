@@ -36,29 +36,35 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(366, 19);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(368, 21);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 16);
+            this.label1.Size = new System.Drawing.Size(261, 28);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Listado Reservas";
+            this.label1.Text = "LISTADO DE RESERVAS";
             // 
             // dgvReserva
             // 
+            this.dgvReserva.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dgvReserva.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvReserva.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReserva.Location = new System.Drawing.Point(12, 93);
+            this.dgvReserva.Location = new System.Drawing.Point(95, 85);
+            this.dgvReserva.Margin = new System.Windows.Forms.Padding(2);
             this.dgvReserva.Name = "dgvReserva";
             this.dgvReserva.RowHeadersWidth = 51;
             this.dgvReserva.RowTemplate.Height = 24;
-            this.dgvReserva.Size = new System.Drawing.Size(868, 395);
+            this.dgvReserva.Size = new System.Drawing.Size(770, 357);
             this.dgvReserva.TabIndex = 1;
             // 
             // ListarReserva
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(892, 500);
+            this.ClientSize = new System.Drawing.Size(971, 613);
             this.Controls.Add(this.dgvReserva);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ListarReserva";
             this.Text = "ListarReserva";
             this.Load += new System.EventHandler(this.ListarReserva_Load);

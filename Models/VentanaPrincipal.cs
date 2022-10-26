@@ -294,6 +294,7 @@ namespace Turismo
             PanelSubMenuPagos.Visible = false;
             PanelSubMenuServicios.Visible = false;
             PanelSubMenuInformes.Visible = false;
+            PanelSubMenuReserva.Visible = false;
         }
         private void showSubMenu(Panel subMenu)
         {
@@ -449,6 +450,21 @@ namespace Turismo
         {
             AbrirSubFormulario(new ListarReserva());
 
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            AbrirSubFormulario(new Reserva());
+        }
+
+        private void button16_Click_1(object sender, EventArgs e)
+        {
+            AbrirSubFormulario(new ListarReserva());
+        }
+
+        private void iconButton8_Click(object sender, EventArgs e)
+        {
+            showSubMenu(PanelSubMenuReserva);
         }
     }
 }

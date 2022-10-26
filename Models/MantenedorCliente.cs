@@ -278,5 +278,10 @@ namespace Turismo.Models
             cbxUsuario.DisplayMember = "nom_usuario";
             cbxUsuario.DataSource = dt;
         }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
