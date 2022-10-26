@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace Turismo
 {
-    internal class PostViewReserva
+    public class PostViewReserva
     {
         public int ID_RESERVA { get; set;}
         public string FECHA_INGRESO { get; set; }

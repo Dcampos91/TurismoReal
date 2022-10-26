@@ -444,5 +444,11 @@ namespace Turismo
         {
             AbrirSubFormulario(new Reserva());
         }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            AbrirSubFormulario(new ListarReserva());
+
+        }
     }
 }

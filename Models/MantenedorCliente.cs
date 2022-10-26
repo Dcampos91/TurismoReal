@@ -12,19 +12,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 using System.Windows.Forms;
+//using Turismo.Models.Request;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 using System.Runtime.InteropServices;
+using System.Data.OracleClient;
+using System.Data.SqlClient;
+using System.Windows.Controls;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using iText.Kernel.Pdf.Canvas.Wmf;
 
 
 namespace Turismo.Models
 {
     public partial class MantenedorCliente : Form
     {
+        OracleConnection ora = new OracleConnection("Data Source=orcl; User ID=C##TReal1; Password=oracle");
         public MantenedorCliente()
         {
             InitializeComponent();
+            cargaUsuario();
         }
         //Drag Form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -128,7 +136,7 @@ namespace Turismo.Models
         public async Task<string> GetHttp() // cargar los clientes en el datagrid
         {
          
-                string url = "http://127.0.0.1:8000/usuario/";
+                string url = "http://127.0.0.1:8000/listarCliente/";
                 WebRequest oRequest = WebRequest.Create(url);
                 WebResponse oResponse = oRequest.GetResponse();
                 StreamReader sr = new StreamReader(oResponse.GetResponseStream());
@@ -150,6 +158,7 @@ namespace Turismo.Models
 
         private async void btnGuardarCliente_Click(object sender, EventArgs e)//agregar cliente
         {
+            int idUsuario = int.Parse(cbxUsuario.SelectedValue.ToString());
             string url = "http://127.0.0.1:8000/cliente/crear/";
             var cliente = new HttpClient();
 
@@ -158,14 +167,14 @@ namespace Turismo.Models
                 RUT_CLIENTE = txtRutCliente.Text,
                 NOM_CLIENTE = txtNombreCliente.Text,
                 APELLIDO_PATERNO = txtApellidoPaterno.Text,
-                APELLIDO_MATERMO = txtApellidoPaterno.Text,
+                APELLIDO_MATERMO = txtApellidoMaterno.Text,
                 EDAD = int.Parse(txtEdad.Text),
                 NACIONALIDAD = cbxNacionalidad.Text,
                 GENERO = cbxGenero.Text,
                 DIRECCION_CLIENTE = txtDireccion.Text,
                 TELEFONO = int.Parse(txtTelefono.Text),
                 EMAIL = txtCorreo.Text,
-                USUARIO_ID_USUARIO = int.Parse(txtTipoCliente.Text),
+                USUARIO_ID_USUARIO = idUsuario,
 
             };
             var data = JsonSerializer.Serialize<PostViewCliente>(post);
@@ -176,7 +185,7 @@ namespace Turismo.Models
             {
                 var result = await httpResponse.Content.ReadAsStringAsync();
 
-                var postResult = JsonSerializer.Deserialize<PostViewDepartamento>(result);
+                var postResult = JsonSerializer.Deserialize<PostViewCliente>(result);
 
                 MessageBox.Show("Creado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -241,7 +250,7 @@ namespace Turismo.Models
             txtDireccion.Text = dgvCliente.CurrentRow.Cells[6].Value.ToString();
             txtTelefono.Text = dgvCliente.CurrentRow.Cells[7].Value.ToString();
             txtCorreo.Text = dgvCliente.CurrentRow.Cells[8].Value.ToString();
-            txtTipoCliente.Text = dgvCliente.CurrentRow.Cells[9].Value.ToString();
+            cbxUsuario.Text = dgvCliente.CurrentRow.Cells[9].Value.ToString();
             
         }
 
@@ -251,6 +260,23 @@ namespace Turismo.Models
             List<PostViewCliente> lst = JsonConvert.DeserializeObject<List<PostViewCliente>>(respuesta);
             dgvCliente.DataSource = lst;
 
+        }
+        private void cargaUsuario()
+        {
+            ora.Open();
+            OracleCommand comando = new OracleCommand("select id_usuario,nom_usuario from usuario ORDER BY id_usuario ASC", ora);
+            OracleDataAdapter data = new OracleDataAdapter(comando);
+            DataTable dt = new DataTable();
+            data.Fill(dt);
+            ora.Close();
+
+            DataRow fila = dt.NewRow();
+            fila["nom_usuario"] = "Nombre";
+            dt.Rows.InsertAt(fila, 0);
+
+            cbxUsuario.ValueMember = "id_usuario";
+            cbxUsuario.DisplayMember = "nom_usuario";
+            cbxUsuario.DataSource = dt;
         }
     }
 }
