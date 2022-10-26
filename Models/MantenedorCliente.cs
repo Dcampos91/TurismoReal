@@ -140,9 +140,7 @@ namespace Turismo.Models
                 WebRequest oRequest = WebRequest.Create(url);
                 WebResponse oResponse = oRequest.GetResponse();
                 StreamReader sr = new StreamReader(oResponse.GetResponseStream());
-                return await sr.ReadToEndAsync();
-            
-            
+                return await sr.ReadToEndAsync();  
 
             
         }
@@ -167,13 +165,13 @@ namespace Turismo.Models
                 RUT_CLIENTE = txtRutCliente.Text,
                 NOM_CLIENTE = txtNombreCliente.Text,
                 APELLIDO_PATERNO = txtApellidoPaterno.Text,
-                APELLIDO_MATERMO = txtApellidoMaterno.Text,
+                APELLIDO_MATERNO = txtApellidoMaterno.Text,
                 EDAD = int.Parse(txtEdad.Text),
                 NACIONALIDAD = cbxNacionalidad.Text,
                 GENERO = cbxGenero.Text,
                 DIRECCION_CLIENTE = txtDireccion.Text,
                 TELEFONO = int.Parse(txtTelefono.Text),
-                EMAIL = txtCorreo.Text,
+                EMAIL = txtDireccion.Text,
                 USUARIO_ID_USUARIO = idUsuario,
 
             };
@@ -198,13 +196,14 @@ namespace Turismo.Models
 
         private async void btnBuscarCliente_Click(object sender, EventArgs e)// Buscar cliente por ID
         {
+            var buscar = txtBuscarCliente.Text;
             string respuesta = await GetHttp();
-            List<PostViewDepartamento> lst = JsonConvert.DeserializeObject<List<PostViewDepartamento>>(respuesta);
+            List<PostViewCliente> lst = JsonConvert.DeserializeObject<List<PostViewCliente>>(respuesta);
             dgvCliente.DataSource = lst;
 
             async Task<string> GetHttp()
             {
-                string url = "http://127.0.0.1:8000/cliente/7";
+                string url = "http://127.0.0.1:8000/cliente/"+buscar;
                 WebRequest oRequest = WebRequest.Create(url);
                 WebResponse oResponse = oRequest.GetResponse();
                 StreamReader sr = new StreamReader(oResponse.GetResponseStream());
@@ -215,7 +214,8 @@ namespace Turismo.Models
 
         private async void btnEliminarCliente_Click(object sender, EventArgs e)// Eliminar cliente
         {
-            string url = "http://127.0.0.1:8000/cliente/eliminar/30";
+            var buscar = txtBuscarCliente.Text;
+            string url = "http://127.0.0.1:8000/cliente/eliminar/" + buscar;
             var depto = new HttpClient();
 
             PostViewCliente post = new PostViewCliente()
@@ -240,17 +240,18 @@ namespace Turismo.Models
 
         private void dgvCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)//autorellenar el datagrid
         {
-            txtRutCliente.Text = dgvCliente.CurrentRow.Cells[11].Value.ToString();
-            txtNombreCliente.Text = dgvCliente.CurrentRow.Cells[0].Value.ToString();
-            txtApellidoPaterno.Text = dgvCliente.CurrentRow.Cells[2].Value.ToString();
-            txtApellidoMaterno.Text = dgvCliente.CurrentRow.Cells[1].Value.ToString();
-            txtEdad.Text = dgvCliente.CurrentRow.Cells[3].Value.ToString();
-            cbxNacionalidad.Text = dgvCliente.CurrentRow.Cells[4].Value.ToString();
-            cbxGenero.Text = dgvCliente.CurrentRow.Cells[5].Value.ToString();
-            txtDireccion.Text = dgvCliente.CurrentRow.Cells[6].Value.ToString();
-            txtTelefono.Text = dgvCliente.CurrentRow.Cells[7].Value.ToString();
-            txtCorreo.Text = dgvCliente.CurrentRow.Cells[8].Value.ToString();
-            cbxUsuario.Text = dgvCliente.CurrentRow.Cells[9].Value.ToString();
+            txtBuscarCliente.Text = dgvCliente.CurrentRow.Cells[0].Value.ToString();
+            txtRutCliente.Text = dgvCliente.CurrentRow.Cells[1].Value.ToString();
+            txtNombreCliente.Text = dgvCliente.CurrentRow.Cells[2].Value.ToString();
+            txtApellidoPaterno.Text = dgvCliente.CurrentRow.Cells[3].Value.ToString();
+            txtApellidoMaterno.Text = dgvCliente.CurrentRow.Cells[4].Value.ToString();
+            txtEdad.Text = dgvCliente.CurrentRow.Cells[5].Value.ToString();
+            cbxNacionalidad.Text = dgvCliente.CurrentRow.Cells[6].Value.ToString();
+            cbxGenero.Text = dgvCliente.CurrentRow.Cells[7].Value.ToString();
+            txtDireccion.Text = dgvCliente.CurrentRow.Cells[8].Value.ToString();
+            txtTelefono.Text = dgvCliente.CurrentRow.Cells[9].Value.ToString();
+            txtCorreo.Text = dgvCliente.CurrentRow.Cells[10].Value.ToString();
+            cbxUsuario.Text = dgvCliente.CurrentRow.Cells[11].Value.ToString();
             
         }
 
@@ -264,7 +265,7 @@ namespace Turismo.Models
         private void cargaUsuario()
         {
             ora.Open();
-            OracleCommand comando = new OracleCommand("select id_usuario,nom_usuario from usuario ORDER BY id_usuario ASC", ora);
+            OracleCommand comando = new OracleCommand("select id_usuario,nom_usuario,tipo_usuario_id_tipo_usuario from usuario  WHERE tipo_usuario_id_tipo_usuario = 3 ORDER BY id_usuario ASC", ora);
             OracleDataAdapter data = new OracleDataAdapter(comando);
             DataTable dt = new DataTable();
             data.Fill(dt);
@@ -279,8 +280,44 @@ namespace Turismo.Models
             cbxUsuario.DataSource = dt;
         }
 
-        private void label8_Click(object sender, EventArgs e)
+        private async void btnModificar_Click(object sender, EventArgs e)
         {
+            int idUsuario = int.Parse(cbxUsuario.SelectedValue.ToString());
+            var buscar = txtBuscarCliente.Text;
+            string url = "http://127.0.0.1:8000/cliente/modificar/"+buscar;
+            var cliente = new HttpClient();
+
+            PostViewCliente post = new PostViewCliente()
+            {
+                RUT_CLIENTE = txtRutCliente.Text,
+                NOM_CLIENTE = txtNombreCliente.Text,
+                APELLIDO_PATERNO = txtApellidoPaterno.Text,
+                APELLIDO_MATERNO = txtApellidoMaterno.Text,
+                EDAD = int.Parse(txtEdad.Text),
+                NACIONALIDAD = cbxNacionalidad.Text,
+                GENERO = cbxGenero.Text,
+                DIRECCION_CLIENTE = txtDireccion.Text,
+                TELEFONO = int.Parse(txtTelefono.Text),
+                EMAIL = txtDireccion.Text,
+                USUARIO_ID_USUARIO = idUsuario,
+
+            };
+            var data = JsonSerializer.Serialize<PostViewCliente>(post);
+            HttpContent content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+            var httpResponse = await cliente.PostAsync(url, content);
+
+            if (httpResponse.IsSuccessStatusCode)
+            {
+                var result = await httpResponse.Content.ReadAsStringAsync();
+
+                var postResult = JsonSerializer.Deserialize<PostViewCliente>(result);
+
+                MessageBox.Show("Modificado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Error al modificar el cliente intenta de nuevo", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
     }

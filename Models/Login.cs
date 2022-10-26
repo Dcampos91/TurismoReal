@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OracleClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -13,6 +14,8 @@ namespace Turismo
 {
     public partial class Login : Form
     {
+        
+        OracleConnection ora = new OracleConnection("Data Source=orcl; User ID=C##TReal1; Password=oracle");
         public Login()
         {
             InitializeComponent();
@@ -121,9 +124,24 @@ namespace Turismo
 
         private void btnSeccion_Click(object sender, EventArgs e)
         {
-            this.Hide();//cierra la pantalla para pasar a la siguiente
-            VentanaPrincipal v1 = new VentanaPrincipal();//llama al siguiente formulario
-            v1.Show();
+            ora.Open();
+            OracleCommand comando = new OracleCommand("SELECT correo_usuario,contrasenia FROM usuario WHERE correo_usuario='" + txtCorreo.Text + "' AND contrasenia='" + txtContrasenia.Text + "'", ora);
+            //comando.Parameters.AddWithValue("@vusuario",txtCorreo.Text);
+            //comando.Parameters.AddWithValue("@vclave",txtContrasenia.Text);
+            OracleDataReader lector = comando.ExecuteReader();
+
+            if (lector.Read())
+            {
+                MessageBox.Show("Login Exitoso", "Turismo Real");
+                this.Hide();//cierra la pantalla para pasar a la siguiente
+                VentanaPrincipal v1 = new VentanaPrincipal();//llama al siguiente formulario
+                v1.Show();
+            }
+            else
+                MessageBox.Show("Login Incorrecto", "Turismo Real");
+
+
+            
         }
 
         private void Login_Load(object sender, EventArgs e)

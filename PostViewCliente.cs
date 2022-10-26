@@ -15,7 +15,7 @@ namespace Turismo
         public string RUT_CLIENTE { get; set; }
         public string NOM_CLIENTE { get; set; }
         public string APELLIDO_PATERNO { get; set; }
-        public string APELLIDO_MATERMO { get; set; }
+        public string APELLIDO_MATERNO { get; set; }
         public int EDAD { get; set; }
         public string NACIONALIDAD { get; set; }
         public string GENERO { get; set; }
