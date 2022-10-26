@@ -160,6 +160,12 @@
     <Compile Include="Models\ListadoDepartamento.Designer.cs">
       <DependentUpon>ListadoDepartamento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\ListarReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\ListarReserva.Designer.cs">
+      <DependentUpon>ListarReserva.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\ListarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +217,7 @@
     <Compile Include="PostViewCliente.cs" />
     <Compile Include="PostViewDepartamento.cs" />
     <Compile Include="PostViewListarDepartamento.cs" />
+    <Compile Include="PostViewListarReserva.cs" />
     <Compile Include="PostViewListarUsuario.cs" />
     <Compile Include="PostViewMTTO.cs" />
     <Compile Include="PostViewReserva.cs" />
@@ -231,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Models\ListadoDepartamento.resx">
       <DependentUpon>ListadoDepartamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\ListarReserva.resx">
+      <DependentUpon>ListarReserva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Models\ListarUsuario.resx">
       <DependentUpon>ListarUsuario.cs</DependentUpon>

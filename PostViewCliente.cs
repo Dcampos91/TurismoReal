@@ -11,6 +11,7 @@ namespace Turismo
 {
     public class PostViewCliente
     {
+        public int ID_CLIENTE { get; set; }
         public string RUT_CLIENTE { get; set; }
         public string NOM_CLIENTE { get; set; }
         public string APELLIDO_PATERNO { get; set; }
