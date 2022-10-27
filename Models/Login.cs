@@ -140,7 +140,7 @@ namespace Turismo
             else
                 MessageBox.Show("Login Incorrecto", "Turismo Real");
 
-
+            ora.Close();
             
         }
 

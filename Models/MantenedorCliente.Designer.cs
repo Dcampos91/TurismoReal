@@ -121,7 +121,7 @@
             this.btnEliminarCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminarCliente.Name = "btnEliminarCliente";
             this.btnEliminarCliente.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnEliminarCliente.Size = new System.Drawing.Size(120, 64);
+            this.btnEliminarCliente.Size = new System.Drawing.Size(142, 64);
             this.btnEliminarCliente.TabIndex = 6;
             this.btnEliminarCliente.Text = "ELIMINAR";
             this.btnEliminarCliente.UseVisualStyleBackColor = false;
@@ -136,7 +136,7 @@
             this.btnGuardarCliente.Location = new System.Drawing.Point(1152, 310);
             this.btnGuardarCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGuardarCliente.Name = "btnGuardarCliente";
-            this.btnGuardarCliente.Size = new System.Drawing.Size(120, 64);
+            this.btnGuardarCliente.Size = new System.Drawing.Size(142, 64);
             this.btnGuardarCliente.TabIndex = 45;
             this.btnGuardarCliente.Text = "AGREGAR";
             this.btnGuardarCliente.UseVisualStyleBackColor = false;
@@ -245,7 +245,6 @@
             this.label8.Size = new System.Drawing.Size(91, 17);
             this.label8.TabIndex = 30;
             this.label8.Text = "DIRECCIÓN";
-            
             // 
             // label7
             // 
@@ -323,10 +322,10 @@
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnModificar.Location = new System.Drawing.Point(1152, 379);
+            this.btnModificar.Location = new System.Drawing.Point(1152, 380);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(120, 64);
+            this.btnModificar.Size = new System.Drawing.Size(142, 64);
             this.btnModificar.TabIndex = 46;
             this.btnModificar.Text = "MODIFICAR";
             this.btnModificar.UseVisualStyleBackColor = false;
