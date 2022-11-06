@@ -63,7 +63,7 @@
             this.btnInforme.Name = "btnInforme";
             this.btnInforme.Size = new System.Drawing.Size(138, 28);
             this.btnInforme.TabIndex = 2;
-            this.btnInforme.Text = "Generar Informe";
+            this.btnInforme.Text = "Guarda / Imprimir";
             this.btnInforme.UseVisualStyleBackColor = true;
             this.btnInforme.Click += new System.EventHandler(this.btnInforme_Click);
             // 

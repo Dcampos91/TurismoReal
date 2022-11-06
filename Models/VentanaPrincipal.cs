@@ -181,7 +181,7 @@ namespace Turismo
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
-
+            AbrirSubFormulario(new MantenedorCheck_In());
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
@@ -465,6 +465,11 @@ namespace Turismo
         private void iconButton8_Click(object sender, EventArgs e)
         {
             showSubMenu(PanelSubMenuReserva);
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

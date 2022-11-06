@@ -105,7 +105,7 @@
             this.label5.Size = new System.Drawing.Size(108, 15);
             this.label5.TabIndex = 4;
             this.label5.Text = "ID DEPARTAMENTO";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            
             // 
             // label6
             // 
@@ -117,7 +117,7 @@
             this.label6.Size = new System.Drawing.Size(290, 28);
             this.label6.TabIndex = 5;
             this.label6.Text = "CREAR MANTENIMIENTO";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+           
             // 
             // FechaIngreso
             // 
@@ -263,7 +263,7 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(97, 14);
             this.txtBuscar.TabIndex = 21;
-            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+           
             // 
             // btnActualizar
             // 

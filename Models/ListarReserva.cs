@@ -13,6 +13,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.OracleClient;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -45,17 +46,18 @@ namespace Turismo.Models
             return await sr.ReadToEndAsync();
 
         }
+
         private void CrearPDF()
         {
             PdfWriter pdfWriter = new PdfWriter("Reporte1.pdf");
             PdfDocument pdf = new PdfDocument(pdfWriter);
             Document documento = new Document(pdf, PageSize.LETTER);
 
-            documento.SetMargins(60, 20, 55, 20);
+            documento.SetMargins(75, 17, 55, 17);
             PdfFont fontColumnas = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
             PdfFont fontContenido = PdfFontFactory.CreateFont(StandardFonts.HELVETICA);
 
-            string[] columnas = { "Fecha ingreso", "Fecha salida", "Cantidad de dias reservados", "Estado Reserva", "Nombre Departamento", "Nombre Usuario"};
+            string[] columnas = { "Fecha ingreso", "Fecha salida", "Cantidad de dias reservados", "Estado Reserva", "Nombre Departamento", "Nombre Usuario" };
 
             float[] tamanios = { 4, 4, 4, 4, 4, 4 };
             Table tabla = new Table(UnitValue.CreatePercentArray(tamanios));
@@ -68,6 +70,7 @@ namespace Turismo.Models
             ora.Open();
             OracleCommand comando = new OracleCommand("select r.fecha_ingreso, r.fecha_salida,r.cant_dia_reserva, r.estado_reserva, d.nom_depto , u.nom_usuario from reserva r, departamento d, usuario u where r.departamento_id_departamento = d.id_departamento and r.usuario_id_usuario = u.id_usuario", ora);
             OracleDataReader reader = comando.ExecuteReader();
+
 
             while (reader.Read())
             {
@@ -87,14 +90,14 @@ namespace Turismo.Models
 
             var titulo = new Paragraph("Reporte de Reserva");
             titulo.SetTextAlignment(TextAlignment.CENTER);
-            titulo.SetFontSize(12);
+            titulo.SetFontSize(17);
 
             var dfecha = DateTime.Now.ToString("dd-MM-yyyy");
             var dhora = DateTime.Now.ToString("hh:mm");
-            var fecha = new Paragraph("Fecha: "+dfecha+"\nHora: "+dhora);
-            fecha.SetFontSize(12);
+            var fecha = new Paragraph("Fecha: " + dfecha + "\nHora: " + dhora);
+            fecha.SetFontSize(10);
 
-            PdfDocument pdfDoc = new PdfDocument(new PdfReader("Reporte1.pdf"), new PdfWriter("ReporteReserva.pdf")); 
+            PdfDocument pdfDoc = new PdfDocument(new PdfReader("Reporte1.pdf"), new PdfWriter("ReporteReserva.pdf"));
 
             Document doc = new Document(pdfDoc);
 
@@ -108,15 +111,27 @@ namespace Turismo.Models
                 doc.ShowTextAligned(titulo, 150, y - 15, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
                 doc.ShowTextAligned(fecha, 520, y - 15, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
 
-                doc.ShowTextAligned(new Paragraph(String.Format("Página {0} de {1}", i, numeros)), pdfDoc.GetPage (i).GetPageSize().GetWidth() / 2, pdfDoc.GetPage(i).GetPageSize().GetBottom() +30, i, TextAlignment.CENTER, VerticalAlignment.TOP,0);
+                doc.ShowTextAligned(new Paragraph(String.Format("Página {0} de {1}", i, numeros)), pdfDoc.GetPage(i).GetPageSize().GetWidth() / 2, pdfDoc.GetPage(i).GetPageSize().GetBottom() + 30, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
             }
             doc.Close();
+            ora.Close();
+
 
         }
 
         private void btnInforme_Click(object sender, EventArgs e)
         {
-            CrearPDF();
+            SaveFileDialog guardar = new SaveFileDialog();
+            guardar.FileName = DateTime.Now.ToString("ddMMyyyyHHmmss");
+            if (guardar.ShowDialog() == DialogResult.OK)
+            {
+                CrearPDF();
+            }
+            
+            
+            //MessageBox.Show("Reporete Generado", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+       
     }
 }

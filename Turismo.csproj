@@ -184,6 +184,12 @@
     <Compile Include="Models\Mantendor_depto.Designer.cs">
       <DependentUpon>Mantendor_depto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\MantenedorCheck_In.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\MantenedorCheck_In.Designer.cs">
+      <DependentUpon>MantenedorCheck_In.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\MantenedorCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,6 +220,7 @@
     <Compile Include="Models\Reserva.Designer.cs">
       <DependentUpon>Reserva.cs</DependentUpon>
     </Compile>
+    <Compile Include="PostViewCheckIn.cs" />
     <Compile Include="PostViewCliente.cs" />
     <Compile Include="PostViewDepartamento.cs" />
     <Compile Include="PostViewListarDepartamento.cs" />
@@ -250,6 +257,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Models\Mantendor_depto.resx">
       <DependentUpon>Mantendor_depto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\MantenedorCheck_In.resx">
+      <DependentUpon>MantenedorCheck_In.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Models\MantenedorCliente.resx">
       <DependentUpon>MantenedorCliente.cs</DependentUpon>
@@ -304,6 +314,25 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\TurismoReal-removebg-preview %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AxAcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\System.Text.Json.6.0.6\build\System.Text.Json.targets" Condition="Exists('packages\System.Text.Json.6.0.6\build\System.Text.Json.targets')" />
