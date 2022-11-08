@@ -196,6 +196,12 @@
     <Compile Include="Models\MantenedorCliente.Designer.cs">
       <DependentUpon>MantenedorCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\MantenedorInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\MantenedorInventario.Designer.cs">
+      <DependentUpon>MantenedorInventario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\MantenedorUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +213,12 @@
     </Compile>
     <Compile Include="Models\Mantenimiento.Designer.cs">
       <DependentUpon>Mantenimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Menu_Checkeo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Menu_Checkeo.Designer.cs">
+      <DependentUpon>Menu_Checkeo.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\ReporteDepartamento.cs">
       <SubType>Form</SubType>
@@ -223,6 +235,7 @@
     <Compile Include="PostViewCheckIn.cs" />
     <Compile Include="PostViewCliente.cs" />
     <Compile Include="PostViewDepartamento.cs" />
+    <Compile Include="PostViewInventario.cs" />
     <Compile Include="PostViewListarDepartamento.cs" />
     <Compile Include="PostViewListarReserva.cs" />
     <Compile Include="PostViewListarUsuario.cs" />
@@ -264,11 +277,17 @@
     <EmbeddedResource Include="Models\MantenedorCliente.resx">
       <DependentUpon>MantenedorCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Models\MantenedorInventario.resx">
+      <DependentUpon>MantenedorInventario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Models\MantenedorUsuario.resx">
       <DependentUpon>MantenedorUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Models\Mantenimiento.resx">
       <DependentUpon>Mantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Menu_Checkeo.resx">
+      <DependentUpon>Menu_Checkeo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Models\ReporteDepartamento.resx">
       <DependentUpon>ReporteDepartamento.cs</DependentUpon>

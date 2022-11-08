@@ -207,6 +207,7 @@ namespace Turismo.Models
             cbxDepartamento.ValueMember = "id_departamento";
             cbxDepartamento.DisplayMember = "nom_depto";
             cbxDepartamento.DataSource = dt;
+            ora.Close();
         }
 
         private async void btnModificarMtto_Click(object sender, EventArgs e)

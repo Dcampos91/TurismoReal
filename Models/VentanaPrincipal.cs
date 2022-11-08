@@ -471,5 +471,10 @@ namespace Turismo
         {
             
         }
+
+        private void button17_Click_1(object sender, EventArgs e)
+        {
+            AbrirSubFormulario(new Menu_Checkeo());
+        }
     }
 }
