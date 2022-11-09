@@ -142,12 +142,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\IngresarInventario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Models\IngresarInventario.Designer.cs">
-      <DependentUpon>IngresarInventario.cs</DependentUpon>
-    </Compile>
     <Compile Include="Models\IngresarProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,9 +244,6 @@
     <Compile Include="Models\VentanaPrincipal.Designer.cs">
       <DependentUpon>VentanaPrincipal.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Models\IngresarInventario.resx">
-      <DependentUpon>IngresarInventario.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Models\IngresarProducto.resx">
       <DependentUpon>IngresarProducto.cs</DependentUpon>
     </EmbeddedResource>

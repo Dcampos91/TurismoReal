@@ -128,12 +128,6 @@ namespace Turismo.Models
             }
             base.WndProc(ref m);
         }
-        private void btnAtras_Click(object sender, EventArgs e)
-        {
-            this.Hide();//cierra la pantalla para pasar a la siguiente
-            IngresarInventario v1 = new IngresarInventario();//llama al siguiente formulario
-            v1.Show();
-        }
 
         private void IngresarProducto_Load(object sender, EventArgs e)
         {

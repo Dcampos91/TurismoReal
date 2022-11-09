@@ -42,7 +42,7 @@ namespace Turismo.Models
 
                 FECHA_INVENTARIO = Ingreso,
                 CANT_PRODUCTO_INVENTARIO = int.Parse(txtCantidad.Text),
-                VALOR_ESTIMADO = int.Parse(txtCantidad.Text),
+                VALOR_ESTIMADO = int.Parse(txtValor.Text),
                 DESCRIPCION_INVENTARIO = txtDescripcion.Text,
                 DEPARTAMENTO_ID_DEPARTAMENTO = idDepartamento,
                 PRODUCTO_ID_PRODUCTO = idProducto,
@@ -92,7 +92,7 @@ namespace Turismo.Models
             ora.Close();
 
             DataRow fila = dt.NewRow();
-            fila["nom_depto"] = "Nombre";
+            fila["nom_depto"] = "Nombre departamento";
             dt.Rows.InsertAt(fila, 0);
 
             cbxIDdepartamento.ValueMember = "id_departamento";
@@ -111,12 +111,12 @@ namespace Turismo.Models
             ora.Close();
 
             DataRow fila = dt.NewRow();
-            fila["nom_producto"] = "Nombre";
+            fila["nom_producto"] = "Nombre producto";
             dt.Rows.InsertAt(fila, 0);
 
-            cbxIDdepartamento.ValueMember = "id_producto";
-            cbxIDdepartamento.DisplayMember = "nom_producto";
-            cbxIDdepartamento.DataSource = dt;
+            cbxIDProducto.ValueMember = "id_producto";
+            cbxIDProducto.DisplayMember = "nom_producto";
+            cbxIDProducto.DataSource = dt;
             ora.Close();
         }
 
@@ -189,11 +189,12 @@ namespace Turismo.Models
         private void dgvInventario_CellContentClick(object sender, DataGridViewCellEventArgs e)//auto completa 
         {
             txtBuscar.Text = dgvInventario.CurrentRow.Cells[0].Value.ToString();
-            txtCantidad.Text = dgvInventario.CurrentRow.Cells[1].Value.ToString();
-            txtValor.Text = dgvInventario.CurrentRow.Cells[2].Value.ToString();
-            txtDescripcion.Text = dgvInventario.CurrentRow.Cells[3].Value.ToString();
-            cbxIDdepartamento.Text = dgvInventario.CurrentRow.Cells[4].Value.ToString();
-            cbxIDProducto.Text = dgvInventario.CurrentRow.Cells[5].Value.ToString();
+            FechaInventario.Text = dgvInventario.CurrentRow.Cells[1].Value.ToString();
+            txtCantidad.Text = dgvInventario.CurrentRow.Cells[2].Value.ToString();
+            txtValor.Text = dgvInventario.CurrentRow.Cells[3].Value.ToString();
+            txtDescripcion.Text = dgvInventario.CurrentRow.Cells[4].Value.ToString();
+            cbxIDdepartamento.Text = dgvInventario.CurrentRow.Cells[5].Value.ToString();
+            cbxIDProducto.Text = dgvInventario.CurrentRow.Cells[6].Value.ToString();
         }
 
         private async void btnBuscar_Click(object sender, EventArgs e)//busca inventario
@@ -212,6 +213,13 @@ namespace Turismo.Models
                 return await sr.ReadToEndAsync();
 
             }
+        }
+
+        private async void btnActualizar_Click(object sender, EventArgs e)
+        {
+            string respuesta = await GetHttp();
+            List<PostViewInventario> lst = JsonConvert.DeserializeObject<List<PostViewInventario>>(respuesta);
+            dgvInventario.DataSource = lst;
         }
     }
 }

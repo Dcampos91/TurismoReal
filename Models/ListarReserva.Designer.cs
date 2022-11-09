@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListarReserva));
             this.label1 = new System.Windows.Forms.Label();
             this.dgvReserva = new System.Windows.Forms.DataGridView();
             this.btnInforme = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReserva)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,11 +69,26 @@
             this.btnInforme.UseVisualStyleBackColor = true;
             this.btnInforme.Click += new System.EventHandler(this.btnInforme_Click);
             // 
+            // btnActualizar
+            // 
+            this.btnActualizar.BackColor = System.Drawing.SystemColors.Menu;
+            this.btnActualizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnActualizar.BackgroundImage")));
+            this.btnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnActualizar.Location = new System.Drawing.Point(127, 66);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnActualizar.Size = new System.Drawing.Size(35, 34);
+            this.btnActualizar.TabIndex = 77;
+            this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
             // ListarReserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1295, 754);
+            this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnInforme);
             this.Controls.Add(this.dgvReserva);
             this.Controls.Add(this.label1);
@@ -90,5 +107,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvReserva;
         private System.Windows.Forms.Button btnInforme;
+        private System.Windows.Forms.Button btnActualizar;
     }
 }

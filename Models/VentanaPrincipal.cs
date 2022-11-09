@@ -162,13 +162,6 @@ namespace Turismo
             v5.Show();
         }
 
-        private void btnInventario_Click(object sender, EventArgs e)
-        {
-            this.Hide();//cierra la pantalla para pasar a la siguiente
-            IngresarInventario v6 = new IngresarInventario();//llama al siguiente formulario
-            v6.Show();
-        }
-
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -390,7 +383,7 @@ namespace Turismo
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            AbrirSubFormulario(new IngresarInventario());
+            AbrirSubFormulario(new MantenedorInventario());
         }
 
         private void button8_Click(object sender, EventArgs e)

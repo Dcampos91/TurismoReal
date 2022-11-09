@@ -132,6 +132,11 @@ namespace Turismo.Models
             //MessageBox.Show("Reporete Generado", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-       
+        private async void btnActualizar_Click(object sender, EventArgs e)
+        {
+            string respuesta = await GetHttp();
+            List<PostViewListarReserva> lst = JsonConvert.DeserializeObject<List<PostViewListarReserva>>(respuesta);
+            dgvReserva.DataSource = lst;
+        }
     }
 }
