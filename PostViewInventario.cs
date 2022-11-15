@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Turismo
 {
-    internal class PostViewInventario
+    public class PostViewInventario
     {
         public int ID_INVENTARIO { get; set; }
         public string FECHA_INVENTARIO { get; set; }

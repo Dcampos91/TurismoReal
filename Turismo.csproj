@@ -184,6 +184,12 @@
     <Compile Include="Models\MantenedorCheck_In.Designer.cs">
       <DependentUpon>MantenedorCheck_In.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\MantenedorCheck_Out.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\MantenedorCheck_Out.Designer.cs">
+      <DependentUpon>MantenedorCheck_Out.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\MantenedorCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -227,6 +233,7 @@
       <DependentUpon>Reserva.cs</DependentUpon>
     </Compile>
     <Compile Include="PostViewCheckIn.cs" />
+    <Compile Include="PostViewCheckOut.cs" />
     <Compile Include="PostViewCliente.cs" />
     <Compile Include="PostViewDepartamento.cs" />
     <Compile Include="PostViewInventario.cs" />
@@ -264,6 +271,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Models\MantenedorCheck_In.resx">
       <DependentUpon>MantenedorCheck_In.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\MantenedorCheck_Out.resx">
+      <DependentUpon>MantenedorCheck_Out.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Models\MantenedorCliente.resx">
       <DependentUpon>MantenedorCliente.cs</DependentUpon>

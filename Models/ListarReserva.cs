@@ -49,7 +49,7 @@ namespace Turismo.Models
 
         private void CrearPDF()
         {
-            PdfWriter pdfWriter = new PdfWriter("Reporte1.pdf");
+            PdfWriter pdfWriter = new PdfWriter(@"C:\Users\Diego\Desktop\Reporte\Reporte1.pdf");
             PdfDocument pdf = new PdfDocument(pdfWriter);
             Document documento = new Document(pdf, PageSize.LETTER);
 
@@ -97,7 +97,7 @@ namespace Turismo.Models
             var fecha = new Paragraph("Fecha: " + dfecha + "\nHora: " + dhora);
             fecha.SetFontSize(10);
 
-            PdfDocument pdfDoc = new PdfDocument(new PdfReader("Reporte1.pdf"), new PdfWriter("ReporteReserva.pdf"));
+            PdfDocument pdfDoc = new PdfDocument(new PdfReader("Reporte1.pdf"), new PdfWriter(@"C:\Users\Diego\Desktop\Reporte\ReporteReserva.pdf"));
 
             Document doc = new Document(pdfDoc);
 
@@ -121,15 +121,8 @@ namespace Turismo.Models
 
         private void btnInforme_Click(object sender, EventArgs e)
         {
-            SaveFileDialog guardar = new SaveFileDialog();
-            guardar.FileName = DateTime.Now.ToString("ddMMyyyyHHmmss");
-            if (guardar.ShowDialog() == DialogResult.OK)
-            {
-                CrearPDF();
-            }
-            
-            
-            //MessageBox.Show("Reporete Generado", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            CrearPDF();
+            MessageBox.Show("Reporete Generado", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private async void btnActualizar_Click(object sender, EventArgs e)

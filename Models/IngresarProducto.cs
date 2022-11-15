@@ -138,5 +138,10 @@ namespace Turismo.Models
         {
             AdjustForm();
         }
+
+        private void txtValorProducto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

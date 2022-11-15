@@ -72,9 +72,8 @@ namespace Turismo.Models
             }
 
             documento.Add(tabla);
-
-
             documento.Close();
+            ora.Close();    
         }
     }
 }

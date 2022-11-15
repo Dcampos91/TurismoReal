@@ -36,6 +36,7 @@ namespace Turismo.Models
             string respuesta = await GetHttp();
             List<PostViewCheckIn> lst = JsonConvert.DeserializeObject<List<PostViewCheckIn>>(respuesta);
             dgvCheckIn.DataSource = lst;
+
         }
         public async Task<string> GetHttp() //cargar el datagrid
         {
@@ -44,6 +45,7 @@ namespace Turismo.Models
             WebResponse oResponse = oRequest.GetResponse();
             StreamReader sr = new StreamReader(oResponse.GetResponseStream());
             return await sr.ReadToEndAsync();
+
 
         }
         private void cargaUsuario()
@@ -62,6 +64,7 @@ namespace Turismo.Models
             cbxIDReserva.ValueMember = "id_reserva";
             cbxIDReserva.DisplayMember = "id_reserva";
             cbxIDReserva.DataSource = dt;
+            ora.Close();
         }//modicar la query para cargar los datos en el combobox
 
         private async void button1_Click(object sender, EventArgs e) // ingresar check-in
@@ -184,6 +187,13 @@ namespace Turismo.Models
                 return await sr.ReadToEndAsync();
 
             }
+        }
+
+        private async void btnActualizar_Click(object sender, EventArgs e)
+        {
+            string respuesta = await GetHttp();
+            List<PostViewCheckIn> lst = JsonConvert.DeserializeObject<List<PostViewCheckIn>>(respuesta);
+            dgvCheckIn.DataSource = lst;
         }
     }
 }

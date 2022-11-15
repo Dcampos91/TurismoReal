@@ -58,6 +58,9 @@ namespace Turismo.Models
             var Ingreso = ingreso.ToString("yyyy/MM/dd");
             var Salida = salida.ToString("yyyy/MM/dd");
             var Modificacion = modificacion.ToString("yyyy/MM/dd");
+            var IngresoD = ingreso.ToString("dd");
+            var SalidaD = salida.ToString("dd");
+            var total = IngresoD + SalidaD;
             int idCliente = int.Parse(cbxCliente.SelectedValue.ToString());
             int idDepartamento = int.Parse(cbxDepartamento.SelectedValue.ToString());
             PostViewReserva post = new PostViewReserva()

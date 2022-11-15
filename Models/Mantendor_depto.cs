@@ -327,6 +327,9 @@ namespace Turismo
             cbxComuna.DataSource = dt;
         }
 
-       
+        private void txtValor_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

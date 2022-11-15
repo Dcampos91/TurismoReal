@@ -144,7 +144,7 @@ namespace Turismo.Models
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
-            AbrirSubFormulario(new MantenedorCheck_In());
+            AbrirSubFormulario(new MantenedorCheck_Out());
 
         }
 

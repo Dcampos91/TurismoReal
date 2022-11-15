@@ -9,12 +9,13 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Turismo
 {
     public partial class Login : Form
     {
-        
+
         OracleConnection ora = new OracleConnection("Data Source=orcl; User ID=C##TReal1; Password=oracle");
         public Login()
         {
@@ -124,23 +125,63 @@ namespace Turismo
 
         private void btnSeccion_Click(object sender, EventArgs e)
         {
-            ora.Open();
-            OracleCommand comando = new OracleCommand("SELECT correo_usuario,contrasenia FROM usuario WHERE correo_usuario='" + txtCorreo.Text + "' AND contrasenia='" + txtContrasenia.Text + "'", ora);
-            //comando.Parameters.AddWithValue("@vusuario",txtCorreo.Text);
-            //comando.Parameters.AddWithValue("@vclave",txtContrasenia.Text);
-            OracleDataReader lector = comando.ExecuteReader();
-
-            if (lector.Read())
+            try
             {
-                MessageBox.Show("Login Exitoso", "Turismo Real");
-                this.Hide();//cierra la pantalla para pasar a la siguiente
-                VentanaPrincipal v1 = new VentanaPrincipal();//llama al siguiente formulario
-                v1.Show();
+                ora.Open();
+                OracleCommand comando = new OracleCommand("SELECT correo_usuario,contrasenia FROM usuario WHERE correo_usuario='" + txtCorreo.Text + "' AND contrasenia='" + txtContrasenia.Text + "'", ora);
+                OracleDataReader lector = comando.ExecuteReader();
+                if (lector.Read())
+                {
+                    MessageBox.Show("Login Exitoso.", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Hide();//cierra la pantalla para pasar a la siguiente
+                    VentanaPrincipal v1 = new VentanaPrincipal();//llama al siguiente formulario
+                    v1.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Usuario y/o Contraseña inconrrectos.", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                if (ValidarEmail(txtCorreo.Text) == false)
+                {
+                    lblValido.Text = "DIRECCIÓN DE CORREO INVALIDA";
+                    lblValido.ForeColor = Color.Red;
+                }
+                else
+                {
+                    //lblValido.Text = "DIRECCIÓN DE CORREO VALIDA";
+                    //lblValido.ForeColor = Color.Green;
+                }
+
+                ora.Close();
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            
+
+        }
+        
+        public static bool ValidarEmail(string comprobarEmail)
+        {
+            string emailFormato;
+            emailFormato = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(comprobarEmail, emailFormato))
+            {
+                if (Regex.Replace(comprobarEmail, emailFormato, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
-                MessageBox.Show("Login Incorrecto", "Turismo Real");
-
-            ora.Close();
+            {
+                return false;
+            }
             
         }
 
@@ -152,6 +193,16 @@ namespace Turismo
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -156,13 +156,27 @@ namespace Turismo.Models
 
         private async void btnGuardarCliente_Click(object sender, EventArgs e)//agregar cliente
         {
+            string rut = txtRutCliente.Text;
+            bool respuesta = validarRut(rut);
+
+            if (validarRut(txtRutCliente.Text) == false)
+            {
+                lblrut.Text = "RUT INVALIDO";
+                lblrut.ForeColor = Color.Red;
+            }
+            else
+            {
+                lblrut.Text = "RUT VALIDO";
+                lblrut.ForeColor = Color.Green;
+            }
+
             int idUsuario = int.Parse(cbxUsuario.SelectedValue.ToString());
             string url = "http://127.0.0.1:8000/cliente/crear/";
             var cliente = new HttpClient();
 
             PostViewCliente post = new PostViewCliente()
             {
-                RUT_CLIENTE = txtRutCliente.Text,
+                RUT_CLIENTE = rut,
                 NOM_CLIENTE = txtNombreCliente.Text,
                 APELLIDO_PATERNO = txtApellidoPaterno.Text,
                 APELLIDO_MATERNO = txtApellidoMaterno.Text,
@@ -320,5 +334,41 @@ namespace Turismo.Models
             }
 
         }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public bool validarRut(string rut)
+        {
+            bool validacion = false;
+            try
+            {
+                rut = rut.ToUpper();
+                rut = rut.Replace(".", "");
+                rut = rut.Replace("-", "");
+                int rutAux = int.Parse(rut.Substring(0, rut.Length - 1));
+
+                char dv = char.Parse(rut.Substring(rut.Length - 1, 1));
+
+                int m = 0, s = 1;
+                for (; rutAux != 0; rutAux /= 10)
+                {
+                    s = (s + rutAux % 10 * (9 - m++ % 6)) % 11;
+                }
+                if (dv == (char)(s != 0 ? s + 47 : 75))
+                {
+                    validacion = true;
+                }
+
+            }
+            catch (Exception)
+            {
+            }
+            return validacion;
+
+        }
+
     }
 }
