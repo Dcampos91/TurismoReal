@@ -129,9 +129,9 @@ namespace Turismo.Models
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Hide();//cierra la pantalla para pasar a la siguiente
-            VentanaPrincipal v1 = new VentanaPrincipal();//llama al siguiente formulario
-            v1.Show();
+            //this.Hide();//cierra la pantalla para pasar a la siguiente
+            //VentanaPrincipal v1 = new VentanaPrincipal();//llama al siguiente formulario
+            //v1.Show();
         }
 
         private async void Mantenimiento_Load(object sender, EventArgs e)

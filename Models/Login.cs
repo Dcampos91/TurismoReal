@@ -18,7 +18,8 @@ using System.Text.Json.Serialization;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 using System.Runtime.InteropServices;
 using System.Data.OracleClient;
-using System.Data.SqlClient; 
+using System.Data.SqlClient;
+using Turismo.Models;
 
 namespace Turismo
 {
@@ -31,7 +32,7 @@ namespace Turismo
             InitializeComponent();
         }
         //Drag Form
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]    
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
@@ -134,45 +135,7 @@ namespace Turismo
 
         private void btnSeccion_Click(object sender, EventArgs e)
         {
-            try
-            {
-                ora.Open();
-                OracleCommand comando = new OracleCommand("select correo_usuario,tipo_usuario_id_tipo_usuario,contrasenia from usuario WHERE correo_usuario='" + txtCorreo.Text + "' AND contrasenia='" + txtContrasenia.Text + "'", ora)
-                //OracleCommand comando = new OracleCommand("SELECT correo_usuario,contrasenia FROM usuario WHERE correo_usuario='" + txtCorreo.Text + "' AND contrasenia='" + txtContrasenia.Text + "'", ora);
-                //OracleDataReader lector = comando.ExecuteReader();
-                OracleDataAdapter data = new OracleDataAdapter(comando);
-                DataTable dt = new DataTable();
-                data.Fill(dt);
-
-                if (dt.Rows.Count == 1)
-                {
-                    this.Hide();
-                    if (dt.Rows[0][1].ToString() == "1")
-                    {
-                        //new VentanaPrincipal(dt.Rows[0][0].ToString()).show();
-                    }
-                    else if (dt.Rows[0][1].ToString() == "2")
-                    { 
-
-                    }
-                    //MessageBox.Show("Login Exitoso.", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //this.Hide();//cierra la pantalla para pasar a la siguiente
-                    //VentanaPrincipal v1 = new VentanaPrincipal();//llama al siguiente formulario
-                    //v1.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Usuario y/o Contraseña inconrrectos.", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-                ora.Close();
-            }
-            catch (Exception ex) 
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            
-
+            logear();
         }           
         
 
@@ -212,6 +175,57 @@ namespace Turismo
                 errorP.SetError(txtContrasenia, "No puede dejar vacio");
             else
                 errorP.Clear();
+        }
+
+        public void logear()
+        {
+            try
+            {
+                ora.Open();
+                OracleCommand comando = new OracleCommand("SELECT correo_usuario,tipo_usuario_id_tipo_usuario,contrasenia FROM usuario WHERE correo_usuario='" + txtCorreo.Text + "' AND contrasenia='" + txtContrasenia.Text + "'", ora);
+                OracleDataAdapter oda = new OracleDataAdapter(comando);
+                DataTable dt = new DataTable();
+                oda.Fill(dt);
+
+                if (dt.Rows.Count == 1)
+                {
+                    //this.Hide();
+                    if (dt.Rows[0][1].ToString() == "1")
+                    {
+                        VentanaPrincipal v1 = new VentanaPrincipal();//llama al siguiente formulario
+                        v1.Show();
+                    }
+                    else if (dt.Rows[0][1].ToString() == "2")
+                    {
+                        FuncionarioPrincipal v1 = new FuncionarioPrincipal();//llama al siguiente formulario
+                        v1.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Correo no permitido para el ingreso.", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Usuario y/o Contraseña inconrrectos.", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }         
+
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            finally 
+            {
+                ora.Close();
+            }
+           
+            
+           
+
+            
         }
     }
 }
