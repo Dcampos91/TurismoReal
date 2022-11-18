@@ -80,6 +80,7 @@
             // 
             this.txtObservacion.BackColor = System.Drawing.Color.Gainsboro;
             this.txtObservacion.Location = new System.Drawing.Point(42, 424);
+            this.txtObservacion.MaxLength = 300;
             this.txtObservacion.Multiline = true;
             this.txtObservacion.Name = "txtObservacion";
             this.txtObservacion.Size = new System.Drawing.Size(287, 112);

@@ -215,7 +215,33 @@ namespace Turismo.Models
             cbxTipoUsuario.DataSource = dt;
         }
 
-       
+           
 
+        ErrorProvider errorP = new ErrorProvider();
+        private void txtNomUsuario_Leave(object sender, EventArgs e)
+        {
+            if (ValidarTxt.textVacio(txtNomUsuario))
+                errorP.SetError(txtNomUsuario, "No puede dejar vacio");
+            else
+                errorP.Clear();
+        }
+
+        private void txtContraseniaUsuario_Leave(object sender, EventArgs e)
+        {
+            if (ValidarTxt.textVacio(txtContraseniaUsuario))
+                errorP.SetError(txtContraseniaUsuario, "No puede dejar vacio");
+            else
+                errorP.Clear();
+        }
+
+        private void txtCorreoUsuario_Leave(object sender, EventArgs e)
+        {
+            if (ValidarTxt.textVacio(txtCorreoUsuario))
+                errorP.SetError(txtCorreoUsuario, "No puede dejar vacio");
+            if (!ValidarTxt.validarEmail(txtCorreoUsuario.Text))
+                errorP.SetError(txtCorreoUsuario, "Correo no valido");
+            else
+                errorP.Clear();
+        }
     }
 }

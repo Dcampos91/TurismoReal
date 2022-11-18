@@ -123,7 +123,9 @@
             this.FechaIngreso.Cursor = System.Windows.Forms.Cursors.Hand;
             this.FechaIngreso.Location = new System.Drawing.Point(45, 221);
             this.FechaIngreso.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
-            this.FechaIngreso.MinDate = new System.DateTime(2021, 1, 1, 0, 0, 0, 0);
+            this.FechaIngreso.MaxDate = new System.DateTime(2024, 12, 31, 0, 0, 0, 0);
+            this.FechaIngreso.MaxSelectionCount = 1;
+            this.FechaIngreso.MinDate = new System.DateTime(2022, 11, 16, 0, 0, 0, 0);
             this.FechaIngreso.Name = "FechaIngreso";
             this.FechaIngreso.TabIndex = 7;
             this.FechaIngreso.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(101)))));
@@ -138,6 +140,7 @@
             this.txtDescripcionMtto.Name = "txtDescripcionMtto";
             this.txtDescripcionMtto.Size = new System.Drawing.Size(771, 200);
             this.txtDescripcionMtto.TabIndex = 9;
+            this.txtDescripcionMtto.Leave += new System.EventHandler(this.txtDescripcionMtto_Leave);
             // 
             // dgvMTTO
             // 
@@ -214,6 +217,9 @@
             // 
             this.FechaSalida.Location = new System.Drawing.Point(45, 477);
             this.FechaSalida.Margin = new System.Windows.Forms.Padding(8);
+            this.FechaSalida.MaxDate = new System.DateTime(2025, 12, 31, 0, 0, 0, 0);
+            this.FechaSalida.MaxSelectionCount = 1;
+            this.FechaSalida.MinDate = new System.DateTime(2022, 11, 16, 13, 0, 58, 0);
             this.FechaSalida.Name = "FechaSalida";
             this.FechaSalida.TabIndex = 17;
             this.FechaSalida.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(101)))));

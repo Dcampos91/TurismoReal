@@ -331,5 +331,40 @@ namespace Turismo
         {
 
         }
+
+        ErrorProvider errorP = new ErrorProvider();
+        private void txtNomdepto_Leave(object sender, EventArgs e)
+        {
+            if (ValidarTxt.textVacio(txtNomdepto))
+                errorP.SetError(txtNomdepto, "No puede dejar vacio");
+            else
+                errorP.Clear();
+        }
+
+        private void txtdireccion_Leave(object sender, EventArgs e)
+        {
+            if (ValidarTxt.textVacio(txtdireccion))
+                errorP.SetError(txtdireccion, "No puede dejar vacio");
+            else
+                errorP.Clear();
+
+        }
+
+        private void txtDesc_Leave(object sender, EventArgs e)
+        {
+            if (ValidarTxt.textVacio(txtDesc))
+                errorP.SetError(txtDesc, "No puede dejar vacio");
+            else
+                errorP.Clear();
+        }
+
+        private void txtValor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool valida = ValidarTxt.soloNumeros(e);
+            if (!valida)
+                errorP.SetError(txtValor, "Solo números");
+            else
+                errorP.Clear();
+        }
     }
 }

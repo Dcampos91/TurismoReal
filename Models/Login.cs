@@ -1,15 +1,24 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.OracleClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
+using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 using System.Windows.Forms;
-using System.Text.RegularExpressions;
+//using Turismo.Models.Request;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using JsonSerializer = System.Text.Json.JsonSerializer;
+using System.Runtime.InteropServices;
+using System.Data.OracleClient;
+using System.Data.SqlClient; 
 
 namespace Turismo
 {
@@ -128,29 +137,32 @@ namespace Turismo
             try
             {
                 ora.Open();
-                OracleCommand comando = new OracleCommand("SELECT correo_usuario,contrasenia FROM usuario WHERE correo_usuario='" + txtCorreo.Text + "' AND contrasenia='" + txtContrasenia.Text + "'", ora);
-                OracleDataReader lector = comando.ExecuteReader();
-                if (lector.Read())
+                OracleCommand comando = new OracleCommand("select correo_usuario,tipo_usuario_id_tipo_usuario,contrasenia from usuario WHERE correo_usuario='" + txtCorreo.Text + "' AND contrasenia='" + txtContrasenia.Text + "'", ora)
+                //OracleCommand comando = new OracleCommand("SELECT correo_usuario,contrasenia FROM usuario WHERE correo_usuario='" + txtCorreo.Text + "' AND contrasenia='" + txtContrasenia.Text + "'", ora);
+                //OracleDataReader lector = comando.ExecuteReader();
+                OracleDataAdapter data = new OracleDataAdapter(comando);
+                DataTable dt = new DataTable();
+                data.Fill(dt);
+
+                if (dt.Rows.Count == 1)
                 {
-                    MessageBox.Show("Login Exitoso.", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Hide();//cierra la pantalla para pasar a la siguiente
-                    VentanaPrincipal v1 = new VentanaPrincipal();//llama al siguiente formulario
-                    v1.Show();
+                    this.Hide();
+                    if (dt.Rows[0][1].ToString() == "1")
+                    {
+                        //new VentanaPrincipal(dt.Rows[0][0].ToString()).show();
+                    }
+                    else if (dt.Rows[0][1].ToString() == "2")
+                    { 
+
+                    }
+                    //MessageBox.Show("Login Exitoso.", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //this.Hide();//cierra la pantalla para pasar a la siguiente
+                    //VentanaPrincipal v1 = new VentanaPrincipal();//llama al siguiente formulario
+                    //v1.Show();
                 }
                 else
                 {
                     MessageBox.Show("Usuario y/o Contraseña inconrrectos.", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-                if (ValidarEmail(txtCorreo.Text) == false)
-                {
-                    lblValido.Text = "DIRECCIÓN DE CORREO INVALIDA";
-                    lblValido.ForeColor = Color.Red;
-                }
-                else
-                {
-                    //lblValido.Text = "DIRECCIÓN DE CORREO VALIDA";
-                    //lblValido.ForeColor = Color.Green;
                 }
 
                 ora.Close();
@@ -161,29 +173,8 @@ namespace Turismo
             }
             
 
-        }
+        }           
         
-        public static bool ValidarEmail(string comprobarEmail)
-        {
-            string emailFormato;
-            emailFormato = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
-            if (Regex.IsMatch(comprobarEmail, emailFormato))
-            {
-                if (Regex.Replace(comprobarEmail, emailFormato, String.Empty).Length == 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
-            
-        }
 
         private void Login_Load(object sender, EventArgs e)
         {
@@ -203,6 +194,24 @@ namespace Turismo
         private void iconButton1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+        ErrorProvider errorP = new ErrorProvider();
+        private void txtCorreo_Leave(object sender, EventArgs e)
+        {
+            if (ValidarTxt.textVacio(txtCorreo))
+                errorP.SetError(txtCorreo, "No puede dejar vacio");
+            if (!ValidarTxt.validarEmail(txtCorreo.Text))
+                errorP.SetError(txtCorreo, "Correo no valido");
+            else
+                errorP.Clear();
+        }
+
+        private void txtContrasenia_Leave(object sender, EventArgs e)
+        {
+            if (ValidarTxt.textVacio(txtContrasenia))
+                errorP.SetError(txtContrasenia, "No puede dejar vacio");
+            else
+                errorP.Clear();
         }
     }
 }

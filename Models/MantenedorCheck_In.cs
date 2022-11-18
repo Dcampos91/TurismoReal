@@ -195,5 +195,14 @@ namespace Turismo.Models
             List<PostViewCheckIn> lst = JsonConvert.DeserializeObject<List<PostViewCheckIn>>(respuesta);
             dgvCheckIn.DataSource = lst;
         }
+
+        ErrorProvider errorP = new ErrorProvider();
+        private void txtObservacion_Leave(object sender, EventArgs e)
+        {
+            if (ValidarTxt.textVacio(txtObservacion))
+                errorP.SetError(txtObservacion, "No puede dejar vacio");
+            else
+                errorP.Clear();
+        }
     }
 }

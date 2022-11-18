@@ -316,6 +316,13 @@ namespace Turismo.Models
             dgvMTTO.DataSource = lst;
 
         }
-
+        ErrorProvider errorP = new ErrorProvider();
+        private void txtDescripcionMtto_Leave(object sender, EventArgs e)
+        {
+            if (ValidarTxt.textVacio(txtDescripcionMtto))
+                errorP.SetError(txtDescripcionMtto, "No puede dejar vacio");
+            else
+                errorP.Clear();
+        }
     }
 }

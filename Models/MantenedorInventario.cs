@@ -221,5 +221,31 @@ namespace Turismo.Models
             List<PostViewInventario> lst = JsonConvert.DeserializeObject<List<PostViewInventario>>(respuesta);
             dgvInventario.DataSource = lst;
         }
+        ErrorProvider errorP = new ErrorProvider();
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool valida = ValidarTxt.soloNumeros(e);
+            if (!valida)
+                errorP.SetError(txtCantidad, "Solo números");
+            else
+                errorP.Clear();
+        }
+
+        private void txtValor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool valida = ValidarTxt.soloNumeros(e);
+            if (!valida)
+                errorP.SetError(txtValor, "Solo números");
+            else
+                errorP.Clear();
+        }
+
+        private void txtDescripcion_Leave(object sender, EventArgs e)
+        {
+            if (ValidarTxt.textVacio(txtDescripcion))
+                errorP.SetError(txtDescripcion, "No puede dejar vacio");
+            else
+                errorP.Clear();
+        }
     }
 }

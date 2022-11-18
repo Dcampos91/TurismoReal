@@ -120,16 +120,20 @@
             // txtCantidad
             // 
             this.txtCantidad.Location = new System.Drawing.Point(68, 485);
+            this.txtCantidad.MaxLength = 3;
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(121, 22);
             this.txtCantidad.TabIndex = 7;
+            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // txtValor
             // 
             this.txtValor.Location = new System.Drawing.Point(237, 484);
+            this.txtValor.MaxLength = 7;
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(121, 22);
             this.txtValor.TabIndex = 8;
+            this.txtValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValor_KeyPress);
             // 
             // label4
             // 
@@ -155,10 +159,12 @@
             // 
             this.txtDescripcion.BackColor = System.Drawing.Color.Gainsboro;
             this.txtDescripcion.Location = new System.Drawing.Point(68, 550);
+            this.txtDescripcion.MaxLength = 300;
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(290, 129);
             this.txtDescripcion.TabIndex = 11;
+            this.txtDescripcion.Leave += new System.EventHandler(this.txtDescripcion_Leave);
             // 
             // btnBuscar
             // 

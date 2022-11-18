@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OracleClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -14,6 +15,7 @@ namespace Turismo
 {
     public partial class VentanaPrincipal : Form
     {
+        OracleConnection ora = new OracleConnection("Data Source=orcl; User ID=C##TReal1; Password=oracle");
         public VentanaPrincipal()
         {
             InitializeComponent();
@@ -174,7 +176,7 @@ namespace Turismo
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
-            AbrirSubFormulario(new MantenedorCheck_In());
+            
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
@@ -468,6 +470,30 @@ namespace Turismo
         private void button17_Click_1(object sender, EventArgs e)
         {
             AbrirSubFormulario(new Menu_Checkeo());
+        }
+
+        private void fechahora_Tick(object sender, EventArgs e)
+        {
+            lblhora.Text = DateTime.Now.ToString("HH:mm:ss");
+            lblfecha.Text = DateTime.Now.ToString("dddd MMMM yyy");
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            
+            ora.Open();
+            OracleCommand comando = new OracleCommand("select COUNT(id_departamento) from departamento WHERE disponible = 'Si'", ora);
+            //OracleDataAdapter data = new OracleDataAdapter(comando);
+            OracleDataReader registro = comando.ExecuteReader();
+
+
+            //DataTable dt = new DataTable();
+            //data.Fill(dt);
+            //string conteo = dt.Rows[0]["id_departamento"].ToString();
+            label3.Text = registro["id_departamento"].ToString() ;
+            ora.Close();
+           
+            ;
         }
     }
 }

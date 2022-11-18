@@ -61,6 +61,7 @@
             this.cbxUsuario = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.lblrut = new System.Windows.Forms.Label();
+            this.lblCorreo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -153,65 +154,83 @@
             // 
             this.txtCorreo.Location = new System.Drawing.Point(240, 247);
             this.txtCorreo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCorreo.MaxLength = 30;
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(179, 22);
             this.txtCorreo.TabIndex = 43;
+            this.txtCorreo.Leave += new System.EventHandler(this.txtCorreo_Leave);
             // 
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(450, 247);
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTelefono.MaxLength = 9;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(142, 22);
             this.txtTelefono.TabIndex = 42;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
+            this.txtTelefono.Leave += new System.EventHandler(this.txtTelefono_Leave);
             // 
             // txtDireccion
             // 
             this.txtDireccion.Location = new System.Drawing.Point(625, 176);
             this.txtDireccion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtDireccion.MaxLength = 30;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(180, 22);
             this.txtDireccion.TabIndex = 41;
+            this.txtDireccion.Leave += new System.EventHandler(this.txtDireccion_Leave);
             // 
             // txtEdad
             // 
             this.txtEdad.Location = new System.Drawing.Point(51, 176);
             this.txtEdad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtEdad.MaxLength = 2;
             this.txtEdad.Name = "txtEdad";
             this.txtEdad.Size = new System.Drawing.Size(75, 22);
             this.txtEdad.TabIndex = 38;
+            this.txtEdad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEdad_KeyPress);
+            this.txtEdad.Leave += new System.EventHandler(this.txtEdad_Leave);
             // 
             // txtApellidoMaterno
             // 
             this.txtApellidoMaterno.Location = new System.Drawing.Point(625, 109);
             this.txtApellidoMaterno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtApellidoMaterno.MaxLength = 20;
             this.txtApellidoMaterno.Name = "txtApellidoMaterno";
             this.txtApellidoMaterno.Size = new System.Drawing.Size(180, 22);
             this.txtApellidoMaterno.TabIndex = 37;
+            this.txtApellidoMaterno.Leave += new System.EventHandler(this.txtApellidoMaterno_Leave);
             // 
             // txtApellidoPaterno
             // 
             this.txtApellidoPaterno.Location = new System.Drawing.Point(450, 109);
             this.txtApellidoPaterno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtApellidoPaterno.MaxLength = 20;
             this.txtApellidoPaterno.Name = "txtApellidoPaterno";
             this.txtApellidoPaterno.Size = new System.Drawing.Size(142, 22);
             this.txtApellidoPaterno.TabIndex = 36;
+            this.txtApellidoPaterno.Leave += new System.EventHandler(this.txtApellidoPaterno_Leave);
             // 
             // txtNombreCliente
             // 
             this.txtNombreCliente.Location = new System.Drawing.Point(239, 109);
             this.txtNombreCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNombreCliente.MaxLength = 20;
             this.txtNombreCliente.Name = "txtNombreCliente";
             this.txtNombreCliente.Size = new System.Drawing.Size(180, 22);
             this.txtNombreCliente.TabIndex = 35;
+            this.txtNombreCliente.Leave += new System.EventHandler(this.txtNombreCliente_Leave);
             // 
             // txtRutCliente
             // 
             this.txtRutCliente.Location = new System.Drawing.Point(51, 109);
             this.txtRutCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtRutCliente.MaxLength = 12;
             this.txtRutCliente.Name = "txtRutCliente";
             this.txtRutCliente.Size = new System.Drawing.Size(150, 22);
             this.txtRutCliente.TabIndex = 34;
+            this.txtRutCliente.Leave += new System.EventHandler(this.txtRutCliente_Leave);
             // 
             // label11
             // 
@@ -417,12 +436,21 @@
             this.lblrut.Size = new System.Drawing.Size(0, 17);
             this.lblrut.TabIndex = 78;
             // 
+            // lblCorreo
+            // 
+            this.lblCorreo.AutoSize = true;
+            this.lblCorreo.Location = new System.Drawing.Point(240, 275);
+            this.lblCorreo.Name = "lblCorreo";
+            this.lblCorreo.Size = new System.Drawing.Size(0, 17);
+            this.lblCorreo.TabIndex = 79;
+            // 
             // MantenedorCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1321, 800);
+            this.Controls.Add(this.lblCorreo);
             this.Controls.Add(this.lblrut);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.cbxUsuario);
@@ -501,5 +529,6 @@
         private System.Windows.Forms.ComboBox cbxUsuario;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label lblrut;
+        private System.Windows.Forms.Label lblCorreo;
     }
 }

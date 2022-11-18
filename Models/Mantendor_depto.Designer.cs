@@ -257,10 +257,12 @@
             this.txtValor.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtValor.Location = new System.Drawing.Point(367, 580);
             this.txtValor.Margin = new System.Windows.Forms.Padding(2);
+            this.txtValor.MaxLength = 20;
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(146, 23);
             this.txtValor.TabIndex = 65;
             this.txtValor.TextChanged += new System.EventHandler(this.txtValor_TextChanged);
+            this.txtValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValor_KeyPress);
             // 
             // txtdireccion
             // 
@@ -269,9 +271,11 @@
             this.txtdireccion.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdireccion.Location = new System.Drawing.Point(366, 514);
             this.txtdireccion.Margin = new System.Windows.Forms.Padding(2);
+            this.txtdireccion.MaxLength = 30;
             this.txtdireccion.Name = "txtdireccion";
             this.txtdireccion.Size = new System.Drawing.Size(146, 23);
             this.txtdireccion.TabIndex = 64;
+            this.txtdireccion.Leave += new System.EventHandler(this.txtdireccion_Leave);
             // 
             // label14
             // 
@@ -296,6 +300,7 @@
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(325, 183);
             this.txtDesc.TabIndex = 62;
+            this.txtDesc.Leave += new System.EventHandler(this.txtDesc_Leave);
             // 
             // txtNomdepto
             // 
@@ -304,9 +309,11 @@
             this.txtNomdepto.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomdepto.Location = new System.Drawing.Point(366, 450);
             this.txtNomdepto.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNomdepto.MaxLength = 30;
             this.txtNomdepto.Name = "txtNomdepto";
             this.txtNomdepto.Size = new System.Drawing.Size(147, 23);
             this.txtNomdepto.TabIndex = 61;
+            this.txtNomdepto.Leave += new System.EventHandler(this.txtNomdepto_Leave);
             // 
             // label13
             // 

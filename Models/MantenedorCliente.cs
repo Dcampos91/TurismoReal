@@ -22,7 +22,8 @@ using System.Data.SqlClient;
 using System.Windows.Controls;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using iText.Kernel.Pdf.Canvas.Wmf;
-
+using System.Text.RegularExpressions;
+using TextBox = System.Windows.Controls.TextBox;
 
 namespace Turismo.Models
 {
@@ -169,7 +170,6 @@ namespace Turismo.Models
                 lblrut.Text = "RUT VALIDO";
                 lblrut.ForeColor = Color.Green;
             }
-
             int idUsuario = int.Parse(cbxUsuario.SelectedValue.ToString());
             string url = "http://127.0.0.1:8000/cliente/crear/";
             var cliente = new HttpClient();
@@ -339,7 +339,7 @@ namespace Turismo.Models
         {
 
         }
-
+        // comienzo de validaciones
         public bool validarRut(string rut)
         {
             bool validacion = false;
@@ -369,6 +369,93 @@ namespace Turismo.Models
             return validacion;
 
         }
+     
+        ErrorProvider errorP = new ErrorProvider();
+        private void txtEdad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool valida = ValidarTxt.soloNumeros(e);
+            if (!valida)
+                errorP.SetError(txtEdad, "Solo números");
+            else
+                errorP.Clear();           
 
+        }
+
+        private void txtEdad_Leave(object sender, EventArgs e)
+        {
+            if (ValidarTxt.textVacio(txtEdad))
+                errorP.SetError(txtEdad, "No puede dejar vacio");
+            else
+                errorP.Clear();
+        }
+
+        private void txtNombreCliente_Leave(object sender, EventArgs e)
+        {
+            if (ValidarTxt.textVacio(txtNombreCliente))
+                errorP.SetError(txtNombreCliente, "No puede dejar vacio");
+            else
+                errorP.Clear();
+        }
+
+        private void txtApellidoPaterno_Leave(object sender, EventArgs e)
+        {
+            if (ValidarTxt.textVacio(txtApellidoPaterno))
+                errorP.SetError(txtApellidoPaterno, "No puede dejar vacio");
+            else
+                errorP.Clear();
+        }
+
+        private void txtApellidoMaterno_Leave(object sender, EventArgs e)
+        {
+            if (ValidarTxt.textVacio(txtApellidoMaterno))
+                errorP.SetError(txtApellidoMaterno, "No puede dejar vacio");
+            else
+                errorP.Clear();
+        }
+
+        private void txtDireccion_Leave(object sender, EventArgs e)
+        {
+            if (ValidarTxt.textVacio(txtDireccion))
+                errorP.SetError(txtDireccion, "No puede dejar vacio");
+            else
+                errorP.Clear();
+        }
+
+        private void txtTelefono_Leave(object sender, EventArgs e)
+        {
+            if (ValidarTxt.textVacio(txtTelefono))
+                errorP.SetError(txtTelefono, "No puede dejar vacio");
+            else
+                errorP.Clear();
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool valida = ValidarTxt.soloNumeros(e);
+            if (!valida)
+                errorP.SetError(txtTelefono, "Solo números");
+            else
+                errorP.Clear();
+        }
+
+        private void txtCorreo_Leave(object sender, EventArgs e)
+        {
+            if (ValidarTxt.textVacio(txtCorreo))
+                errorP.SetError(txtCorreo, "No puede dejar vacio");
+            if (!ValidarTxt.validarEmail(txtCorreo.Text))
+                errorP.SetError(txtCorreo, "Correo no valido");
+            else
+                errorP.Clear();
+
+        }
+
+        private void txtRutCliente_Leave(object sender, EventArgs e)
+        {
+            if (ValidarTxt.textVacio(txtRutCliente))
+                errorP.SetError(txtRutCliente, "No puede dejar vacio");
+            else
+                errorP.Clear();
+
+        }
     }
 }

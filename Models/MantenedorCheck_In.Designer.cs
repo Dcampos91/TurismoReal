@@ -77,10 +77,12 @@
             // txtObservacion
             // 
             this.txtObservacion.Location = new System.Drawing.Point(35, 404);
+            this.txtObservacion.MaxLength = 300;
             this.txtObservacion.Multiline = true;
             this.txtObservacion.Name = "txtObservacion";
             this.txtObservacion.Size = new System.Drawing.Size(290, 163);
             this.txtObservacion.TabIndex = 3;
+            this.txtObservacion.Leave += new System.EventHandler(this.txtObservacion_Leave);
             // 
             // label3
             // 
