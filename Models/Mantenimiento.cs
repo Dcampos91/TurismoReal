@@ -46,6 +46,8 @@ namespace Turismo.Models
         {
             formSize = this.ClientSize;
         }
+        private int borderSizef = 2;
+        private Size formSizeF;
         protected override void WndProc(ref Message m)
         {
             const int WM_NCCALCSIZE = 0x0083;//Standar Title Bar - Snap Window

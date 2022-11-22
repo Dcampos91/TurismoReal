@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnMinimizar = new FontAwesome.Sharp.IconButton();
@@ -77,8 +80,8 @@
             this.lblfecha = new System.Windows.Forms.Label();
             this.lblhora = new System.Windows.Forms.Label();
             this.fechahora = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.GraficoTop = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.lblTotalDepto = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.LogoMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
@@ -91,7 +94,7 @@
             this.PanelSubMenuCliente.SuspendLayout();
             this.PanelSubMenuDepa.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GraficoTop)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -117,7 +120,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1370, 49);
             this.panel1.TabIndex = 24;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // BtnMinimizar
@@ -146,10 +148,9 @@
             this.label2.Location = new System.Drawing.Point(489, 7);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(200, 36);
+            this.label2.Size = new System.Drawing.Size(381, 36);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Bienvenido/a";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.label2.Text = "Bienvenido Administrador";
             // 
             // BtnMaximizar
             // 
@@ -234,9 +235,9 @@
             this.PrincipalMenu.Location = new System.Drawing.Point(0, 0);
             this.PrincipalMenu.Margin = new System.Windows.Forms.Padding(4);
             this.PrincipalMenu.Name = "PrincipalMenu";
-            this.PrincipalMenu.Size = new System.Drawing.Size(200, 1055);
+            this.PrincipalMenu.Size = new System.Drawing.Size(200, 815);
             this.PrincipalMenu.TabIndex = 23;
-            this.PrincipalMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            
             // 
             // iconButton9
             // 
@@ -360,7 +361,7 @@
             this.button14.Text = "Reserva";
             this.button14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button14.UseVisualStyleBackColor = true;
-            this.button14.Click += new System.EventHandler(this.button14_Click);
+            
             // 
             // button15
             // 
@@ -854,8 +855,7 @@
             this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton3.UseVisualStyleBackColor = true;
             this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
-            this.iconButton3.MouseLeave += new System.EventHandler(this.iconButton3_MouseLeave);
-            this.iconButton3.MouseHover += new System.EventHandler(this.iconButton3_MouseHover);
+           
             // 
             // iconButton2
             // 
@@ -879,72 +879,83 @@
             this.iconButton2.Text = "  Home";
             this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton2.UseVisualStyleBackColor = true;
-            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
+            
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.lblTotalDepto);
+            this.panel2.Controls.Add(this.GraficoTop);
             this.panel2.Controls.Add(this.lblfecha);
             this.panel2.Controls.Add(this.lblhora);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(200, 49);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1370, 1006);
+            this.panel2.Size = new System.Drawing.Size(1370, 766);
             this.panel2.TabIndex = 25;
+           
             // 
             // lblfecha
             // 
             this.lblfecha.AutoSize = true;
-            this.lblfecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblfecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblfecha.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.lblfecha.Location = new System.Drawing.Point(329, 603);
+            this.lblfecha.Location = new System.Drawing.Point(488, 106);
             this.lblfecha.Name = "lblfecha";
-            this.lblfecha.Size = new System.Drawing.Size(159, 58);
+            this.lblfecha.Size = new System.Drawing.Size(109, 39);
             this.lblfecha.TabIndex = 3;
             this.lblfecha.Text = "label1";
+            
             // 
             // lblhora
             // 
             this.lblhora.AutoSize = true;
-            this.lblhora.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblhora.Font = new System.Drawing.Font("Microsoft Sans Serif", 40.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblhora.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lblhora.Location = new System.Drawing.Point(371, 477);
+            this.lblhora.Location = new System.Drawing.Point(552, 30);
             this.lblhora.Name = "lblhora";
-            this.lblhora.Size = new System.Drawing.Size(318, 113);
+            this.lblhora.Size = new System.Drawing.Size(208, 76);
             this.lblhora.TabIndex = 2;
             this.lblhora.Text = "label1";
+            
             // 
             // fechahora
             // 
             this.fechahora.Enabled = true;
             this.fechahora.Tick += new System.EventHandler(this.fechahora_Tick);
             // 
-            // pictureBox1
+            // GraficoTop
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(28, 27);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(134, 90);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            chartArea1.Name = "ChartArea1";
+            this.GraficoTop.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.GraficoTop.Legends.Add(legend1);
+            this.GraficoTop.Location = new System.Drawing.Point(74, 225);
+            this.GraficoTop.Name = "GraficoTop";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.GraficoTop.Series.Add(series1);
+            this.GraficoTop.Size = new System.Drawing.Size(481, 300);
+            this.GraficoTop.TabIndex = 4;
+            this.GraficoTop.Text = "chart1";
             // 
-            // label3
+            // lblTotalDepto
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 124);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 16);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "label3";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.lblTotalDepto.AutoSize = true;
+            this.lblTotalDepto.Location = new System.Drawing.Point(201, 658);
+            this.lblTotalDepto.Name = "lblTotalDepto";
+            this.lblTotalDepto.Size = new System.Drawing.Size(44, 16);
+            this.lblTotalDepto.TabIndex = 5;
+            this.lblTotalDepto.Text = "label3";
             // 
             // VentanaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1570, 1055);
+            this.ClientSize = new System.Drawing.Size(1570, 815);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
@@ -953,7 +964,7 @@
             this.Name = "VentanaPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VentanaPrincipal";
-            this.Load += new System.EventHandler(this.VentanaPrincipal_Load);
+            
             this.Resize += new System.EventHandler(this.VentanaPrincipal_Resize);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -970,7 +981,7 @@
             this.PanelSubMenuDepa.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GraficoTop)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1017,16 +1028,16 @@
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel PanelSubMenuReserva;
-        private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.Button button16;
-        private FontAwesome.Sharp.IconButton iconButton8;
         private FontAwesome.Sharp.IconButton btnMenu;
         private FontAwesome.Sharp.IconButton iconButton9;
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.Label lblfecha;
         private System.Windows.Forms.Label lblhora;
         private System.Windows.Forms.Timer fechahora;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button button18;
+        private FontAwesome.Sharp.IconButton iconButton8;
+        private System.Windows.Forms.DataVisualization.Charting.Chart GraficoTop;
+        private System.Windows.Forms.Label lblTotalDepto;
     }
 }

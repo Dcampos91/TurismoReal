@@ -6,10 +6,12 @@ using System.Data.OracleClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.RightsManagement;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Turismo.Models;
+using System.Collections;
 
 namespace Turismo
 {
@@ -20,11 +22,10 @@ namespace Turismo
         {
             InitializeComponent();
             hideSubMenu();
-            this.Padding = new Padding(borderSize);
+            this.Padding = new Padding(borderSizeF);
             this.BackColor = Color.FromArgb(22, 31, 56);
+          
         }   
-
-
         //Drag Form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -35,11 +36,11 @@ namespace Turismo
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-        private int borderSize = 2;
-        private Size formSize;
+        private int borderSizeF = 2;
+        private Size formSizeF;
         private void Form1_Load(object sender, EventArgs e)
         {
-            formSize = this.ClientSize;
+            formSizeF = this.ClientSize;
         }
         protected override void WndProc(ref Message m)
         {
@@ -116,33 +117,13 @@ namespace Turismo
                 /// wParam value by using the bitwise AND operator.
                 int wParam = (m.WParam.ToInt32() & 0xFFF0);
                 if (wParam == SC_MINIMIZE)  //Before
-                    formSize = this.ClientSize;
+                    formSizeF = this.ClientSize;
                 if (wParam == SC_RESTORE)// Restored form(Before)
-                    this.Size = formSize;
+                    this.Size = formSizeF;
             }
             base.WndProc(ref m);
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void btnAdminDepto_Click(object sender, EventArgs e)
         {
             this.Hide();//cierra la pantalla para pasar a la siguiente
@@ -163,38 +144,13 @@ namespace Turismo
             Mantenimiento v5 = new Mantenimiento();//llama al siguiente formulario
             v5.Show();
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void iconButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void iconButton2_Click(object sender, EventArgs e)
-        {
-            
-        }
-
+      
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-
-        private void iconButton10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
+      
         private void VentanaPrincipal_Resize(object sender, EventArgs e)
         {
             AdjustForm();
@@ -208,8 +164,8 @@ namespace Turismo
                     this.Padding = new Padding(8, 8, 8, 0);
                     break;
                 case FormWindowState.Normal: //Restored form (After)
-                    if (this.Padding.Top != borderSize)
-                        this.Padding = new Padding(borderSize);
+                    if (this.Padding.Top != borderSizeF)
+                        this.Padding = new Padding(borderSizeF);
                     break;
             }
         }
@@ -223,13 +179,13 @@ namespace Turismo
         {
             if (this.WindowState == FormWindowState.Normal)
             {
-                formSize = this.ClientSize;
+                formSizeF = this.ClientSize;
                 this.WindowState = FormWindowState.Maximized;
             }
             else
             {
                 this.WindowState = FormWindowState.Normal;
-                this.Size = formSize;
+                this.Size = formSizeF;
             }
         }
 
@@ -270,17 +226,7 @@ namespace Turismo
                 }
             }
         }
-
-        private void panel1_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-        
+       
         private void hideSubMenu()
         {
             PanelSubMenuDepa.Visible = false;
@@ -306,46 +252,12 @@ namespace Turismo
             showSubMenu(PanelSubMenuDepa);
             
         }
-        
-        private void button2_Click(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void VentanaPrincipal_Load(object sender, EventArgs e) 
-        {
-            
-        }
-
-        private void button4_Click(object sender, EventArgs e) 
-        {
-            
-        }        
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void iconButton3_MouseHover(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void iconButton3_MouseLeave(object sender, EventArgs e)
-        {
-            
-        }
-
+     
         private void iconButton10_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void PanelTr_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
         private Form AbrirForms = null;
         private void AbrirSubFormulario(Form subform)
         {
@@ -462,11 +374,6 @@ namespace Turismo
             showSubMenu(PanelSubMenuReserva);
         }
 
-        private void button14_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void button17_Click_1(object sender, EventArgs e)
         {
             AbrirSubFormulario(new Menu_Checkeo());
@@ -476,24 +383,7 @@ namespace Turismo
         {
             lblhora.Text = DateTime.Now.ToString("HH:mm:ss");
             lblfecha.Text = DateTime.Now.ToString("dddd MMMM yyy");
-        }
+        }      
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-            
-            ora.Open();
-            OracleCommand comando = new OracleCommand("select COUNT(id_departamento) from departamento WHERE disponible = 'Si'", ora);
-            //OracleDataAdapter data = new OracleDataAdapter(comando);
-            OracleDataReader registro = comando.ExecuteReader();
-
-
-            //DataTable dt = new DataTable();
-            //data.Fill(dt);
-            //string conteo = dt.Rows[0]["id_departamento"].ToString();
-            label3.Text = registro["id_departamento"].ToString() ;
-            ora.Close();
-           
-            ;
-        }
     }
 }

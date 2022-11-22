@@ -451,6 +451,19 @@ namespace Turismo.Models
 
         private void txtRutCliente_Leave(object sender, EventArgs e)
         {
+            string rut = txtRutCliente.Text;
+            bool respuesta = validarRut(rut);
+
+            if (validarRut(txtRutCliente.Text) == false)
+            {
+                lblrut.Text = "RUT INVALIDO";
+                lblrut.ForeColor = Color.Red;
+            }
+            else
+            {
+                lblrut.Text = "RUT VALIDO";
+                lblrut.ForeColor = Color.Green;
+            }
             if (ValidarTxt.textVacio(txtRutCliente))
                 errorP.SetError(txtRutCliente, "No puede dejar vacio");
             else

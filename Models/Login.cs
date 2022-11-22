@@ -20,7 +20,6 @@ using System.Runtime.InteropServices;
 using System.Data.OracleClient;
 using System.Data.SqlClient;
 using Turismo.Models;
-
 namespace Turismo
 {
     public partial class Login : Form
