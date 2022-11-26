@@ -227,5 +227,10 @@ namespace Turismo.Models
             lblhora.Text = DateTime.Now.ToString("HH:mm:ss");
             lblfecha.Text = DateTime.Now.ToString("dddd MMMM yyy");
         }
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            AbrirSubFormulario(new CheckList());
+        }
     }
 }

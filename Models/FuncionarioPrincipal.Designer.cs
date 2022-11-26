@@ -33,18 +33,18 @@
             this.panelReservFuncionario = new System.Windows.Forms.Panel();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.panelDeptoFuncionario = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.panelLogoFuncionario = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelBarFuncionario = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panelFuncionarioPrincipal = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
             this.lblfecha = new System.Windows.Forms.Label();
             this.lblhora = new System.Windows.Forms.Label();
             this.FechaHora = new System.Windows.Forms.Timer(this.components);
-            this.label2 = new System.Windows.Forms.Label();
             this.panelMenuFuncionario.SuspendLayout();
             this.panelDeptoFuncionario.SuspendLayout();
             this.panelLogoFuncionario.SuspendLayout();
@@ -99,6 +99,7 @@
             this.iconButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton3.UseVisualStyleBackColor = true;
+            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
             // 
             // panelDeptoFuncionario
             // 
@@ -110,6 +111,21 @@
             this.panelDeptoFuncionario.Name = "panelDeptoFuncionario";
             this.panelDeptoFuncionario.Size = new System.Drawing.Size(273, 120);
             this.panelDeptoFuncionario.TabIndex = 3;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(17)))), ((int)(((byte)(39)))));
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Franklin Gothic Medium", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(0, 44);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(273, 44);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Check-Out";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -201,6 +217,18 @@
             this.panelBarFuncionario.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBarFuncionario_Paint);
             this.panelBarFuncionario.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelBarFuncionario_MouseDown);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(464, 6);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(352, 36);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Bienvenido Funcionario";
+            // 
             // panelFuncionarioPrincipal
             // 
             this.panelFuncionarioPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
@@ -212,21 +240,6 @@
             this.panelFuncionarioPrincipal.Size = new System.Drawing.Size(1309, 764);
             this.panelFuncionarioPrincipal.TabIndex = 2;
             this.panelFuncionarioPrincipal.Paint += new System.Windows.Forms.PaintEventHandler(this.panelFuncionarioPrincipal_Paint);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(17)))), ((int)(((byte)(39)))));
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Franklin Gothic Medium", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(0, 44);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(273, 44);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Check-Out";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // lblfecha
             // 
@@ -254,18 +267,6 @@
             // 
             this.FechaHora.Enabled = true;
             this.FechaHora.Tick += new System.EventHandler(this.FechaHora_Tick);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(464, 6);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(352, 36);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Bienvenido Funcionario";
             // 
             // FuncionarioPrincipal
             // 

@@ -212,20 +212,29 @@ namespace Turismo.Models
 
         private async void btnBuscar_Click(object sender, EventArgs e)
         {
-            var buscar = txtBuscar.Text;
-            string respuesta = await GetHttp();
-            List<PostViewReserva> lst = JsonConvert.DeserializeObject<List<PostViewReserva>>(respuesta);
-            dgvReserva.DataSource = lst;
-
-            async Task<string> GetHttp()
+            try
             {
-                string url = "http://127.0.0.1:8000/reserva/" + buscar;
-                WebRequest oRequest = WebRequest.Create(url);
-                WebResponse oResponse = oRequest.GetResponse();
-                StreamReader sr = new StreamReader(oResponse.GetResponseStream());
-                return await sr.ReadToEndAsync();
+                var buscar = txtBuscar.Text;
+                string respuesta = await GetHttp();
+                List<PostViewReserva> lst = JsonConvert.DeserializeObject<List<PostViewReserva>>(respuesta);
+                dgvReserva.DataSource = lst;
 
+                async Task<string> GetHttp()
+                {
+
+                    string url = "http://127.0.0.1:8000/reserva/" + buscar;
+                    WebRequest oRequest = WebRequest.Create(url);
+                    WebResponse oResponse = oRequest.GetResponse();
+                    StreamReader sr = new StreamReader(oResponse.GetResponseStream());
+                    return await sr.ReadToEndAsync();
+
+                }
             }
+            catch 
+            {
+                MessageBox.Show("Error al Eliminar la reserva intenta de nuevo", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private async void btnActualizar_Click(object sender, EventArgs e)
