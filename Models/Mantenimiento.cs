@@ -138,9 +138,17 @@ namespace Turismo.Models
 
         private async void Mantenimiento_Load(object sender, EventArgs e)
         {
-            string respuesta = await GetHttp();
-            List<PostViewMTTO> lst = JsonConvert.DeserializeObject<List<PostViewMTTO>>(respuesta);
-            dgvMTTO.DataSource = lst;
+            try 
+            {
+                string respuesta = await GetHttp();
+                List<PostViewMTTO> lst = JsonConvert.DeserializeObject<List<PostViewMTTO>>(respuesta);
+                dgvMTTO.DataSource = lst;
+            }
+            catch
+            {
+                MessageBox.Show("NO se encontraron mantenimientos", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         public async Task<string> GetHttp()
@@ -294,20 +302,28 @@ namespace Turismo.Models
 
         private async void btnBuscar_Click(object sender, EventArgs e)
         {
-            var buscar = txtBuscar.Text;
-            string respuesta = await GetHttp();
-            List<PostViewMTTO> lst = JsonConvert.DeserializeObject<List<PostViewMTTO>>(respuesta);
-            dgvMTTO.DataSource = lst;
-
-            async Task<string> GetHttp()
+            try 
             {
-                string url = "http://127.0.0.1:8000/mttoDepartamento/" + buscar;
-                WebRequest oRequest = WebRequest.Create(url);
-                WebResponse oResponse = oRequest.GetResponse();
-                StreamReader sr = new StreamReader(oResponse.GetResponseStream());
-                return await sr.ReadToEndAsync();
+                var buscar = txtBuscar.Text;
+                string respuesta = await GetHttp();
+                List<PostViewMTTO> lst = JsonConvert.DeserializeObject<List<PostViewMTTO>>(respuesta);
+                dgvMTTO.DataSource = lst;
 
+                async Task<string> GetHttp()
+                {
+                    string url = "http://127.0.0.1:8000/mttoDepartamento/" + buscar;
+                    WebRequest oRequest = WebRequest.Create(url);
+                    WebResponse oResponse = oRequest.GetResponse();
+                    StreamReader sr = new StreamReader(oResponse.GetResponseStream());
+                    return await sr.ReadToEndAsync();
+
+                }
             }
+            catch
+            {
+                MessageBox.Show("NO se encontraron id de mantenimiento", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
        
 

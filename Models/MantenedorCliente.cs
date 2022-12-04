@@ -148,9 +148,17 @@ namespace Turismo.Models
 
         private async void MantenedorCliente_Load_1(object sender, EventArgs e)// cargar los clientes en el datagrid
         {
-            string respuesta = await GetHttp();
-            List<PostViewCliente> lst = JsonConvert.DeserializeObject<List<PostViewCliente>>(respuesta);
-            dgvCliente.DataSource = lst;
+            try 
+            {
+                string respuesta = await GetHttp();
+                List<PostViewCliente> lst = JsonConvert.DeserializeObject<List<PostViewCliente>>(respuesta);
+                dgvCliente.DataSource = lst;
+            }
+            catch
+            {
+                MessageBox.Show("NO se encontraron Clientes", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
             
 
         }
@@ -210,20 +218,28 @@ namespace Turismo.Models
 
         private async void btnBuscarCliente_Click(object sender, EventArgs e)// Buscar cliente por ID
         {
-            var buscar = txtBuscarCliente.Text;
-            string respuesta = await GetHttp();
-            List<PostViewCliente> lst = JsonConvert.DeserializeObject<List<PostViewCliente>>(respuesta);
-            dgvCliente.DataSource = lst;
-
-            async Task<string> GetHttp()
+            try
             {
-                string url = "http://127.0.0.1:8000/cliente/"+buscar;
-                WebRequest oRequest = WebRequest.Create(url);
-                WebResponse oResponse = oRequest.GetResponse();
-                StreamReader sr = new StreamReader(oResponse.GetResponseStream());
-                return await sr.ReadToEndAsync();
+                var buscar = txtBuscarCliente.Text;
+                string respuesta = await GetHttp();
+                List<PostViewCliente> lst = JsonConvert.DeserializeObject<List<PostViewCliente>>(respuesta);
+                dgvCliente.DataSource = lst;
 
+                async Task<string> GetHttp()
+                {
+                    string url = "http://127.0.0.1:8000/cliente/" + buscar;
+                    WebRequest oRequest = WebRequest.Create(url);
+                    WebResponse oResponse = oRequest.GetResponse();
+                    StreamReader sr = new StreamReader(oResponse.GetResponseStream());
+                    return await sr.ReadToEndAsync();
+
+                }
             }
+            catch
+            {
+                MessageBox.Show("NO se encontraron id del cliente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private async void btnEliminarCliente_Click(object sender, EventArgs e)// Eliminar cliente

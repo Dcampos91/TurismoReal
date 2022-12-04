@@ -38,9 +38,16 @@ namespace Turismo.Models
 
         private async void MantenedorUsuario_Load(object sender, EventArgs e)
         {
-            string respuesta = await GetHttp();
-            List<PostViewUsuario> lst = JsonConvert.DeserializeObject<List<PostViewUsuario>>(respuesta);
-            dgvUsuario.DataSource = lst;
+            try
+            {
+                string respuesta = await GetHttp();
+                List<PostViewUsuario> lst = JsonConvert.DeserializeObject<List<PostViewUsuario>>(respuesta);
+                dgvUsuario.DataSource = lst;
+            }
+            catch
+            {
+                MessageBox.Show("NO se encontraron usuarios registrados", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             cbxEstado.Items.Add("Seleccionar");
             cbxEstado.Items.Add("Habilitado");
@@ -62,20 +69,28 @@ namespace Turismo.Models
 
         private async void btnBuscar_Click(object sender, EventArgs e)//Buscar Usuario
         {
-            var buscar = txtBuscar.Text;
-            string respuesta = await GetHttp();
-            List<PostViewUsuario> lst = JsonConvert.DeserializeObject<List<PostViewUsuario>>(respuesta);
-            dgvUsuario.DataSource = lst;
-
-            async Task<string> GetHttp()
+            try
             {
-                string url = "http://127.0.0.1:8000/usuario/"+buscar;
-                WebRequest oRequest = WebRequest.Create(url);
-                WebResponse oResponse = oRequest.GetResponse();
-                StreamReader sr = new StreamReader(oResponse.GetResponseStream());
-                return await sr.ReadToEndAsync();
+                var buscar = txtBuscar.Text;
+                string respuesta = await GetHttp();
+                List<PostViewUsuario> lst = JsonConvert.DeserializeObject<List<PostViewUsuario>>(respuesta);
+                dgvUsuario.DataSource = lst;
 
+                async Task<string> GetHttp()
+                {
+                    string url = "http://127.0.0.1:8000/usuario/" + buscar;
+                    WebRequest oRequest = WebRequest.Create(url);
+                    WebResponse oResponse = oRequest.GetResponse();
+                    StreamReader sr = new StreamReader(oResponse.GetResponseStream());
+                    return await sr.ReadToEndAsync();
+
+                }
             }
+            catch
+            {
+                MessageBox.Show("NO se encontraron id de usuario", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
 
         private async void btnAgregarUsuario_Click(object sender, EventArgs e)//Crear Usuario

@@ -33,9 +33,17 @@ namespace Turismo.Models
 
         private async void ListarReserva_Load(object sender, EventArgs e)
         {
-            string respuesta = await GetHttp();
-            List<PostViewListarReserva> lst = JsonConvert.DeserializeObject<List<PostViewListarReserva>>(respuesta);
-            dgvReserva.DataSource = lst;
+            try 
+            {
+                string respuesta = await GetHttp();
+                List<PostViewListarReserva> lst = JsonConvert.DeserializeObject<List<PostViewListarReserva>>(respuesta);
+                dgvReserva.DataSource = lst;
+            }
+            catch
+            {
+                MessageBox.Show("NO se encontraron reservas", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
         public async Task<string> GetHttp() //cargar el datagrid
         {
@@ -127,9 +135,17 @@ namespace Turismo.Models
 
         private async void btnActualizar_Click(object sender, EventArgs e)
         {
-            string respuesta = await GetHttp();
-            List<PostViewListarReserva> lst = JsonConvert.DeserializeObject<List<PostViewListarReserva>>(respuesta);
-            dgvReserva.DataSource = lst;
+            try
+            {
+                string respuesta = await GetHttp();
+                List<PostViewListarReserva> lst = JsonConvert.DeserializeObject<List<PostViewListarReserva>>(respuesta);
+                dgvReserva.DataSource = lst;
+            }
+            catch 
+            {
+                MessageBox.Show("No se encontraron Reserva", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
     }
 }

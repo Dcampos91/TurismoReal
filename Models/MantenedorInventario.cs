@@ -68,9 +68,17 @@ namespace Turismo.Models
 
         private async void MantenedorInventario_Load(object sender, EventArgs e)//listar inventario
         {
-            string respuesta = await GetHttp();
-            List<PostViewInventario> lst = JsonConvert.DeserializeObject<List<PostViewInventario>>(respuesta);
-            dgvInventario.DataSource = lst;
+            try 
+            {
+                string respuesta = await GetHttp();
+                List<PostViewInventario> lst = JsonConvert.DeserializeObject<List<PostViewInventario>>(respuesta);
+                dgvInventario.DataSource = lst;
+            }
+            catch
+            {
+                MessageBox.Show("NO se encontraron inventarios", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
         public async Task<string> GetHttp() //cargar el datagrid
         {
@@ -199,20 +207,30 @@ namespace Turismo.Models
 
         private async void btnBuscar_Click(object sender, EventArgs e)//busca inventario
         {
-            var buscar = txtBuscar.Text;
-            string respuesta = await GetHttp();
-            List<PostViewInventario> lst = JsonConvert.DeserializeObject<List<PostViewInventario>>(respuesta);
-            dgvInventario.DataSource = lst;
-
-            async Task<string> GetHttp()
+            try
             {
-                string url = "http://127.0.0.1:8000/inventario/" + buscar;
-                WebRequest oRequest = WebRequest.Create(url);
-                WebResponse oResponse = oRequest.GetResponse();
-                StreamReader sr = new StreamReader(oResponse.GetResponseStream());
-                return await sr.ReadToEndAsync();
+
+                var buscar = txtBuscar.Text;
+                string respuesta = await GetHttp();
+                List<PostViewInventario> lst = JsonConvert.DeserializeObject<List<PostViewInventario>>(respuesta);
+                dgvInventario.DataSource = lst;
+
+                async Task<string> GetHttp()
+                {
+                    string url = "http://127.0.0.1:8000/inventario/" + buscar;
+                    WebRequest oRequest = WebRequest.Create(url);
+                    WebResponse oResponse = oRequest.GetResponse();
+                    StreamReader sr = new StreamReader(oResponse.GetResponseStream());
+                    return await sr.ReadToEndAsync();
+
+                }
 
             }
+            catch
+            {
+                MessageBox.Show("NO se encontraron id de inventario", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private async void btnActualizar_Click(object sender, EventArgs e)

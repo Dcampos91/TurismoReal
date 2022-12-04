@@ -27,9 +27,18 @@ namespace Turismo.Models
 
         private async void ListarUsuario_Load(object sender, EventArgs e)
         {
-            string respuesta = await GetHttp();
-            List<PostViewListarUsuario> lst = JsonConvert.DeserializeObject<List<PostViewListarUsuario>>(respuesta);
-            dgvListarUsuario.DataSource = lst;
+            try 
+            {
+                string respuesta = await GetHttp();
+                List<PostViewListarUsuario> lst = JsonConvert.DeserializeObject<List<PostViewListarUsuario>>(respuesta);
+                dgvListarUsuario.DataSource = lst;
+            }
+            catch
+            {
+                MessageBox.Show("NO se encontraron usuario", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
         }
 
         public async Task<string> GetHttp() //cargar el datagrid
@@ -44,20 +53,28 @@ namespace Turismo.Models
 
         private async void btnBuscar_Click(object sender, EventArgs e)
         {
-            var buscar = txtBuscar.Text;
-            string respuesta = await GetHttp();
-            List<PostViewListarUsuario> lst = JsonConvert.DeserializeObject<List<PostViewListarUsuario>>(respuesta);
-            dgvListarUsuario.DataSource = lst;
-
-            async Task<string> GetHttp()
+            try 
             {
-                string url = "http://127.0.0.1:8000/usuariocorreo/" + buscar;
-                WebRequest oRequest = WebRequest.Create(url);
-                WebResponse oResponse = oRequest.GetResponse();
-                StreamReader sr = new StreamReader(oResponse.GetResponseStream());
-                return await sr.ReadToEndAsync();
+                var buscar = txtBuscar.Text;
+                string respuesta = await GetHttp();
+                List<PostViewListarUsuario> lst = JsonConvert.DeserializeObject<List<PostViewListarUsuario>>(respuesta);
+                dgvListarUsuario.DataSource = lst;
 
+                async Task<string> GetHttp()
+                {
+                    string url = "http://127.0.0.1:8000/usuariocorreo/" + buscar;
+                    WebRequest oRequest = WebRequest.Create(url);
+                    WebResponse oResponse = oRequest.GetResponse();
+                    StreamReader sr = new StreamReader(oResponse.GetResponseStream());
+                    return await sr.ReadToEndAsync();
+
+                }
             }
+            catch
+            {
+                MessageBox.Show("NO se encontraron usuario", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
 
         private async void btnActualizar_Click(object sender, EventArgs e)

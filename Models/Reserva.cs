@@ -32,11 +32,21 @@ namespace Turismo.Models
             cargaCliente();
         }
 
-        private async void Reserva_Load(object sender, EventArgs e)
+        public async void Reserva_Load(object sender, EventArgs e)
         {
-            string respuesta = await GetHttp();
-            List<PostViewReserva> lst = JsonConvert.DeserializeObject<List<PostViewReserva>>(respuesta);
-            dgvReserva.DataSource = lst;
+            try
+            {
+                string respuesta = await GetHttp();
+                List<PostViewReserva> lst = JsonConvert.DeserializeObject<List<PostViewReserva>>(respuesta);
+                dgvReserva.DataSource = lst;
+            }
+
+            catch
+            { 
+                MessageBox.Show("NO se encontraron reservas", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+            }
+            
+            
         }
         public async Task<string> GetHttp() //cargar el datagrid
         {
@@ -44,9 +54,10 @@ namespace Turismo.Models
             WebRequest oRequest = WebRequest.Create(url);
             WebResponse oResponse = oRequest.GetResponse();
             StreamReader sr = new StreamReader(oResponse.GetResponseStream());
-            return await sr.ReadToEndAsync();
+            return await sr.ReadToEndAsync();           
 
         }
+        
 
         private async void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -232,7 +243,7 @@ namespace Turismo.Models
             }
             catch 
             {
-                MessageBox.Show("Error al Eliminar la reserva intenta de nuevo", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al Buscar la Reserva", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
         }

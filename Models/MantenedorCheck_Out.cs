@@ -34,9 +34,17 @@ namespace Turismo.Models
 
         private async void MantenedorCheck_Out_Load(object sender, EventArgs e)
         {
-            string respuesta = await GetHttp();
-            List<PostViewCheckOut> lst = JsonConvert.DeserializeObject<List<PostViewCheckOut>>(respuesta);
-            dgvCheckOut.DataSource = lst;
+            try
+            {
+                string respuesta = await GetHttp();
+                List<PostViewCheckOut> lst = JsonConvert.DeserializeObject<List<PostViewCheckOut>>(respuesta);
+                dgvCheckOut.DataSource = lst;
+            }
+            catch 
+            {
+                MessageBox.Show("NO se encontraron id de check out", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
         public async Task<string> GetHttp() //cargar el datagrid
         {
@@ -197,20 +205,28 @@ namespace Turismo.Models
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            var buscar = txtBuscar.Text;
-            string respuesta = await GetHttp();
-            List<PostViewCheckOut> lst = JsonConvert.DeserializeObject<List<PostViewCheckOut>>(respuesta);
-            dgvCheckOut.DataSource = lst;
-
-            async Task<string> GetHttp()
+            try
             {
-                string url = "http://127.0.0.1:8000/inventariOut" + buscar;
-                WebRequest oRequest = WebRequest.Create(url);
-                WebResponse oResponse = oRequest.GetResponse();
-                StreamReader sr = new StreamReader(oResponse.GetResponseStream());
-                return await sr.ReadToEndAsync();
+                var buscar = txtBuscar.Text;
+                string respuesta = await GetHttp();
+                List<PostViewCheckOut> lst = JsonConvert.DeserializeObject<List<PostViewCheckOut>>(respuesta);
+                dgvCheckOut.DataSource = lst;
 
+                async Task<string> GetHttp()
+                {
+                    string url = "http://127.0.0.1:8000/inventariOut" + buscar;
+                    WebRequest oRequest = WebRequest.Create(url);
+                    WebResponse oResponse = oRequest.GetResponse();
+                    StreamReader sr = new StreamReader(oResponse.GetResponseStream());
+                    return await sr.ReadToEndAsync();
+
+                }
             }
+            catch
+            {
+                MessageBox.Show("NO se encontraron id de check out", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private async void btnActualizar_Click(object sender, EventArgs e)

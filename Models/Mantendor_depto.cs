@@ -195,9 +195,17 @@ namespace Turismo
 
         private async void Mantendor_depto_Load(object sender, EventArgs e)// carga el datagrid
         {
-            string respuesta = await GetHttp();
-            List<PostViewDepartamento> lst = JsonConvert.DeserializeObject<List<PostViewDepartamento>>(respuesta);
-            dgvDepartamento.DataSource = lst;
+            try
+            {
+                string respuesta = await GetHttp();
+                List<PostViewDepartamento> lst = JsonConvert.DeserializeObject<List<PostViewDepartamento>>(respuesta);
+                dgvDepartamento.DataSource = lst;
+            }
+            catch 
+            {
+                MessageBox.Show("NO se encontraron departamentos", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
             
         }
 
@@ -213,20 +221,29 @@ namespace Turismo
 
         private async void btnBuscar_Click(object sender, EventArgs e)//busca un departamento por su ID
         {
-            var buscar = txtBuscarDepto.Text; 
-            string respuesta = await GetHttp();
-            List<PostViewDepartamento> lst = JsonConvert.DeserializeObject<List<PostViewDepartamento>>(respuesta);
-            dgvDepartamento.DataSource = lst;
-
-            async Task<string> GetHttp()
+            try 
             {
-                string url = "http://127.0.0.1:8000/departamento/"+buscar;
-                WebRequest oRequest = WebRequest.Create(url);
-                WebResponse oResponse = oRequest.GetResponse();
-                StreamReader sr = new StreamReader(oResponse.GetResponseStream());
-                return await sr.ReadToEndAsync();
+                var buscar = txtBuscarDepto.Text;
+                string respuesta = await GetHttp();
+                List<PostViewDepartamento> lst = JsonConvert.DeserializeObject<List<PostViewDepartamento>>(respuesta);
+                dgvDepartamento.DataSource = lst;
+
+                async Task<string> GetHttp()
+                {
+                    string url = "http://127.0.0.1:8000/departamento/" + buscar;
+                    WebRequest oRequest = WebRequest.Create(url);
+                    WebResponse oResponse = oRequest.GetResponse();
+                    StreamReader sr = new StreamReader(oResponse.GetResponseStream());
+                    return await sr.ReadToEndAsync();
+
+                }
 
             }
+            catch 
+            {
+                MessageBox.Show("NO se encontraron departamento solicitado", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private async void btnEliminarDepto_Click(object sender, EventArgs e)//elimina un departamento
