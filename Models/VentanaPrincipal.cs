@@ -18,12 +18,15 @@ namespace Turismo
     public partial class VentanaPrincipal : Form
     {
         OracleConnection ora = new OracleConnection("Data Source=orcl; User ID=C##TReal1; Password=oracle");
+        OracleCommand cmd;
+        OracleDataReader dr;
         public VentanaPrincipal()
         {
             InitializeComponent();
             hideSubMenu();
             this.Padding = new Padding(borderSizeF);
             this.BackColor = Color.FromArgb(22, 31, 56);
+            
           
         }   
         //Drag Form
@@ -383,7 +386,69 @@ namespace Turismo
         {
             lblhora.Text = DateTime.Now.ToString("HH:mm:ss");
             lblfecha.Text = DateTime.Now.ToString("dddd MMMM yyy");
-        }      
+        }
 
+        private void VentanaPrincipal_Load(object sender, EventArgs e)
+        {
+            GrafDepartamento();
+            ClienteFrecuente();
+
+
+
+        }
+        ArrayList Departamentos = new ArrayList();
+        ArrayList Reserva = new ArrayList();
+        ArrayList Nombre_cliente = new ArrayList();
+        ArrayList Reservas = new ArrayList();
+        private object oracleType;
+
+        private void GrafDepartamento() 
+        {
+            
+
+            cmd = new OracleCommand("select d.NOM_DEPTO, count(*) as RESERVA from reserva r, departamento d where r.departamento_id_departamento = d.id_departamento group by d.NOM_DEPTO order by RESERVA desc", ora);
+            
+
+            ora.Open();
+            dr = cmd.ExecuteReader();
+            while (dr.Read()) 
+            {
+                Departamentos.Add(dr.GetString(0));
+                Reserva.Add(dr.GetInt32(1));
+            }
+            chartDepartamento.Series[0].Points.DataBindXY(Departamentos, Reserva);
+            dr.Close();
+            ora.Close();
+
+        }
+        private void ClienteFrecuente()
+        {
+
+
+            cmd = new OracleCommand("select c.NOM_CLIENTE ||' '|| c.APELLIDO_PATERNO ||' '|| c.APELLIDO_MATERNO as \"NOMBRE CLIENTE\", count(*) as RESERVA from reserva r, cliente c \r\nwhere r.usuario_id_usuario = c.usuario_id_usuario group by c.NOM_CLIENTE, c.APELLIDO_PATERNO, c.APELLIDO_MATERNO order by RESERVA desc", ora);
+
+
+            ora.Open();
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                Nombre_cliente.Add(dr.GetString(0));
+                Reservas.Add(dr.GetInt32(1));
+            }
+            ChartCliente.Series[0].Points.DataBindXY(Nombre_cliente, Reservas);
+            dr.Close();
+            ora.Close();
+
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            AbrirSubFormulario(new ServicioExtra());
+        }
+
+        private void chartDepartamento_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

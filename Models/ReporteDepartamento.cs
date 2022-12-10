@@ -1,4 +1,5 @@
 ﻿using iText.IO.Font.Constants;
+using iText.IO.Image;
 using iText.Kernel.Font;
 using iText.Kernel.Geom;
 using iText.Kernel.Pdf;
@@ -30,20 +31,21 @@ namespace Turismo.Models
         private void btnGenerar_Click(object sender, EventArgs e)
         {
             CrearPDF();
+            MessageBox.Show("Reporete Generado", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-        private void CrearPDF() 
+        private void CrearPDF()
         {
-            PdfWriter pdfWriter = new PdfWriter("Reporte.pdf");
+            PdfWriter pdfWriter = new PdfWriter(@"C:\Users\Diego\Desktop\Reporte\Reporte1.pdf");
             PdfDocument pdf = new PdfDocument(pdfWriter);
             Document documento = new Document(pdf, PageSize.LETTER);
 
-            documento.SetMargins(60, 20, 55, 20);
+            documento.SetMargins(75, 17, 55, 17);
             PdfFont fontColumnas = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
             PdfFont fontContenido = PdfFontFactory.CreateFont(StandardFonts.HELVETICA);
 
-            string[] columnas = { "Nombre Departamento", "Descripción", "Dirección", "Habitaciones", "Cantidad Baño", "Calefacción", "Internet", "Amoblado", "Televisión", "Disponibilidad", "Valor", "Comuna" };
+            string[] columnas = { "Fecha ingreso", "Fecha salida", "Cantidad de dias reservados", "Estado Reserva", "Nombre Departamento", "Nombre Usuario" };
 
-            float[] tamanios = { 4, 4, 4 , 4, 4, 4 , 4, 4, 4 , 4, 4, 4 };
+            float[] tamanios = { 4, 4, 4, 4, 4, 4 };
             Table tabla = new Table(UnitValue.CreatePercentArray(tamanios));
             tabla.SetWidth(UnitValue.CreatePercentValue(100));
 
@@ -52,28 +54,55 @@ namespace Turismo.Models
                 tabla.AddHeaderCell(new Cell().Add(new Paragraph(columna).SetFont(fontColumnas)));
             }
             ora.Open();
-            OracleCommand comando = new OracleCommand("select d.nom_depto,d.desc_depto ,d.direccion,d.cant_habitacion ,d.cant_banio ,d.calefaccion, d.internet,d.amoblado, d.television,d.disponible, d.valor_dia ,c.nom_comuna  from departamento d, comuna c where d.comuna_id_comuna = c.id_comuna", ora);
+            OracleCommand comando = new OracleCommand("select r.fecha_ingreso, r.fecha_salida,r.cant_dia_reserva, r.estado_reserva, d.nom_depto , u.nom_usuario from reserva r, departamento d, usuario u where r.departamento_id_departamento = d.id_departamento and r.usuario_id_usuario = u.id_usuario", ora);
             OracleDataReader reader = comando.ExecuteReader();
+
 
             while (reader.Read())
             {
+                tabla.AddCell(new Cell().Add(new Paragraph(reader["fecha_ingreso"].ToString()).SetFont(fontContenido)));
+                tabla.AddCell(new Cell().Add(new Paragraph(reader["fecha_salida"].ToString()).SetFont(fontContenido)));
+                tabla.AddCell(new Cell().Add(new Paragraph(reader["cant_dia_reserva"].ToString()).SetFont(fontContenido)));
+                tabla.AddCell(new Cell().Add(new Paragraph(reader["estado_reserva"].ToString()).SetFont(fontContenido)));
                 tabla.AddCell(new Cell().Add(new Paragraph(reader["nom_depto"].ToString()).SetFont(fontContenido)));
-                tabla.AddCell(new Cell().Add(new Paragraph(reader["desc_depto"].ToString()).SetFont(fontContenido)));
-                tabla.AddCell(new Cell().Add(new Paragraph(reader["direccion"].ToString()).SetFont(fontContenido)));
-                tabla.AddCell(new Cell().Add(new Paragraph(reader["cant_habitacion"].ToString()).SetFont(fontContenido)));
-                tabla.AddCell(new Cell().Add(new Paragraph(reader["cant_banio"].ToString()).SetFont(fontContenido)));
-                tabla.AddCell(new Cell().Add(new Paragraph(reader["calefaccion"].ToString()).SetFont(fontContenido)));
-                tabla.AddCell(new Cell().Add(new Paragraph(reader["internet"].ToString()).SetFont(fontContenido)));
-                tabla.AddCell(new Cell().Add(new Paragraph(reader["amoblado"].ToString()).SetFont(fontContenido)));
-                tabla.AddCell(new Cell().Add(new Paragraph(reader["television"].ToString()).SetFont(fontContenido)));
-                tabla.AddCell(new Cell().Add(new Paragraph(reader["disponible"].ToString()).SetFont(fontContenido)));
-                tabla.AddCell(new Cell().Add(new Paragraph(reader["valor_dia"].ToString()).SetFont(fontContenido)));
-                tabla.AddCell(new Cell().Add(new Paragraph(reader["nom_comuna"].ToString()).SetFont(fontContenido)));
+                tabla.AddCell(new Cell().Add(new Paragraph(reader["nom_usuario"].ToString()).SetFont(fontContenido)));
             }
 
             documento.Add(tabla);
             documento.Close();
-            ora.Close();    
+
+            var logo = new iText.Layout.Element.Image(ImageDataFactory.Create("C:/Users/Diego/Desktop/Turismo Escritorio/Turismo/Resources/TurismoReal-removebg-preview.png")).SetWidth(50);
+            var plogo = new Paragraph("").Add(logo);
+
+            var titulo = new Paragraph("Reporte de Reserva");
+            titulo.SetTextAlignment(TextAlignment.CENTER);
+            titulo.SetFontSize(17);
+
+            var dfecha = DateTime.Now.ToString("dd-MM-yyyy");
+            var dhora = DateTime.Now.ToString("hh:mm");
+            var fecha = new Paragraph("Fecha: " + dfecha + "\nHora: " + dhora);
+            fecha.SetFontSize(10);
+
+            PdfDocument pdfDoc = new PdfDocument(new PdfReader("Reporte1.pdf"), new PdfWriter(@"C:\Users\Diego\Desktop\Reporte\ReporteReserva.pdf"));
+
+            Document doc = new Document(pdfDoc);
+
+            int numeros = pdfDoc.GetNumberOfPages();
+
+            for (int i = 1; i <= numeros; i++)
+            {
+                PdfPage pagina = pdfDoc.GetPage(i);
+                float y = (pdfDoc.GetPage(i).GetPageSize().GetTop() - 15);
+                doc.ShowTextAligned(plogo, 50, y, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
+                doc.ShowTextAligned(titulo, 150, y - 15, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
+                doc.ShowTextAligned(fecha, 520, y - 15, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
+
+                doc.ShowTextAligned(new Paragraph(String.Format("Página {0} de {1}", i, numeros)), pdfDoc.GetPage(i).GetPageSize().GetWidth() / 2, pdfDoc.GetPage(i).GetPageSize().GetBottom() + 30, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
+            }
+            doc.Close();
+            ora.Close();
+
+
         }
     }
 }

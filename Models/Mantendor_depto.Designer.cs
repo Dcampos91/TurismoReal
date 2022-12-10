@@ -544,7 +544,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Mantendor_depto";
-            this.Text = "Mantenedor Departamento";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.Mantendor_depto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartamento)).EndInit();
             this.ResumeLayout(false);

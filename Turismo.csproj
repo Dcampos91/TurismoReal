@@ -251,6 +251,12 @@
     <Compile Include="Models\Reserva.Designer.cs">
       <DependentUpon>Reserva.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\ServicioExtra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\ServicioExtra.Designer.cs">
+      <DependentUpon>ServicioExtra.cs</DependentUpon>
+    </Compile>
     <Compile Include="PostViewCheckIn.cs" />
     <Compile Include="PostViewCheckOut.cs" />
     <Compile Include="PostViewCliente.cs" />
@@ -261,6 +267,7 @@
     <Compile Include="PostViewListarUsuario.cs" />
     <Compile Include="PostViewMTTO.cs" />
     <Compile Include="PostViewReserva.cs" />
+    <Compile Include="PostViewServicioExtra.cs" />
     <Compile Include="PostViewUsuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -321,6 +328,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Models\Reserva.resx">
       <DependentUpon>Reserva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\ServicioExtra.resx">
+      <DependentUpon>ServicioExtra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

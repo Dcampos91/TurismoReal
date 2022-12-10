@@ -32,6 +32,11 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnMinimizar = new FontAwesome.Sharp.IconButton();
@@ -77,11 +82,11 @@
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.chartDepartamento = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.ChartCliente = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.lblfecha = new System.Windows.Forms.Label();
             this.lblhora = new System.Windows.Forms.Label();
             this.fechahora = new System.Windows.Forms.Timer(this.components);
-            this.GraficoTop = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.lblTotalDepto = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.LogoMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
@@ -94,7 +99,8 @@
             this.PanelSubMenuCliente.SuspendLayout();
             this.PanelSubMenuDepa.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GraficoTop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDepartamento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ChartCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -237,7 +243,6 @@
             this.PrincipalMenu.Name = "PrincipalMenu";
             this.PrincipalMenu.Size = new System.Drawing.Size(200, 815);
             this.PrincipalMenu.TabIndex = 23;
-            
             // 
             // iconButton9
             // 
@@ -361,7 +366,6 @@
             this.button14.Text = "Reserva";
             this.button14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button14.UseVisualStyleBackColor = true;
-            
             // 
             // button15
             // 
@@ -449,6 +453,7 @@
             this.button12.Text = "Administrar ";
             this.button12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // iconButton6
             // 
@@ -855,7 +860,6 @@
             this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton3.UseVisualStyleBackColor = true;
             this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
-           
             // 
             // iconButton2
             // 
@@ -879,13 +883,12 @@
             this.iconButton2.Text = "  Home";
             this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton2.UseVisualStyleBackColor = true;
-            
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.panel2.Controls.Add(this.lblTotalDepto);
-            this.panel2.Controls.Add(this.GraficoTop);
+            this.panel2.Controls.Add(this.chartDepartamento);
+            this.panel2.Controls.Add(this.ChartCliente);
             this.panel2.Controls.Add(this.lblfecha);
             this.panel2.Controls.Add(this.lblhora);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -894,62 +897,94 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1370, 766);
             this.panel2.TabIndex = 25;
-           
+            // 
+            // chartDepartamento
+            // 
+            this.chartDepartamento.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea1.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea1.AxisY.InterlacedColor = System.Drawing.Color.White;
+            chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea1.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea1.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.Name = "ChartArea1";
+            this.chartDepartamento.ChartAreas.Add(chartArea1);
+            legend1.BackColor = System.Drawing.Color.Transparent;
+            legend1.ForeColor = System.Drawing.Color.White;
+            legend1.Name = "Reserva";
+            this.chartDepartamento.Legends.Add(legend1);
+            this.chartDepartamento.Location = new System.Drawing.Point(709, 262);
+            this.chartDepartamento.Name = "chartDepartamento";
+            this.chartDepartamento.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
+            series1.ChartArea = "ChartArea1";
+            series1.IsValueShownAsLabel = true;
+            series1.LabelForeColor = System.Drawing.Color.White;
+            series1.Legend = "Reserva";
+            series1.Name = "Departamento";
+            this.chartDepartamento.Series.Add(series1);
+            this.chartDepartamento.Size = new System.Drawing.Size(520, 471);
+            this.chartDepartamento.TabIndex = 6;
+            title1.ForeColor = System.Drawing.Color.White;
+            title1.Name = "Title1";
+            title1.Text = "Departamentos con más reservas";
+            this.chartDepartamento.Titles.Add(title1);
+            this.chartDepartamento.Click += new System.EventHandler(this.chartDepartamento_Click);
+            // 
+            // ChartCliente
+            // 
+            this.ChartCliente.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.Name = "ChartArea1";
+            this.ChartCliente.ChartAreas.Add(chartArea2);
+            legend2.BackColor = System.Drawing.Color.Transparent;
+            legend2.ForeColor = System.Drawing.Color.White;
+            legend2.Name = "Legend1";
+            this.ChartCliente.Legends.Add(legend2);
+            this.ChartCliente.Location = new System.Drawing.Point(74, 298);
+            this.ChartCliente.Name = "ChartCliente";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.IsValueShownAsLabel = true;
+            series2.LabelForeColor = System.Drawing.Color.White;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.ChartCliente.Series.Add(series2);
+            this.ChartCliente.Size = new System.Drawing.Size(558, 399);
+            this.ChartCliente.TabIndex = 4;
+            this.ChartCliente.Text = "chart1";
+            title2.ForeColor = System.Drawing.Color.White;
+            title2.Name = "Title1";
+            title2.Text = "Clientes más frecuentes";
+            this.ChartCliente.Titles.Add(title2);
             // 
             // lblfecha
             // 
             this.lblfecha.AutoSize = true;
             this.lblfecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblfecha.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.lblfecha.Location = new System.Drawing.Point(488, 106);
+            this.lblfecha.Location = new System.Drawing.Point(464, 119);
             this.lblfecha.Name = "lblfecha";
-            this.lblfecha.Size = new System.Drawing.Size(109, 39);
+            this.lblfecha.Size = new System.Drawing.Size(103, 38);
             this.lblfecha.TabIndex = 3;
             this.lblfecha.Text = "label1";
-            
             // 
             // lblhora
             // 
             this.lblhora.AutoSize = true;
             this.lblhora.Font = new System.Drawing.Font("Microsoft Sans Serif", 40.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblhora.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lblhora.Location = new System.Drawing.Point(552, 30);
+            this.lblhora.Location = new System.Drawing.Point(528, 28);
             this.lblhora.Name = "lblhora";
             this.lblhora.Size = new System.Drawing.Size(208, 76);
             this.lblhora.TabIndex = 2;
             this.lblhora.Text = "label1";
-            
             // 
             // fechahora
             // 
             this.fechahora.Enabled = true;
             this.fechahora.Tick += new System.EventHandler(this.fechahora_Tick);
-            // 
-            // GraficoTop
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.GraficoTop.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.GraficoTop.Legends.Add(legend1);
-            this.GraficoTop.Location = new System.Drawing.Point(74, 225);
-            this.GraficoTop.Name = "GraficoTop";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.GraficoTop.Series.Add(series1);
-            this.GraficoTop.Size = new System.Drawing.Size(481, 300);
-            this.GraficoTop.TabIndex = 4;
-            this.GraficoTop.Text = "chart1";
-            // 
-            // lblTotalDepto
-            // 
-            this.lblTotalDepto.AutoSize = true;
-            this.lblTotalDepto.Location = new System.Drawing.Point(201, 658);
-            this.lblTotalDepto.Name = "lblTotalDepto";
-            this.lblTotalDepto.Size = new System.Drawing.Size(44, 16);
-            this.lblTotalDepto.TabIndex = 5;
-            this.lblTotalDepto.Text = "label3";
             // 
             // VentanaPrincipal
             // 
@@ -964,7 +999,7 @@
             this.Name = "VentanaPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VentanaPrincipal";
-            
+            this.Load += new System.EventHandler(this.VentanaPrincipal_Load);
             this.Resize += new System.EventHandler(this.VentanaPrincipal_Resize);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -981,7 +1016,8 @@
             this.PanelSubMenuDepa.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GraficoTop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDepartamento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ChartCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1037,7 +1073,7 @@
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button18;
         private FontAwesome.Sharp.IconButton iconButton8;
-        private System.Windows.Forms.DataVisualization.Charting.Chart GraficoTop;
-        private System.Windows.Forms.Label lblTotalDepto;
+        private System.Windows.Forms.DataVisualization.Charting.Chart ChartCliente;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartDepartamento;
     }
 }
