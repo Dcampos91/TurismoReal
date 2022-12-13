@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListarUsuario));
             this.dgvListarUsuario = new System.Windows.Forms.DataGridView();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -48,23 +49,32 @@
             this.dgvListarUsuario.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvListarUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListarUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSlateBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListarUsuario.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvListarUsuario.Location = new System.Drawing.Point(40, 83);
             this.dgvListarUsuario.Name = "dgvListarUsuario";
             this.dgvListarUsuario.ReadOnly = true;
             this.dgvListarUsuario.RowHeadersWidth = 51;
             this.dgvListarUsuario.RowTemplate.Height = 24;
-            this.dgvListarUsuario.Size = new System.Drawing.Size(1223, 546);
+            this.dgvListarUsuario.Size = new System.Drawing.Size(1292, 778);
             this.dgvListarUsuario.TabIndex = 0;
             this.dgvListarUsuario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListarUsuario_CellContentClick);
             // 
             // btnBuscar
             // 
+            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBuscar.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Franklin Gothic Medium", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnBuscar.Location = new System.Drawing.Point(1131, 653);
+            this.btnBuscar.Location = new System.Drawing.Point(1135, 878);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(132, 54);
             this.btnBuscar.TabIndex = 1;
@@ -74,22 +84,24 @@
             // 
             // txtBuscar
             // 
+            this.txtBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBuscar.Font = new System.Drawing.Font("Franklin Gothic Medium", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(40, 653);
+            this.txtBuscar.Location = new System.Drawing.Point(40, 885);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(184, 36);
             this.txtBuscar.TabIndex = 2;
             // 
             // btnActualizar
             // 
+            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnActualizar.BackColor = System.Drawing.SystemColors.Menu;
             this.btnActualizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnActualizar.BackgroundImage")));
             this.btnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnActualizar.FlatAppearance.BorderSize = 0;
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnActualizar.Location = new System.Drawing.Point(1029, 630);
+            this.btnActualizar.Location = new System.Drawing.Point(1006, 862);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnActualizar.Size = new System.Drawing.Size(96, 89);
@@ -99,6 +111,8 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -111,7 +125,7 @@
             // ListarUsuario
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(1295, 754);
+            this.ClientSize = new System.Drawing.Size(1364, 986);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.txtBuscar);

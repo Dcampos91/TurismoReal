@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reserva));
             this.FechaIngreso = new System.Windows.Forms.MonthCalendar();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,7 +56,7 @@
             // 
             // FechaIngreso
             // 
-            this.FechaIngreso.Location = new System.Drawing.Point(24, 237);
+            this.FechaIngreso.Location = new System.Drawing.Point(118, 97);
             this.FechaIngreso.Name = "FechaIngreso";
             this.FechaIngreso.TabIndex = 1;
             // 
@@ -63,7 +64,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(25, 204);
+            this.label1.Location = new System.Drawing.Point(119, 64);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 17);
             this.label1.TabIndex = 2;
@@ -73,7 +74,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(356, 204);
+            this.label2.Location = new System.Drawing.Point(565, 64);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(102, 17);
             this.label2.TabIndex = 3;
@@ -81,7 +82,7 @@
             // 
             // FechaSalida
             // 
-            this.FechaSalida.Location = new System.Drawing.Point(360, 237);
+            this.FechaSalida.Location = new System.Drawing.Point(569, 97);
             this.FechaSalida.Name = "FechaSalida";
             this.FechaSalida.TabIndex = 4;
             // 
@@ -90,7 +91,7 @@
             this.txtCantidadDias.BackColor = System.Drawing.Color.Gainsboro;
             this.txtCantidadDias.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCantidadDias.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantidadDias.Location = new System.Drawing.Point(144, 56);
+            this.txtCantidadDias.Location = new System.Drawing.Point(587, 435);
             this.txtCantidadDias.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCantidadDias.Name = "txtCantidadDias";
             this.txtCantidadDias.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -101,7 +102,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Franklin Gothic Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(140, 29);
+            this.label3.Location = new System.Drawing.Point(583, 408);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 17);
             this.label3.TabIndex = 6;
@@ -111,7 +112,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Franklin Gothic Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(330, 27);
+            this.label4.Location = new System.Drawing.Point(806, 406);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(122, 17);
             this.label4.TabIndex = 7;
@@ -124,15 +125,15 @@
             this.cbxEstadoReserva.Items.AddRange(new object[] {
             "Habilitado",
             "Deshabilitado"});
-            this.cbxEstadoReserva.Location = new System.Drawing.Point(333, 53);
+            this.cbxEstadoReserva.Location = new System.Drawing.Point(809, 434);
             this.cbxEstadoReserva.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxEstadoReserva.Name = "cbxEstadoReserva";
-            this.cbxEstadoReserva.Size = new System.Drawing.Size(121, 33);
+            this.cbxEstadoReserva.Size = new System.Drawing.Size(141, 33);
             this.cbxEstadoReserva.TabIndex = 8;
             // 
             // FechaEstado
             // 
-            this.FechaEstado.Location = new System.Drawing.Point(28, 515);
+            this.FechaEstado.Location = new System.Drawing.Point(1030, 97);
             this.FechaEstado.Name = "FechaEstado";
             this.FechaEstado.TabIndex = 9;
             // 
@@ -140,7 +141,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Franklin Gothic Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(26, 490);
+            this.label5.Location = new System.Drawing.Point(1028, 72);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(227, 17);
             this.label5.TabIndex = 10;
@@ -150,7 +151,7 @@
             // 
             this.cbxDepartamento.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxDepartamento.FormattingEnabled = true;
-            this.cbxDepartamento.Location = new System.Drawing.Point(144, 134);
+            this.cbxDepartamento.Location = new System.Drawing.Point(132, 434);
             this.cbxDepartamento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxDepartamento.Name = "cbxDepartamento";
             this.cbxDepartamento.Size = new System.Drawing.Size(140, 33);
@@ -160,7 +161,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Franklin Gothic Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(141, 106);
+            this.label6.Location = new System.Drawing.Point(129, 406);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(113, 17);
             this.label6.TabIndex = 12;
@@ -170,7 +171,7 @@
             // 
             this.cbxCliente.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxCliente.FormattingEnabled = true;
-            this.cbxCliente.Location = new System.Drawing.Point(333, 134);
+            this.cbxCliente.Location = new System.Drawing.Point(366, 434);
             this.cbxCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxCliente.Name = "cbxCliente";
             this.cbxCliente.Size = new System.Drawing.Size(141, 33);
@@ -180,7 +181,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Franklin Gothic Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(330, 106);
+            this.label7.Location = new System.Drawing.Point(372, 406);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(60, 17);
             this.label7.TabIndex = 14;
@@ -188,26 +189,38 @@
             // 
             // dgvReserva
             // 
+            this.dgvReserva.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvReserva.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvReserva.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvReserva.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReserva.Location = new System.Drawing.Point(674, 134);
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSlateBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvReserva.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvReserva.Location = new System.Drawing.Point(132, 505);
             this.dgvReserva.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvReserva.Name = "dgvReserva";
             this.dgvReserva.RowHeadersWidth = 51;
             this.dgvReserva.RowTemplate.Height = 24;
-            this.dgvReserva.Size = new System.Drawing.Size(593, 460);
+            this.dgvReserva.Size = new System.Drawing.Size(1059, 322);
             this.dgvReserva.TabIndex = 15;
             this.dgvReserva.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReserva_CellContentClick);
             // 
             // btnAgregar
             // 
+            this.btnAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAgregar.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.btnAgregar.FlatAppearance.BorderSize = 0;
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Franklin Gothic Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAgregar.Location = new System.Drawing.Point(1132, 614);
+            this.btnAgregar.Location = new System.Drawing.Point(1056, 867);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(135, 66);
@@ -218,13 +231,14 @@
             // 
             // btnModificar
             // 
+            this.btnModificar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnModificar.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.btnModificar.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.btnModificar.FlatAppearance.BorderSize = 0;
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Franklin Gothic Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnModificar.Location = new System.Drawing.Point(976, 614);
+            this.btnModificar.Location = new System.Drawing.Point(900, 867);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(135, 66);
@@ -235,12 +249,13 @@
             // 
             // btnEliminar
             // 
+            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEliminar.BackColor = System.Drawing.Color.IndianRed;
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Franklin Gothic Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEliminar.Location = new System.Drawing.Point(818, 614);
+            this.btnEliminar.Location = new System.Drawing.Point(742, 867);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(135, 66);
@@ -251,11 +266,12 @@
             // 
             // btnBuscar
             // 
+            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnBuscar.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Franklin Gothic Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Location = new System.Drawing.Point(1158, 88);
+            this.btnBuscar.Location = new System.Drawing.Point(288, 867);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(109, 31);
@@ -266,10 +282,11 @@
             // 
             // txtBuscar
             // 
+            this.txtBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtBuscar.BackColor = System.Drawing.Color.Gainsboro;
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBuscar.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(1004, 88);
+            this.txtBuscar.Location = new System.Drawing.Point(134, 867);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(138, 30);
@@ -277,6 +294,7 @@
             // 
             // btnActualizar
             // 
+            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnActualizar.BackColor = System.Drawing.SystemColors.Menu;
             this.btnActualizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnActualizar.BackgroundImage")));
             this.btnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -284,7 +302,7 @@
             this.btnActualizar.FlatAppearance.BorderSize = 0;
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizar.Location = new System.Drawing.Point(655, 614);
+            this.btnActualizar.Location = new System.Drawing.Point(437, 849);
             this.btnActualizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -298,7 +316,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(1295, 754);
+            this.ClientSize = new System.Drawing.Size(1364, 986);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.btnBuscar);

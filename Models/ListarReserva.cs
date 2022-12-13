@@ -147,5 +147,10 @@ namespace Turismo.Models
             }
             
         }
+
+        private void dgvReserva_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

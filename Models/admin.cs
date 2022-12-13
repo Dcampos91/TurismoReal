@@ -1,37 +1,98 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OracleClient;
 using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.Script.Serialization;
 using System.Windows.Forms;
-//using Turismo.Models.Request;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using JsonSerializer = System.Text.Json.JsonSerializer;
-using System.Runtime.InteropServices;
-using System.Data.OracleClient;
-using System.Data.SqlClient;
-using Turismo.Models;
-namespace Turismo
-{
-    public partial class Login : Form
-    {
 
+namespace Turismo.Models
+{
+    public partial class admin : Form
+    {
         OracleConnection ora = new OracleConnection("Data Source=orcl; User ID=C##TReal1; Password=oracle");
-        public Login()
+        OracleCommand cmd;
+        OracleDataReader dr;
+        public admin()
         {
             InitializeComponent();
         }
+        
+
+        private void admin_Load(object sender, EventArgs e)
+        {
+            GrafDepartamento();
+            ClienteFrecuente();
+
+        }
+        ArrayList Departamentos = new ArrayList();
+        ArrayList Reserva = new ArrayList();
+        ArrayList Nombre_cliente = new ArrayList();
+        ArrayList Reservas = new ArrayList();
+        private object oracleType;
+
+        private void GrafDepartamento()
+        {
+
+
+            cmd = new OracleCommand("select d.NOM_DEPTO, count(*) as RESERVA from reserva r, departamento d where r.departamento_id_departamento = d.id_departamento group by d.NOM_DEPTO order by RESERVA desc", ora);
+
+
+            ora.Open();
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                Departamentos.Add(dr.GetString(0));
+                Reserva.Add(dr.GetInt32(1));
+            }
+            chartDepartamento.Series[0].Points.DataBindXY(Departamentos, Reserva);
+            dr.Close();
+            ora.Close();
+
+        }
+        private void ClienteFrecuente()
+        {
+
+
+            cmd = new OracleCommand("select c.NOM_CLIENTE ||' '|| c.APELLIDO_PATERNO ||' '|| c.APELLIDO_MATERNO as \"NOMBRE CLIENTE\", count(*) as RESERVA from reserva r, cliente c \r\nwhere r.usuario_id_usuario = c.usuario_id_usuario group by c.NOM_CLIENTE, c.APELLIDO_PATERNO, c.APELLIDO_MATERNO order by RESERVA desc", ora);
+
+
+            ora.Open();
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                Nombre_cliente.Add(dr.GetString(0));
+                Reservas.Add(dr.GetInt32(1));
+            }
+            ChartCliente.Series[0].Points.DataBindXY(Nombre_cliente, Reservas);
+            dr.Close();
+            ora.Close();
+
+        }
+
+
+        private Form activeForm = null;
+        private void openChildFormInPanel(Form childForm)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelContenedor.Controls.Add(childForm);
+            panelContenedor.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
+
         //Drag Form
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]    
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
@@ -40,12 +101,11 @@ namespace Turismo
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
+
         private int borderSize = 2;
         private Size formSize;
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            formSize = this.ClientSize;
-        }
+        //Overridden methods
         protected override void WndProc(ref Message m)
         {
             const int WM_NCCALCSIZE = 0x0083;//Standar Title Bar - Snap Window
@@ -127,104 +187,125 @@ namespace Turismo
             }
             base.WndProc(ref m);
         }
-        private void label1_Click(object sender, EventArgs e)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        private void deptoMantencion_Click(object sender, EventArgs e)
+        {
+            openChildFormInPanel(new Mantenimiento());
+        }
+
+        private void deptoInventario_Click(object sender, EventArgs e)
+        {
+            openChildFormInPanel(new MantenedorInventario());
+        }
+
+        private void deptoAdm_Click(object sender, EventArgs e)
+        {
+            openChildFormInPanel(new Mantendor_depto());
+        }
+
+        private void deptoListar_Click(object sender, EventArgs e)
+        {
+            openChildFormInPanel(new ListadoDepartamento());
+        }
+
+        private void deptoCheck_Click(object sender, EventArgs e)
+        {
+            openChildFormInPanel(new Menu_Checkeo());
+        }
+
+        private void clienteUsers_Click(object sender, EventArgs e)
+        {
+            openChildFormInPanel(new MantenedorUsuario());
+        }
+
+        private void clientesListar_Click(object sender, EventArgs e)
+        {
+            openChildFormInPanel(new ListarUsuario());
+        }
+
+        private void clientesAdmCliente_Click(object sender, EventArgs e)
+        {
+            openChildFormInPanel(new MantenedorCliente());
+        }
+
+        private void servTransporte_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnSeccion_Click(object sender, EventArgs e)
+        private void servExtra_Click(object sender, EventArgs e)
         {
-            logear();
-        }           
-        
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
+            openChildFormInPanel(new ServicioExtra());
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void servReportes_Click(object sender, EventArgs e)
         {
-
+            openChildFormInPanel(new ReporteDepartamento());
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void servReserva_Click(object sender, EventArgs e)
         {
-
+            openChildFormInPanel(new Reserva());
         }
 
-        private void iconButton1_Click(object sender, EventArgs e)
+        private void iconButton17_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-        ErrorProvider errorP = new ErrorProvider();
-        private void txtCorreo_Leave(object sender, EventArgs e)
+
+        private void BtnMaximizar_Click(object sender, EventArgs e)
         {
-            if (ValidarTxt.textVacio(txtCorreo))
-                errorP.SetError(txtCorreo, "No puede dejar vacio");
-            if (!ValidarTxt.validarEmail(txtCorreo.Text))
-                errorP.SetError(txtCorreo, "Correo no valido");
-            else
-                errorP.Clear();
+
         }
 
-        private void txtContrasenia_Leave(object sender, EventArgs e)
+        private void iconButton2_Click(object sender, EventArgs e)
         {
-            if (ValidarTxt.textVacio(txtContrasenia))
-                errorP.SetError(txtContrasenia, "No puede dejar vacio");
-            else
-                errorP.Clear();
+
         }
 
-        public void logear()
+        private void chartDepartamento_Click(object sender, EventArgs e)
         {
-            try
-            {
-                ora.Open();
-                OracleCommand comando = new OracleCommand("SELECT correo_usuario,tipo_usuario_id_tipo_usuario,contrasenia FROM usuario WHERE correo_usuario='" + txtCorreo.Text + "' AND contrasenia='" + txtContrasenia.Text + "'", ora);
-                OracleDataAdapter oda = new OracleDataAdapter(comando);
-                DataTable dt = new DataTable();
-                oda.Fill(dt);
 
-                if (dt.Rows.Count == 1)
-                {
-                    //this.Hide();
-                    if (dt.Rows[0][1].ToString() == "1")
-                    {
-                        admin v1 = new admin();//llama al siguiente formulario
-                        v1.Show();
-                    }
-                    else if (dt.Rows[0][1].ToString() == "2")
-                    {
-                        FuncionarioPrincipal v1 = new FuncionarioPrincipal();//llama al siguiente formulario
-                        v1.Show();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Correo no permitido para el ingreso.", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+        }
 
-                }
-                else
-                {
-                    MessageBox.Show("Usuario y/o Contraseña inconrrectos.", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }         
+        private void panelContenedor_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
 
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-            finally 
-            {
-                ora.Close();
-            }
-           
-            
-           
+        private void fechahora_Tick_1(object sender, EventArgs e)
+        {
+            lblhora.Text = DateTime.Now.ToString("HH:mm:ss");
+            lblfecha.Text = DateTime.Now.ToString("dddd MMMM yyy");
+        }
 
-            
+        private void chartDepartamento_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
+
 }

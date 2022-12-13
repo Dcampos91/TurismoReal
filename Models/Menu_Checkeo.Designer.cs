@@ -49,10 +49,11 @@
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(515, 39);
+            this.label1.Location = new System.Drawing.Point(637, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(310, 36);
             this.label1.TabIndex = 2;
@@ -60,6 +61,7 @@
             // 
             // iconButton2
             // 
+            this.iconButton2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.iconButton2.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.iconButton2.FlatAppearance.BorderSize = 0;
             this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -78,6 +80,7 @@
             // 
             // iconButton1
             // 
+            this.iconButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.iconButton1.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.iconButton1.FlatAppearance.BorderSize = 0;
             this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

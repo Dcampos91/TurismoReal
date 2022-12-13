@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListarReserva));
             this.label1 = new System.Windows.Forms.Label();
             this.dgvReserva = new System.Windows.Forms.DataGridView();
             this.btnInforme = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReserva)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,6 +54,14 @@
             this.dgvReserva.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvReserva.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvReserva.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSlateBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvReserva.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvReserva.Location = new System.Drawing.Point(127, 105);
             this.dgvReserva.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvReserva.Name = "dgvReserva";
@@ -59,6 +69,7 @@
             this.dgvReserva.RowTemplate.Height = 24;
             this.dgvReserva.Size = new System.Drawing.Size(1056, 500);
             this.dgvReserva.TabIndex = 1;
+            this.dgvReserva.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReserva_CellContentClick);
             // 
             // btnInforme
             // 
@@ -117,5 +128,6 @@
         private System.Windows.Forms.DataGridView dgvReserva;
         private System.Windows.Forms.Button btnInforme;
         private System.Windows.Forms.Button btnActualizar;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

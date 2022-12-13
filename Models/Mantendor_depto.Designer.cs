@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mantendor_depto));
             this.dgvDepartamento = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -67,15 +68,26 @@
             // 
             // dgvDepartamento
             // 
+            this.dgvDepartamento.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDepartamento.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvDepartamento.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvDepartamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSlateBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDepartamento.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDepartamento.Location = new System.Drawing.Point(544, 173);
             this.dgvDepartamento.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDepartamento.Name = "dgvDepartamento";
             this.dgvDepartamento.RowHeadersWidth = 51;
             this.dgvDepartamento.RowTemplate.Height = 24;
-            this.dgvDepartamento.Size = new System.Drawing.Size(726, 517);
+            this.dgvDepartamento.Size = new System.Drawing.Size(795, 786);
             this.dgvDepartamento.TabIndex = 1;
             this.dgvDepartamento.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDepartamento_CellContentClick);
             // 
@@ -93,12 +105,13 @@
             // 
             // btnAgregarDepto
             // 
+            this.btnAgregarDepto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAgregarDepto.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.btnAgregarDepto.FlatAppearance.BorderSize = 0;
             this.btnAgregarDepto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarDepto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarDepto.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAgregarDepto.Location = new System.Drawing.Point(393, 634);
+            this.btnAgregarDepto.Location = new System.Drawing.Point(393, 769);
             this.btnAgregarDepto.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregarDepto.Name = "btnAgregarDepto";
             this.btnAgregarDepto.Size = new System.Drawing.Size(131, 56);
@@ -136,12 +149,13 @@
             // 
             // btnEliminarDepto
             // 
+            this.btnEliminarDepto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnEliminarDepto.BackColor = System.Drawing.Color.IndianRed;
             this.btnEliminarDepto.FlatAppearance.BorderSize = 0;
             this.btnEliminarDepto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarDepto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarDepto.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEliminarDepto.Location = new System.Drawing.Point(101, 634);
+            this.btnEliminarDepto.Location = new System.Drawing.Point(101, 769);
             this.btnEliminarDepto.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminarDepto.Name = "btnEliminarDepto";
             this.btnEliminarDepto.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -449,12 +463,13 @@
             // 
             // btnActualizarDepto
             // 
+            this.btnActualizarDepto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnActualizarDepto.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.btnActualizarDepto.FlatAppearance.BorderSize = 0;
             this.btnActualizarDepto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizarDepto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizarDepto.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnActualizarDepto.Location = new System.Drawing.Point(248, 634);
+            this.btnActualizarDepto.Location = new System.Drawing.Point(248, 769);
             this.btnActualizarDepto.Margin = new System.Windows.Forms.Padding(2);
             this.btnActualizarDepto.Name = "btnActualizarDepto";
             this.btnActualizarDepto.Size = new System.Drawing.Size(131, 56);
@@ -465,6 +480,7 @@
             // 
             // btnActualizar
             // 
+            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnActualizar.BackColor = System.Drawing.SystemColors.Menu;
             this.btnActualizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnActualizar.BackgroundImage")));
             this.btnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -472,7 +488,7 @@
             this.btnActualizar.FlatAppearance.BorderSize = 0;
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizar.Location = new System.Drawing.Point(12, 619);
+            this.btnActualizar.Location = new System.Drawing.Point(12, 754);
             this.btnActualizar.Margin = new System.Windows.Forms.Padding(2);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -493,6 +509,8 @@
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Franklin Gothic Medium", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -507,7 +525,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(1295, 717);
+            this.ClientSize = new System.Drawing.Size(1364, 986);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cbxComuna);
             this.Controls.Add(this.btnActualizar);

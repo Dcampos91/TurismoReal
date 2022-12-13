@@ -143,6 +143,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\admin.Designer.cs">
+      <DependentUpon>admin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\CheckList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,6 +284,9 @@
       <DependentUpon>VentanaPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="ValidarTxt.cs" />
+    <EmbeddedResource Include="Models\admin.resx">
+      <DependentUpon>admin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Models\CheckList.resx">
       <DependentUpon>CheckList.cs</DependentUpon>
     </EmbeddedResource>

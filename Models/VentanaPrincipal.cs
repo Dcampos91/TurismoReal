@@ -450,5 +450,45 @@ namespace Turismo
         {
 
         }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            admin admin = new admin();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblhora_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

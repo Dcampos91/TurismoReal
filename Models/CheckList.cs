@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media;
+using Brushes = System.Drawing.Brushes;
 
 namespace Turismo.Models
 {
@@ -76,23 +78,54 @@ namespace Turismo.Models
 
         private void Imprimir(object sender,PrintPageEventArgs e)
         {
-            Font font = new Font("Arial", 14);
+            Font font = new Font("Arial", 14, FontStyle.Regular, GraphicsUnit.Point);
             int ancho = 200;
             int y = 20;
+            //int altura = 50;
+            e.Graphics.DrawString("-- Listado de Item --", font, Brushes.Black, new RectangleF(0,10,120,20));
+            e.Graphics.DrawString(lvLista.ToString(), font, Brushes.Black, new RectangleF(0, 10, 120, 20));
 
-            e.Graphics.DrawString("-- Listado de Item --", font, Brushes.Black, new RectangleF(0, y + 20, ancho, 20));
             
-           
+            
+
+
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            printDocument1 = new PrintDocument();
-            PrinterSettings ps = new PrinterSettings();
-            printDocument1.PrinterSettings = ps;
-            printDocument1.PrintPage += Imprimir;
-            printDocument1.Print();
+            //printPreviewDialog1.Show();
+            //printDocument1  = new PrintDocument();
+            //PrinterSettings ps = new PrinterSettings();
+            //printDocument1.PrinterSettings = ps;
+            //printDocument1.PrintPage += Imprimir;
+            //printDocument1.Print();  
+
+            PrintDocument doc = new PrintDocument();
+            doc.DefaultPageSettings.Landscape = true;
+            doc.PrinterSettings.PrinterName = "Microsoft Print to PDF";
+
+            PrintPreviewDialog ppd = new PrintPreviewDialog { Document = doc};
+            ((Form)ppd).WindowState = FormWindowState.Maximized;
+
+            doc.PrintPage += delegate (object ev, PrintPageEventArgs ep)
+            {
+                const int DGV_ALTO = 35;
+                int left = ep.MarginBounds.Left, top = ep.MarginBounds.Top;
+
+                foreach (ListView col in lvLista.Columns) 
+                {
+                    ep.Graphics.DrawString(col.HeaderStyle.ToString(), new Font("Segoe UI", 16, FontStyle.Bold), Brushes.DeepSkyBlue, left, top);
+                }
+            };
+            ppd.ShowDialog();
+
+        }
+
+       
+
+        private void printPreviewDialog1_Load(object sender, EventArgs e)
+        {
 
         }
     }
