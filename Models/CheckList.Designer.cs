@@ -35,10 +35,6 @@
             this.cbxDepartamento = new System.Windows.Forms.ComboBox();
             this.cbxItem = new System.Windows.Forms.ComboBox();
             this.txtCantidad = new System.Windows.Forms.TextBox();
-            this.lvLista = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -47,6 +43,11 @@
             this.btnImprimir = new System.Windows.Forms.Button();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.dgvList = new System.Windows.Forms.DataGridView();
+            this.Departamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -115,36 +116,6 @@
             this.txtCantidad.Size = new System.Drawing.Size(100, 22);
             this.txtCantidad.TabIndex = 5;
             // 
-            // lvLista
-            // 
-            this.lvLista.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
-            this.lvLista.GridLines = true;
-            this.lvLista.HideSelection = false;
-            this.lvLista.Location = new System.Drawing.Point(38, 90);
-            this.lvLista.Name = "lvLista";
-            this.lvLista.Size = new System.Drawing.Size(425, 384);
-            this.lvLista.TabIndex = 6;
-            this.lvLista.UseCompatibleStateImageBehavior = false;
-            this.lvLista.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "ITEM";
-            this.columnHeader1.Width = 81;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "CANTIDAD";
-            this.columnHeader2.Width = 122;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "DEPARTAMENTO";
-            this.columnHeader3.Width = 170;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -176,9 +147,9 @@
             // 
             this.btnAgregar.Location = new System.Drawing.Point(534, 398);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(86, 32);
+            this.btnAgregar.Size = new System.Drawing.Size(99, 64);
             this.btnAgregar.TabIndex = 10;
-            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.Text = "Agregar Item";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
@@ -186,9 +157,9 @@
             // 
             this.btnCancelar.Location = new System.Drawing.Point(665, 398);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(84, 32);
+            this.btnCancelar.Size = new System.Drawing.Size(95, 64);
             this.btnCancelar.TabIndex = 11;
-            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Text = "Eliminar Item";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -218,18 +189,55 @@
             this.printPreviewDialog1.Visible = false;
             this.printPreviewDialog1.Load += new System.EventHandler(this.printPreviewDialog1_Load);
             // 
+            // dgvList
+            // 
+            this.dgvList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Departamento,
+            this.Item,
+            this.Cantidad});
+            this.dgvList.Location = new System.Drawing.Point(23, 91);
+            this.dgvList.Name = "dgvList";
+            this.dgvList.RowHeadersWidth = 51;
+            this.dgvList.RowTemplate.Height = 24;
+            this.dgvList.Size = new System.Drawing.Size(463, 371);
+            this.dgvList.TabIndex = 13;
+            // 
+            // Departamento
+            // 
+            this.Departamento.HeaderText = "Departamento";
+            this.Departamento.MinimumWidth = 6;
+            this.Departamento.Name = "Departamento";
+            this.Departamento.Width = 125;
+            // 
+            // Item
+            // 
+            this.Item.HeaderText = "Item";
+            this.Item.MinimumWidth = 6;
+            this.Item.Name = "Item";
+            this.Item.Width = 125;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.MinimumWidth = 6;
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.Width = 125;
+            // 
             // CheckList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 558);
+            this.ClientSize = new System.Drawing.Size(956, 632);
+            this.Controls.Add(this.dgvList);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.lvLista);
             this.Controls.Add(this.txtCantidad);
             this.Controls.Add(this.cbxItem);
             this.Controls.Add(this.cbxDepartamento);
@@ -240,6 +248,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CheckList";
             this.Load += new System.EventHandler(this.CheckList_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -253,17 +262,17 @@
         private System.Windows.Forms.ComboBox cbxDepartamento;
         private System.Windows.Forms.ComboBox cbxItem;
         private System.Windows.Forms.TextBox txtCantidad;
-        private System.Windows.Forms.ListView lvLista;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnImprimir;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.DataGridView dgvList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Departamento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Item;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
     }
 }

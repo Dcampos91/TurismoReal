@@ -42,11 +42,15 @@ namespace Turismo.Models
                 int cantidad = Convert.ToInt32(txtCantidad.Text);
                 string depa = cbxDepartamento.Text;
 
-                ListViewItem fila = new ListViewItem(item);
-                fila.SubItems.Add(cantidad.ToString());
-                fila.SubItems.Add(depa.ToString());
-                lvLista.Items.Add(fila);
-                btnCancelar_Click(sender, e);
+                DataGridViewRow fila = new DataGridViewRow();
+                fila.CreateCells(dgvList);
+                fila.Cells[0].Value = (depa.ToString());
+                fila.Cells[1].Value = (item.ToString());
+                fila.Cells[2].Value = (cantidad.ToString());
+                dgvList.Rows.Add(fila);
+                cbxItem.Text = "";
+                txtCantidad.Text = "";                
+               
             }
 
            
@@ -54,6 +58,7 @@ namespace Turismo.Models
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            dgvList.Rows.Remove(dgvList.CurrentRow);
 
         }
         private void cargaDepartamento()
@@ -83,7 +88,7 @@ namespace Turismo.Models
             int y = 20;
             //int altura = 50;
             e.Graphics.DrawString("-- Listado de Item --", font, Brushes.Black, new RectangleF(0,10,120,20));
-            e.Graphics.DrawString(lvLista.ToString(), font, Brushes.Black, new RectangleF(0, 10, 120, 20));
+            //e.Graphics.DrawString(lvLista.ToString(), font, Brushes.Black, new RectangleF(0, 10, 120, 20));
 
             
             
@@ -113,9 +118,29 @@ namespace Turismo.Models
                 const int DGV_ALTO = 35;
                 int left = ep.MarginBounds.Left, top = ep.MarginBounds.Top;
 
-                foreach (ListView col in lvLista.Columns) 
+                foreach (DataGridViewColumn col in dgvList.Columns) 
                 {
-                    ep.Graphics.DrawString(col.HeaderStyle.ToString(), new Font("Segoe UI", 16, FontStyle.Bold), Brushes.DeepSkyBlue, left, top);
+                    ep.Graphics.DrawString(col.HeaderText, new Font("Segoe UI", 16, FontStyle.Bold), Brushes.DeepSkyBlue, left, top);
+                    left += col.Width;
+
+                    if (col.Index < dgvList.ColumnCount - 1)
+                        ep.Graphics.DrawLine(Pens.Gray, left - 5, top, left - 5, top + 43 + (dgvList.RowCount - 1) * DGV_ALTO);
+
+                }
+                left = ep.MarginBounds.Left;
+                ep.Graphics.FillRectangle(Brushes.Black, left, top + 40, ep.MarginBounds.Right - left, 3);
+                top += 43;
+                foreach (DataGridViewRow row in dgvList.Rows)
+                {
+                    if (row.Index == dgvList.RowCount - 1) break;
+                    left = ep.MarginBounds.Left;
+                    foreach (DataGridViewCell cell in row.Cells) 
+                    {
+                        ep.Graphics.DrawString(Convert.ToString(cell.Value), new Font("Segoe Ui", 13), Brushes.Black, left, top + 4);
+                        left += cell.OwningColumn.Width;
+                    }
+                    top += DGV_ALTO;
+                    ep.Graphics.DrawLine(Pens.Gray, ep.MarginBounds.Left, top,ep.MarginBounds.Right, top);
                 }
             };
             ppd.ShowDialog();
