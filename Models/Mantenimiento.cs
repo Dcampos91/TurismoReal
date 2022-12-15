@@ -222,43 +222,51 @@ namespace Turismo.Models
 
         private async void btnModificarMtto_Click(object sender, EventArgs e)
         {
-            var buscar = txtBuscar.Text;
-            DateTime ingreso = FechaIngreso.SelectionStart;
-            DateTime salida = FechaSalida.SelectionStart;
-
-            string url = "http://127.0.0.1:8000/mttoDepartamento/modificar/"+buscar;
-            var reserva = new HttpClient();
-            var Ingreso = ingreso.ToString("yyyy/MM/dd");
-            var Salida = salida.ToString("yyyy/MM/dd");
-
-
-            int idDepartamento = int.Parse(cbxDepartamento.SelectedValue.ToString());
-
-            PostViewMTTO post = new PostViewMTTO()
+            try 
             {
-                FECHA_INGRESO = Ingreso,
-                FECHA_SALIDA = Salida,
-                DESCRIPCION_MTTO = txtDescripcionMtto.Text,
-                DISPONIBILIDAD = cbxDisponibilidad.Text,
-                DEPARTAMENTO_ID_DEPARTAMENTO = idDepartamento,
+                var buscar = txtBuscar.Text;
+                DateTime ingreso = FechaIngreso.SelectionStart;
+                DateTime salida = FechaSalida.SelectionStart;
 
-            };
-            var data = JsonSerializer.Serialize<PostViewMTTO>(post);
-            HttpContent content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
-            var httpResponse = await reserva.PostAsync(url, content);
+                string url = "http://127.0.0.1:8000/mttoDepartamento/modificar/" + buscar;
+                var reserva = new HttpClient();
+                var Ingreso = ingreso.ToString("yyyy/MM/dd");
+                var Salida = salida.ToString("yyyy/MM/dd");
 
-            if (httpResponse.IsSuccessStatusCode)
-            {
-                var result = await httpResponse.Content.ReadAsStringAsync();
 
-                var postResult = JsonSerializer.Deserialize<PostViewMTTO>(result);
+                int idDepartamento = int.Parse(cbxDepartamento.SelectedValue.ToString());
 
-                MessageBox.Show("Modificado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                PostViewMTTO post = new PostViewMTTO()
+                {
+                    FECHA_INGRESO = Ingreso,
+                    FECHA_SALIDA = Salida,
+                    DESCRIPCION_MTTO = txtDescripcionMtto.Text,
+                    DISPONIBILIDAD = cbxDisponibilidad.Text,
+                    DEPARTAMENTO_ID_DEPARTAMENTO = idDepartamento,
+
+                };
+                var data = JsonSerializer.Serialize<PostViewMTTO>(post);
+                HttpContent content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+                var httpResponse = await reserva.PostAsync(url, content);
+
+                if (httpResponse.IsSuccessStatusCode)
+                {
+                    var result = await httpResponse.Content.ReadAsStringAsync();
+
+                    var postResult = JsonSerializer.Deserialize<PostViewMTTO>(result);
+
+                    MessageBox.Show("Modificado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Error al Modificar la orden de MTTO, intenta de nuevo", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Error al Modificar la orden de MTTO, intenta de nuevo", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("NO se puede modificar", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
 
 
         }

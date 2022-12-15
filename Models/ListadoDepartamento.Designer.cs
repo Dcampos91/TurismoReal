@@ -78,6 +78,7 @@
             this.btnActualizar.Size = new System.Drawing.Size(84, 78);
             this.btnActualizar.TabIndex = 77;
             this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // label1
             // 

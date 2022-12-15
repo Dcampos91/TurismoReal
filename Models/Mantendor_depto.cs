@@ -153,44 +153,53 @@ namespace Turismo
 
         private async void button2_Click(object sender, EventArgs e)//agregar un departamento
         {
-            string url = "http://127.0.0.1:8000/departamento/crear/";
-            var depto = new HttpClient();
-            int idComuna = int.Parse(cbxComuna.SelectedValue.ToString());
-
-            PostViewDepartamento post = new PostViewDepartamento()
+            try 
             {
-                NOM_DEPTO = txtNomdepto.Text,
-                DESC_DEPTO = txtDesc.Text,
-                DIRECCION = txtdireccion.Text,
-                CANT_HABITACION = int.Parse(cbxHabitacion.Text),
-                CANT_BANIO = int.Parse(cbxBanio.Text),
-                CALEFACCION = cbxCalefaccion.Text,
-                INTERNET = cbxInternet.Text,
-                AMOBLADO = cbxAmoblado.Text,
-                TELEVISION = cbxTelevision.Text,
-                DISPONIBLE = cbxDisponibilidad.Text,
-                VALOR_DIA = int.Parse(txtValor.Text),
-                COMUNA_ID_COMUNA = idComuna,
-            };
-            var data = JsonSerializer.Serialize<PostViewDepartamento>(post);
-            HttpContent content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
-            var httpResponse = await depto.PostAsync(url, content);
+                string url = "http://127.0.0.1:8000/departamento/crear/";
+                var depto = new HttpClient();
+                int idComuna = int.Parse(cbxComuna.SelectedValue.ToString());
 
-            if (httpResponse.IsSuccessStatusCode)
-            {
-                var result = await httpResponse.Content.ReadAsStringAsync();
+                PostViewDepartamento post = new PostViewDepartamento()
+                {
 
-                var postResult = JsonSerializer.Deserialize<PostViewDepartamento>(result);
+                    NOM_DEPTO = txtNomdepto.Text,
+                    DESC_DEPTO = txtDesc.Text,
+                    DIRECCION = txtdireccion.Text,
+                    CANT_HABITACION = int.Parse(cbxHabitacion.Text),
+                    CANT_BANIO = int.Parse(cbxBanio.Text),
+                    CALEFACCION = cbxCalefaccion.Text,
+                    INTERNET = cbxInternet.Text,
+                    AMOBLADO = cbxAmoblado.Text,
+                    TELEVISION = cbxTelevision.Text,
+                    DISPONIBLE = cbxDisponibilidad.Text,
+                    VALOR_DIA = int.Parse(txtValor.Text),
+                    COMUNA_ID_COMUNA = idComuna,
+                };
+                var data = JsonSerializer.Serialize<PostViewDepartamento>(post);
+                HttpContent content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+                var httpResponse = await depto.PostAsync(url, content);
 
-                MessageBox.Show("Creado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (httpResponse.IsSuccessStatusCode)
+                {
+                    var result = await httpResponse.Content.ReadAsStringAsync();
 
-                
+                    var postResult = JsonSerializer.Deserialize<PostViewDepartamento>(result);
+
+                    MessageBox.Show("Creado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Error al crear departamento intenta de nuevo", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Error al crear departamento intenta de nuevo", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("NO se agrego Departamentos", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-           
+
+
         }
 
         private async void Mantendor_depto_Load(object sender, EventArgs e)// carga el datagrid
@@ -276,9 +285,17 @@ namespace Turismo
 
         private async void btnActualizar_Click(object sender, EventArgs e) //actualizar el data grid
         {
-            string respuesta = await GetHttp();
-            List<PostViewDepartamento> lst = JsonConvert.DeserializeObject<List<PostViewDepartamento>>(respuesta);
-            dgvDepartamento.DataSource = lst;
+            try 
+            {
+                string respuesta = await GetHttp();
+                List<PostViewDepartamento> lst = JsonConvert.DeserializeObject<List<PostViewDepartamento>>(respuesta);
+                dgvDepartamento.DataSource = lst;
+            }
+            catch
+            {
+                MessageBox.Show("NO se encontraron Departamentos", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
 
 
 
@@ -286,42 +303,50 @@ namespace Turismo
 
         private async void btnActualizarDepto_Click(object sender, EventArgs e)
         {
-            var buscar = txtBuscarDepto.Text;
-            string url = "http://127.0.0.1:8000/departamento/modificar/"+buscar;
-            var depto = new HttpClient();
-            int idComuna = int.Parse(cbxComuna.SelectedValue.ToString());
-
-            PostViewDepartamento post = new PostViewDepartamento()
+            try 
             {
-                NOM_DEPTO = txtNomdepto.Text,
-                DESC_DEPTO = txtDesc.Text,
-                DIRECCION = txtdireccion.Text,
-                CANT_HABITACION = int.Parse(cbxHabitacion.Text),
-                CANT_BANIO = int.Parse(cbxBanio.Text),
-                CALEFACCION = cbxCalefaccion.Text,
-                INTERNET = cbxInternet.Text,
-                AMOBLADO = cbxAmoblado.Text,
-                TELEVISION = cbxTelevision.Text,
-                DISPONIBLE = cbxDisponibilidad.Text,
-                VALOR_DIA = int.Parse(txtValor.Text),
-                COMUNA_ID_COMUNA = idComuna,
-            };
-            var data = JsonSerializer.Serialize<PostViewDepartamento>(post);
-            HttpContent content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
-            var httpResponse = await depto.PostAsync(url, content);
+                var buscar = txtBuscarDepto.Text;
+                string url = "http://127.0.0.1:8000/departamento/modificar/" + buscar;
+                var depto = new HttpClient();
+                int idComuna = int.Parse(cbxComuna.SelectedValue.ToString());
 
-            if (httpResponse.IsSuccessStatusCode)
-            {
-                var result = await httpResponse.Content.ReadAsStringAsync();
+                PostViewDepartamento post = new PostViewDepartamento()
+                {
+                    NOM_DEPTO = txtNomdepto.Text,
+                    DESC_DEPTO = txtDesc.Text,
+                    DIRECCION = txtdireccion.Text,
+                    CANT_HABITACION = int.Parse(cbxHabitacion.Text),
+                    CANT_BANIO = int.Parse(cbxBanio.Text),
+                    CALEFACCION = cbxCalefaccion.Text,
+                    INTERNET = cbxInternet.Text,
+                    AMOBLADO = cbxAmoblado.Text,
+                    TELEVISION = cbxTelevision.Text,
+                    DISPONIBLE = cbxDisponibilidad.Text,
+                    VALOR_DIA = int.Parse(txtValor.Text),
+                    COMUNA_ID_COMUNA = idComuna,
+                };
+                var data = JsonSerializer.Serialize<PostViewDepartamento>(post);
+                HttpContent content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+                var httpResponse = await depto.PostAsync(url, content);
 
-                var postResult = JsonSerializer.Deserialize<PostViewDepartamento>(result);
+                if (httpResponse.IsSuccessStatusCode)
+                {
+                    var result = await httpResponse.Content.ReadAsStringAsync();
 
-                MessageBox.Show("Modificado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    var postResult = JsonSerializer.Deserialize<PostViewDepartamento>(result);
+
+                    MessageBox.Show("Modificado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Error al modificar el departamento intenta de nuevo", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Error al modificar el departamento intenta de nuevo", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("NO se encontraron Departamentos", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
 
         }
 

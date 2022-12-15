@@ -95,39 +95,47 @@ namespace Turismo.Models
 
         private async void btnAgregarUsuario_Click(object sender, EventArgs e)//Crear Usuario
         {
-            int selectedIndex = cbxEstado.SelectedIndex;
-            Object selectedItem = cbxEstado.SelectedItem;
-
-            string url = "http://127.0.0.1:8000/usuario/crear/";
-            var usuario = new HttpClient();
-            string idTipoUsuario = cbxTipoUsuario.SelectedValue.ToString();
-            string Estado = "" + selectedIndex;
-
-            PostViewUsuario post = new PostViewUsuario()
+            try 
             {
-                NOM_USUARIO = txtNomUsuario.Text,
-                CORREO_USUARIO = txtCorreoUsuario.Text,
-                CONTRASENIA = txtContraseniaUsuario.Text,
-                ESTADO_USUARIO = Estado,
-                TIPO_USUARIO_ID_TIPO_USUARIO = idTipoUsuario
+                int selectedIndex = cbxEstado.SelectedIndex;
+                Object selectedItem = cbxEstado.SelectedItem;
 
-            };
-            var data = JsonSerializer.Serialize<PostViewUsuario>(post);
-            HttpContent content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
-            var httpResponse = await usuario.PostAsync(url, content);
+                string url = "http://127.0.0.1:8000/usuario/crear/";
+                var usuario = new HttpClient();
+                string idTipoUsuario = cbxTipoUsuario.SelectedValue.ToString();
+                string Estado = "" + selectedIndex;
 
-            if (httpResponse.IsSuccessStatusCode)
-            {
-                var result = await httpResponse.Content.ReadAsStringAsync();
+                PostViewUsuario post = new PostViewUsuario()
+                {
+                    NOM_USUARIO = txtNomUsuario.Text,
+                    CORREO_USUARIO = txtCorreoUsuario.Text,
+                    CONTRASENIA = txtContraseniaUsuario.Text,
+                    ESTADO_USUARIO = Estado,
+                    TIPO_USUARIO_ID_TIPO_USUARIO = idTipoUsuario
 
-                var postResult = JsonSerializer.Deserialize<PostViewDepartamento>(result);
+                };
+                var data = JsonSerializer.Serialize<PostViewUsuario>(post);
+                HttpContent content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+                var httpResponse = await usuario.PostAsync(url, content);
 
-                MessageBox.Show("Creado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (httpResponse.IsSuccessStatusCode)
+                {
+                    var result = await httpResponse.Content.ReadAsStringAsync();
+
+                    var postResult = JsonSerializer.Deserialize<PostViewDepartamento>(result);
+
+                    MessageBox.Show("Creado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Error al crear el usuario intenta de nuevo", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Error al crear el usuario intenta de nuevo", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("NO se agrego usuario", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         private async void btnEliminarUsuario_Click(object sender, EventArgs e)//Eliminar Usuario
@@ -158,46 +166,63 @@ namespace Turismo.Models
 
         private async void btnActualizar_Click(object sender, EventArgs e)//Actualiza datagrid Usuario
         {
-            string respuesta = await GetHttp();
-            List<PostViewUsuario> lst = JsonConvert.DeserializeObject<List<PostViewUsuario>>(respuesta);
-            dgvUsuario.DataSource = lst;
+            try
+            {
+                string respuesta = await GetHttp();
+                List<PostViewUsuario> lst = JsonConvert.DeserializeObject<List<PostViewUsuario>>(respuesta);
+                dgvUsuario.DataSource = lst;
+            }
+            catch
+            {
+                MessageBox.Show("NO se puede actualizar", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
         }
 
         private async void btnModificarUsuario_Click(object sender, EventArgs e)//modifcar Usuario
         {
-            int selectedIndex = cbxEstado.SelectedIndex;
-            Object selectedItem = cbxEstado.SelectedItem;
-            var buscar = txtBuscar.Text;
-            string url = "http://127.0.0.1:8000/usuario/modificar/"+buscar;
-            var usuario = new HttpClient();
-            string idTipoUsuario = cbxTipoUsuario.SelectedValue.ToString();
-            string Estado = "" + selectedIndex;
-
-            PostViewUsuario post = new PostViewUsuario()
+            try 
             {
-                NOM_USUARIO = txtNomUsuario.Text,
-                CORREO_USUARIO = txtCorreoUsuario.Text,
-                CONTRASENIA = txtContraseniaUsuario.Text,
-                ESTADO_USUARIO = Estado,
-                TIPO_USUARIO_ID_TIPO_USUARIO = idTipoUsuario
+                int selectedIndex = cbxEstado.SelectedIndex;
+                Object selectedItem = cbxEstado.SelectedItem;
+                var buscar = txtBuscar.Text;
+                string url = "http://127.0.0.1:8000/usuario/modificar/" + buscar;
+                var usuario = new HttpClient();
+                string idTipoUsuario = cbxTipoUsuario.SelectedValue.ToString();
+                string Estado = "" + selectedIndex;
 
-            };
-            var data = JsonSerializer.Serialize<PostViewUsuario>(post);
-            HttpContent content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
-            var httpResponse = await usuario.PostAsync(url, content);
+                PostViewUsuario post = new PostViewUsuario()
+                {
+                    NOM_USUARIO = txtNomUsuario.Text,
+                    CORREO_USUARIO = txtCorreoUsuario.Text,
+                    CONTRASENIA = txtContraseniaUsuario.Text,
+                    ESTADO_USUARIO = Estado,
+                    TIPO_USUARIO_ID_TIPO_USUARIO = idTipoUsuario
 
-            if (httpResponse.IsSuccessStatusCode)
-            {
-                var result = await httpResponse.Content.ReadAsStringAsync();
+                };
+                var data = JsonSerializer.Serialize<PostViewUsuario>(post);
+                HttpContent content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+                var httpResponse = await usuario.PostAsync(url, content);
 
-                var postResult = JsonSerializer.Deserialize<PostViewDepartamento>(result);
+                if (httpResponse.IsSuccessStatusCode)
+                {
+                    var result = await httpResponse.Content.ReadAsStringAsync();
 
-                MessageBox.Show("Modificado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    var postResult = JsonSerializer.Deserialize<PostViewDepartamento>(result);
+
+                    MessageBox.Show("Modificado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Error al Modificar el usuario intenta de nuevo", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Error al Modificar el usuario intenta de nuevo", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("NO se modificar", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         private void dgvUsuario_CellContentClick(object sender, DataGridViewCellEventArgs e)//Auto Rellenar
