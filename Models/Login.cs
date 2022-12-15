@@ -135,6 +135,7 @@ namespace Turismo
         private void btnSeccion_Click(object sender, EventArgs e)
         {
             logear();
+            this.Hide();
         }           
         
 

@@ -55,14 +55,14 @@ namespace Turismo.Models
         {
             try 
             {
-                var buscar = txtBuscar.Text;
+                //var buscar = txtBuscar.Text;
                 string respuesta = await GetHttp();
                 List<PostViewListarUsuario> lst = JsonConvert.DeserializeObject<List<PostViewListarUsuario>>(respuesta);
                 dgvListarUsuario.DataSource = lst;
 
                 async Task<string> GetHttp()
                 {
-                    string url = "http://127.0.0.1:8000/usuariocorreo/" + buscar;
+                    string url = "http://127.0.0.1:8000/usuariocorreo/" ;
                     WebRequest oRequest = WebRequest.Create(url);
                     WebResponse oResponse = oRequest.GetResponse();
                     StreamReader sr = new StreamReader(oResponse.GetResponseStream());

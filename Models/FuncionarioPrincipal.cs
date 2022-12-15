@@ -21,6 +21,7 @@ namespace Turismo.Models
             hideSubMenu();
             this.Padding = new Padding(borderSize);
             this.BackColor = Color.FromArgb(22, 31, 56);
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
         //ESTO ABRE Y CIERRA LOS SUBMENUS, IR AGREGANDO ACA LOS PANELES 
         private void hideSubMenu()
@@ -231,6 +232,22 @@ namespace Turismo.Models
         private void iconButton3_Click(object sender, EventArgs e)
         {
             AbrirSubFormulario(new CheckList());
+        }
+
+        private void iconButton17_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void BtnMaximizar_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal) this.WindowState = FormWindowState.Maximized;
+            else this.WindowState = FormWindowState.Normal;
+        }
+
+        private void BtnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

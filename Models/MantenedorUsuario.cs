@@ -258,5 +258,10 @@ namespace Turismo.Models
             else
                 errorP.Clear();
         }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

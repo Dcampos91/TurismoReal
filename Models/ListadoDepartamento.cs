@@ -49,14 +49,14 @@ namespace Turismo.Models
         {
             try 
             {
-                var buscar = txtBuscar.Text;
+                //var buscar = txtBuscar.Text;
                 string respuesta = await GetHttp();
                 List<PostViewDepartamento> lst = JsonConvert.DeserializeObject<List<PostViewDepartamento>>(respuesta);
                 dgvListarDepartamento.DataSource = lst;
 
                 async Task<string> GetHttp()
                 {
-                    string url = "http://127.0.0.1:8000/departamento/" + buscar;
+                    string url = "http://127.0.0.1:8000/departamento/";
                     WebRequest oRequest = WebRequest.Create(url);
                     WebResponse oResponse = oRequest.GetResponse();
                     StreamReader sr = new StreamReader(oResponse.GetResponseStream());

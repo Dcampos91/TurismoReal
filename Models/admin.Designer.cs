@@ -29,31 +29,33 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea16 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend16 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title16 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea15 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend15 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title15 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.iconButton5 = new FontAwesome.Sharp.IconButton();
+            this.iconButton4 = new FontAwesome.Sharp.IconButton();
+            this.iconButton3 = new FontAwesome.Sharp.IconButton();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.iconButton17 = new FontAwesome.Sharp.IconButton();
             this.PanelSubMenuServicios = new System.Windows.Forms.Panel();
             this.servReserva = new FontAwesome.Sharp.IconButton();
-            this.servReportes = new FontAwesome.Sharp.IconButton();
             this.servExtra = new FontAwesome.Sharp.IconButton();
             this.servPagos = new FontAwesome.Sharp.IconButton();
             this.servTransporte = new FontAwesome.Sharp.IconButton();
             this.iconButton11 = new FontAwesome.Sharp.IconButton();
             this.PanelSubMenuClientes = new System.Windows.Forms.Panel();
             this.clientesAdmCliente = new FontAwesome.Sharp.IconButton();
-            this.clientesListar = new FontAwesome.Sharp.IconButton();
             this.clienteUsers = new FontAwesome.Sharp.IconButton();
             this.iconButton7 = new FontAwesome.Sharp.IconButton();
             this.PanelSubMenuDeptos = new System.Windows.Forms.Panel();
             this.deptoCheck = new FontAwesome.Sharp.IconButton();
-            this.deptoListar = new FontAwesome.Sharp.IconButton();
             this.deptoAdm = new FontAwesome.Sharp.IconButton();
             this.deptoInventario = new FontAwesome.Sharp.IconButton();
             this.deptoMantencion = new FontAwesome.Sharp.IconButton();
@@ -63,32 +65,41 @@
             this.BtnMaximizar = new FontAwesome.Sharp.IconButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.iconButton18 = new FontAwesome.Sharp.IconButton();
-            this.panelContenedor = new System.Windows.Forms.Panel();
-            this.lblfecha = new System.Windows.Forms.Label();
-            this.lblhora = new System.Windows.Forms.Label();
-            this.chartDepartamento = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.ChartCliente = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.fechahora = new System.Windows.Forms.Timer(this.components);
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.D = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.lbl = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.lblhora = new System.Windows.Forms.Label();
+            this.lblfecha = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.ChartCliente = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartDepartamento = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.fechahora = new System.Windows.Forms.Timer(this.components);
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.PanelSubMenuServicios.SuspendLayout();
             this.PanelSubMenuClientes.SuspendLayout();
             this.PanelSubMenuDeptos.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panelContenedor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartDepartamento)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ChartCliente)).BeginInit();
-            this.panel3.SuspendLayout();
+            this.D.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ChartCliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDepartamento)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(17)))), ((int)(((byte)(39)))));
+            this.panel1.Controls.Add(this.panel7);
+            this.panel1.Controls.Add(this.iconButton2);
             this.panel1.Controls.Add(this.iconButton17);
             this.panel1.Controls.Add(this.PanelSubMenuServicios);
             this.panel1.Controls.Add(this.iconButton11);
@@ -102,6 +113,91 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 1033);
             this.panel1.TabIndex = 0;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.iconButton5);
+            this.panel7.Controls.Add(this.iconButton4);
+            this.panel7.Controls.Add(this.iconButton3);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(0, 656);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(200, 101);
+            this.panel7.TabIndex = 9;
+            // 
+            // iconButton5
+            // 
+            this.iconButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(17)))), ((int)(((byte)(39)))));
+            this.iconButton5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton5.FlatAppearance.BorderSize = 0;
+            this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton5.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton5.IconColor = System.Drawing.Color.Black;
+            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton5.Location = new System.Drawing.Point(0, 64);
+            this.iconButton5.Name = "iconButton5";
+            this.iconButton5.Size = new System.Drawing.Size(200, 32);
+            this.iconButton5.TabIndex = 6;
+            this.iconButton5.Text = "Ver usuarios";
+            this.iconButton5.UseVisualStyleBackColor = false;
+            this.iconButton5.Click += new System.EventHandler(this.iconButton5_Click);
+            // 
+            // iconButton4
+            // 
+            this.iconButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(17)))), ((int)(((byte)(39)))));
+            this.iconButton4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton4.FlatAppearance.BorderSize = 0;
+            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton4.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton4.IconColor = System.Drawing.Color.Black;
+            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton4.Location = new System.Drawing.Point(0, 32);
+            this.iconButton4.Name = "iconButton4";
+            this.iconButton4.Size = new System.Drawing.Size(200, 32);
+            this.iconButton4.TabIndex = 4;
+            this.iconButton4.Text = "Ver Deptos";
+            this.iconButton4.UseVisualStyleBackColor = false;
+            this.iconButton4.Click += new System.EventHandler(this.iconButton4_Click);
+            // 
+            // iconButton3
+            // 
+            this.iconButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(17)))), ((int)(((byte)(39)))));
+            this.iconButton3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton3.FlatAppearance.BorderSize = 0;
+            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton3.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton3.IconColor = System.Drawing.Color.Black;
+            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton3.Location = new System.Drawing.Point(0, 0);
+            this.iconButton3.Name = "iconButton3";
+            this.iconButton3.Size = new System.Drawing.Size(200, 32);
+            this.iconButton3.TabIndex = 3;
+            this.iconButton3.Text = "Ver reservas";
+            this.iconButton3.UseVisualStyleBackColor = false;
+            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
+            // 
+            // iconButton2
+            // 
+            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(31)))), ((int)(((byte)(56)))));
+            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton2.FlatAppearance.BorderSize = 0;
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.PenToSquare;
+            this.iconButton2.IconColor = System.Drawing.Color.White;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.IconSize = 30;
+            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton2.Location = new System.Drawing.Point(0, 618);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(200, 38);
+            this.iconButton2.TabIndex = 8;
+            this.iconButton2.Text = "LISTADOS";
+            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton2.UseVisualStyleBackColor = false;
             // 
             // iconButton17
             // 
@@ -126,14 +222,13 @@
             // PanelSubMenuServicios
             // 
             this.PanelSubMenuServicios.Controls.Add(this.servReserva);
-            this.PanelSubMenuServicios.Controls.Add(this.servReportes);
             this.PanelSubMenuServicios.Controls.Add(this.servExtra);
             this.PanelSubMenuServicios.Controls.Add(this.servPagos);
             this.PanelSubMenuServicios.Controls.Add(this.servTransporte);
             this.PanelSubMenuServicios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanelSubMenuServicios.Location = new System.Drawing.Point(0, 572);
+            this.PanelSubMenuServicios.Location = new System.Drawing.Point(0, 483);
             this.PanelSubMenuServicios.Name = "PanelSubMenuServicios";
-            this.PanelSubMenuServicios.Size = new System.Drawing.Size(200, 171);
+            this.PanelSubMenuServicios.Size = new System.Drawing.Size(200, 135);
             this.PanelSubMenuServicios.TabIndex = 6;
             // 
             // servReserva
@@ -142,10 +237,11 @@
             this.servReserva.Dock = System.Windows.Forms.DockStyle.Top;
             this.servReserva.FlatAppearance.BorderSize = 0;
             this.servReserva.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.servReserva.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.servReserva.IconChar = FontAwesome.Sharp.IconChar.None;
             this.servReserva.IconColor = System.Drawing.Color.Black;
             this.servReserva.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.servReserva.Location = new System.Drawing.Point(0, 128);
+            this.servReserva.Location = new System.Drawing.Point(0, 96);
             this.servReserva.Name = "servReserva";
             this.servReserva.Size = new System.Drawing.Size(200, 32);
             this.servReserva.TabIndex = 6;
@@ -153,29 +249,13 @@
             this.servReserva.UseVisualStyleBackColor = false;
             this.servReserva.Click += new System.EventHandler(this.servReserva_Click);
             // 
-            // servReportes
-            // 
-            this.servReportes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(17)))), ((int)(((byte)(39)))));
-            this.servReportes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.servReportes.FlatAppearance.BorderSize = 0;
-            this.servReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.servReportes.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.servReportes.IconColor = System.Drawing.Color.Black;
-            this.servReportes.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.servReportes.Location = new System.Drawing.Point(0, 96);
-            this.servReportes.Name = "servReportes";
-            this.servReportes.Size = new System.Drawing.Size(200, 32);
-            this.servReportes.TabIndex = 5;
-            this.servReportes.Text = "Reportes";
-            this.servReportes.UseVisualStyleBackColor = false;
-            this.servReportes.Click += new System.EventHandler(this.servReportes_Click);
-            // 
             // servExtra
             // 
             this.servExtra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(17)))), ((int)(((byte)(39)))));
             this.servExtra.Dock = System.Windows.Forms.DockStyle.Top;
             this.servExtra.FlatAppearance.BorderSize = 0;
             this.servExtra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.servExtra.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.servExtra.IconChar = FontAwesome.Sharp.IconChar.None;
             this.servExtra.IconColor = System.Drawing.Color.Black;
             this.servExtra.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -193,6 +273,7 @@
             this.servPagos.Dock = System.Windows.Forms.DockStyle.Top;
             this.servPagos.FlatAppearance.BorderSize = 0;
             this.servPagos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.servPagos.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.servPagos.IconChar = FontAwesome.Sharp.IconChar.None;
             this.servPagos.IconColor = System.Drawing.Color.Black;
             this.servPagos.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -209,6 +290,7 @@
             this.servTransporte.Dock = System.Windows.Forms.DockStyle.Top;
             this.servTransporte.FlatAppearance.BorderSize = 0;
             this.servTransporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.servTransporte.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.servTransporte.IconChar = FontAwesome.Sharp.IconChar.None;
             this.servTransporte.IconColor = System.Drawing.Color.Black;
             this.servTransporte.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -226,28 +308,28 @@
             this.iconButton11.Dock = System.Windows.Forms.DockStyle.Top;
             this.iconButton11.FlatAppearance.BorderSize = 0;
             this.iconButton11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton11.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButton11.IconChar = FontAwesome.Sharp.IconChar.CalendarPlus;
             this.iconButton11.IconColor = System.Drawing.Color.White;
             this.iconButton11.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton11.IconSize = 30;
             this.iconButton11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton11.Location = new System.Drawing.Point(0, 534);
+            this.iconButton11.Location = new System.Drawing.Point(0, 445);
             this.iconButton11.Name = "iconButton11";
             this.iconButton11.Size = new System.Drawing.Size(200, 38);
             this.iconButton11.TabIndex = 5;
-            this.iconButton11.Text = "Servicios";
+            this.iconButton11.Text = "SERVICIOS";
             this.iconButton11.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton11.UseVisualStyleBackColor = false;
             // 
             // PanelSubMenuClientes
             // 
             this.PanelSubMenuClientes.Controls.Add(this.clientesAdmCliente);
-            this.PanelSubMenuClientes.Controls.Add(this.clientesListar);
             this.PanelSubMenuClientes.Controls.Add(this.clienteUsers);
             this.PanelSubMenuClientes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanelSubMenuClientes.Location = new System.Drawing.Point(0, 418);
+            this.PanelSubMenuClientes.Location = new System.Drawing.Point(0, 374);
             this.PanelSubMenuClientes.Name = "PanelSubMenuClientes";
-            this.PanelSubMenuClientes.Size = new System.Drawing.Size(200, 116);
+            this.PanelSubMenuClientes.Size = new System.Drawing.Size(200, 71);
             this.PanelSubMenuClientes.TabIndex = 4;
             // 
             // clientesAdmCliente
@@ -256,10 +338,11 @@
             this.clientesAdmCliente.Dock = System.Windows.Forms.DockStyle.Top;
             this.clientesAdmCliente.FlatAppearance.BorderSize = 0;
             this.clientesAdmCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clientesAdmCliente.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clientesAdmCliente.IconChar = FontAwesome.Sharp.IconChar.None;
             this.clientesAdmCliente.IconColor = System.Drawing.Color.Black;
             this.clientesAdmCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.clientesAdmCliente.Location = new System.Drawing.Point(0, 64);
+            this.clientesAdmCliente.Location = new System.Drawing.Point(0, 32);
             this.clientesAdmCliente.Name = "clientesAdmCliente";
             this.clientesAdmCliente.Size = new System.Drawing.Size(200, 32);
             this.clientesAdmCliente.TabIndex = 3;
@@ -267,29 +350,13 @@
             this.clientesAdmCliente.UseVisualStyleBackColor = false;
             this.clientesAdmCliente.Click += new System.EventHandler(this.clientesAdmCliente_Click);
             // 
-            // clientesListar
-            // 
-            this.clientesListar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(17)))), ((int)(((byte)(39)))));
-            this.clientesListar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.clientesListar.FlatAppearance.BorderSize = 0;
-            this.clientesListar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clientesListar.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.clientesListar.IconColor = System.Drawing.Color.Black;
-            this.clientesListar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.clientesListar.Location = new System.Drawing.Point(0, 32);
-            this.clientesListar.Name = "clientesListar";
-            this.clientesListar.Size = new System.Drawing.Size(200, 32);
-            this.clientesListar.TabIndex = 2;
-            this.clientesListar.Text = "Listado usuarios";
-            this.clientesListar.UseVisualStyleBackColor = false;
-            this.clientesListar.Click += new System.EventHandler(this.clientesListar_Click);
-            // 
             // clienteUsers
             // 
             this.clienteUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(17)))), ((int)(((byte)(39)))));
             this.clienteUsers.Dock = System.Windows.Forms.DockStyle.Top;
             this.clienteUsers.FlatAppearance.BorderSize = 0;
             this.clienteUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clienteUsers.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clienteUsers.IconChar = FontAwesome.Sharp.IconChar.None;
             this.clienteUsers.IconColor = System.Drawing.Color.Black;
             this.clienteUsers.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -307,30 +374,30 @@
             this.iconButton7.Dock = System.Windows.Forms.DockStyle.Top;
             this.iconButton7.FlatAppearance.BorderSize = 0;
             this.iconButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton7.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButton7.IconChar = FontAwesome.Sharp.IconChar.Users;
             this.iconButton7.IconColor = System.Drawing.Color.White;
             this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton7.IconSize = 30;
             this.iconButton7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton7.Location = new System.Drawing.Point(0, 380);
+            this.iconButton7.Location = new System.Drawing.Point(0, 336);
             this.iconButton7.Name = "iconButton7";
             this.iconButton7.Size = new System.Drawing.Size(200, 38);
             this.iconButton7.TabIndex = 3;
-            this.iconButton7.Text = "Clientes";
+            this.iconButton7.Text = "CLIENTES";
             this.iconButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton7.UseVisualStyleBackColor = false;
             // 
             // PanelSubMenuDeptos
             // 
             this.PanelSubMenuDeptos.Controls.Add(this.deptoCheck);
-            this.PanelSubMenuDeptos.Controls.Add(this.deptoListar);
             this.PanelSubMenuDeptos.Controls.Add(this.deptoAdm);
             this.PanelSubMenuDeptos.Controls.Add(this.deptoInventario);
             this.PanelSubMenuDeptos.Controls.Add(this.deptoMantencion);
             this.PanelSubMenuDeptos.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelSubMenuDeptos.Location = new System.Drawing.Point(0, 202);
             this.PanelSubMenuDeptos.Name = "PanelSubMenuDeptos";
-            this.PanelSubMenuDeptos.Size = new System.Drawing.Size(200, 178);
+            this.PanelSubMenuDeptos.Size = new System.Drawing.Size(200, 134);
             this.PanelSubMenuDeptos.TabIndex = 2;
             // 
             // deptoCheck
@@ -339,33 +406,17 @@
             this.deptoCheck.Dock = System.Windows.Forms.DockStyle.Top;
             this.deptoCheck.FlatAppearance.BorderSize = 0;
             this.deptoCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deptoCheck.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deptoCheck.IconChar = FontAwesome.Sharp.IconChar.None;
             this.deptoCheck.IconColor = System.Drawing.Color.Black;
             this.deptoCheck.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.deptoCheck.Location = new System.Drawing.Point(0, 128);
+            this.deptoCheck.Location = new System.Drawing.Point(0, 96);
             this.deptoCheck.Name = "deptoCheck";
             this.deptoCheck.Size = new System.Drawing.Size(200, 32);
             this.deptoCheck.TabIndex = 4;
-            this.deptoCheck.Text = "Checkeo";
+            this.deptoCheck.Text = "Check";
             this.deptoCheck.UseVisualStyleBackColor = false;
             this.deptoCheck.Click += new System.EventHandler(this.deptoCheck_Click);
-            // 
-            // deptoListar
-            // 
-            this.deptoListar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(17)))), ((int)(((byte)(39)))));
-            this.deptoListar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.deptoListar.FlatAppearance.BorderSize = 0;
-            this.deptoListar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deptoListar.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.deptoListar.IconColor = System.Drawing.Color.Black;
-            this.deptoListar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.deptoListar.Location = new System.Drawing.Point(0, 96);
-            this.deptoListar.Name = "deptoListar";
-            this.deptoListar.Size = new System.Drawing.Size(200, 32);
-            this.deptoListar.TabIndex = 3;
-            this.deptoListar.Text = "Listado Deptos";
-            this.deptoListar.UseVisualStyleBackColor = false;
-            this.deptoListar.Click += new System.EventHandler(this.deptoListar_Click);
             // 
             // deptoAdm
             // 
@@ -373,6 +424,7 @@
             this.deptoAdm.Dock = System.Windows.Forms.DockStyle.Top;
             this.deptoAdm.FlatAppearance.BorderSize = 0;
             this.deptoAdm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deptoAdm.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deptoAdm.IconChar = FontAwesome.Sharp.IconChar.None;
             this.deptoAdm.IconColor = System.Drawing.Color.Black;
             this.deptoAdm.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -390,6 +442,7 @@
             this.deptoInventario.Dock = System.Windows.Forms.DockStyle.Top;
             this.deptoInventario.FlatAppearance.BorderSize = 0;
             this.deptoInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deptoInventario.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deptoInventario.IconChar = FontAwesome.Sharp.IconChar.None;
             this.deptoInventario.IconColor = System.Drawing.Color.Black;
             this.deptoInventario.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -407,6 +460,7 @@
             this.deptoMantencion.Dock = System.Windows.Forms.DockStyle.Top;
             this.deptoMantencion.FlatAppearance.BorderSize = 0;
             this.deptoMantencion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deptoMantencion.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deptoMantencion.IconChar = FontAwesome.Sharp.IconChar.None;
             this.deptoMantencion.IconColor = System.Drawing.Color.Black;
             this.deptoMantencion.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -424,6 +478,7 @@
             this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
             this.iconButton1.FlatAppearance.BorderSize = 0;
             this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Building;
             this.iconButton1.IconColor = System.Drawing.Color.White;
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -433,7 +488,7 @@
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(200, 38);
             this.iconButton1.TabIndex = 1;
-            this.iconButton1.Text = "Departamentos";
+            this.iconButton1.Text = "DEPTOS";
             this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton1.UseVisualStyleBackColor = false;
             // 
@@ -466,6 +521,7 @@
             this.BtnMinimizar.Size = new System.Drawing.Size(47, 31);
             this.BtnMinimizar.TabIndex = 6;
             this.BtnMinimizar.UseVisualStyleBackColor = false;
+            this.BtnMinimizar.Click += new System.EventHandler(this.BtnMinimizar_Click);
             // 
             // BtnMaximizar
             // 
@@ -500,6 +556,7 @@
             this.iconButton18.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.iconButton18.FlatAppearance.BorderSize = 0;
             this.iconButton18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton18.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButton18.IconChar = FontAwesome.Sharp.IconChar.Home;
             this.iconButton18.IconColor = System.Drawing.Color.White;
             this.iconButton18.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -509,121 +566,74 @@
             this.iconButton18.Name = "iconButton18";
             this.iconButton18.Size = new System.Drawing.Size(200, 38);
             this.iconButton18.TabIndex = 2;
-            this.iconButton18.Text = "Inicio";
+            this.iconButton18.Text = "INICIO";
             this.iconButton18.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton18.UseVisualStyleBackColor = false;
+            this.iconButton18.Click += new System.EventHandler(this.iconButton18_Click);
             // 
-            // panelContenedor
+            // D
             // 
-            this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.panelContenedor.Controls.Add(this.panel6);
-            this.panelContenedor.Controls.Add(this.panel5);
-            this.panelContenedor.Controls.Add(this.panel4);
-            this.panelContenedor.Controls.Add(this.panel3);
-            this.panelContenedor.Controls.Add(this.chartDepartamento);
-            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Location = new System.Drawing.Point(200, 0);
-            this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1582, 1033);
-            this.panelContenedor.TabIndex = 1;
-            this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint);
+            this.D.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.D.Controls.Add(this.panel6);
+            this.D.Controls.Add(this.panel5);
+            this.D.Controls.Add(this.panel4);
+            this.D.Controls.Add(this.panel3);
+            this.D.Controls.Add(this.chartDepartamento);
+            this.D.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.D.Location = new System.Drawing.Point(200, 0);
+            this.D.MinimumSize = new System.Drawing.Size(1582, 1033);
+            this.D.Name = "D";
+            this.D.Size = new System.Drawing.Size(1582, 1033);
+            this.D.TabIndex = 1;
+            this.D.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint);
             // 
-            // lblfecha
+            // panel6
             // 
-            this.lblfecha.AutoSize = true;
-            this.lblfecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblfecha.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.lblfecha.Location = new System.Drawing.Point(48, 149);
-            this.lblfecha.Name = "lblfecha";
-            this.lblfecha.Size = new System.Drawing.Size(103, 38);
-            this.lblfecha.TabIndex = 9;
-            this.lblfecha.Text = "label1";
+            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+            this.panel6.Controls.Add(this.textBox2);
+            this.panel6.Controls.Add(this.label2);
+            this.panel6.Location = new System.Drawing.Point(618, 269);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(346, 102);
+            this.panel6.TabIndex = 13;
             // 
-            // lblhora
+            // label2
             // 
-            this.lblhora.AutoSize = true;
-            this.lblhora.Font = new System.Drawing.Font("Microsoft Sans Serif", 40.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblhora.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lblhora.Location = new System.Drawing.Point(62, 58);
-            this.lblhora.Name = "lblhora";
-            this.lblhora.Size = new System.Drawing.Size(208, 76);
-            this.lblhora.TabIndex = 8;
-            this.lblhora.Text = "label1";
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(105, 29);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(159, 38);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "CHECK OUTS";
             // 
-            // chartDepartamento
+            // panel5
             // 
-            this.chartDepartamento.BackColor = System.Drawing.Color.Transparent;
-            chartArea5.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea5.AxisX.LineColor = System.Drawing.Color.White;
-            chartArea5.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
-            chartArea5.AxisY.InterlacedColor = System.Drawing.Color.White;
-            chartArea5.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea5.AxisY.LineColor = System.Drawing.Color.White;
-            chartArea5.AxisY.MajorGrid.LineColor = System.Drawing.Color.Transparent;
-            chartArea5.BackColor = System.Drawing.Color.Transparent;
-            chartArea5.Name = "ChartArea1";
-            this.chartDepartamento.ChartAreas.Add(chartArea5);
-            legend5.BackColor = System.Drawing.Color.Transparent;
-            legend5.ForeColor = System.Drawing.Color.White;
-            legend5.Name = "Reserva";
-            this.chartDepartamento.Legends.Add(legend5);
-            this.chartDepartamento.Location = new System.Drawing.Point(287, 379);
-            this.chartDepartamento.Name = "chartDepartamento";
-            this.chartDepartamento.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series5.ChartArea = "ChartArea1";
-            series5.IsValueShownAsLabel = true;
-            series5.LabelForeColor = System.Drawing.Color.White;
-            series5.Legend = "Reserva";
-            series5.Name = "Departamento";
-            this.chartDepartamento.Series.Add(series5);
-            this.chartDepartamento.Size = new System.Drawing.Size(646, 642);
-            this.chartDepartamento.TabIndex = 7;
-            title5.ForeColor = System.Drawing.Color.White;
-            title5.Name = "Title1";
-            title5.Text = "Departamentos con más reservas";
-            this.chartDepartamento.Titles.Add(title5);
-            this.chartDepartamento.Click += new System.EventHandler(this.chartDepartamento_Click_1);
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+            this.panel5.Controls.Add(this.textBox1);
+            this.panel5.Controls.Add(this.lbl);
+            this.panel5.Location = new System.Drawing.Point(618, 126);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(346, 102);
+            this.panel5.TabIndex = 12;
             // 
-            // ChartCliente
+            // lbl
             // 
-            this.ChartCliente.BackColor = System.Drawing.Color.Transparent;
-            chartArea6.BackColor = System.Drawing.Color.Transparent;
-            chartArea6.Name = "ChartArea1";
-            this.ChartCliente.ChartAreas.Add(chartArea6);
-            legend6.BackColor = System.Drawing.Color.Transparent;
-            legend6.ForeColor = System.Drawing.Color.White;
-            legend6.Name = "Legend1";
-            this.ChartCliente.Legends.Add(legend6);
-            this.ChartCliente.Location = new System.Drawing.Point(57, 73);
-            this.ChartCliente.Name = "ChartCliente";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series6.IsValueShownAsLabel = true;
-            series6.LabelForeColor = System.Drawing.Color.White;
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.ChartCliente.Series.Add(series6);
-            this.ChartCliente.Size = new System.Drawing.Size(396, 265);
-            this.ChartCliente.TabIndex = 5;
-            this.ChartCliente.Text = "chart1";
-            title6.ForeColor = System.Drawing.Color.White;
-            title6.Name = "Title1";
-            title6.Text = "Clientes más frecuentes";
-            this.ChartCliente.Titles.Add(title6);
-            // 
-            // fechahora
-            // 
-            this.fechahora.Enabled = true;
-            this.fechahora.Tick += new System.EventHandler(this.fechahora_Tick_1);
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
-            this.panel3.Controls.Add(this.ChartCliente);
-            this.panel3.Location = new System.Drawing.Point(1009, 126);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(485, 859);
-            this.panel3.TabIndex = 10;
+            this.lbl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl.AutoSize = true;
+            this.lbl.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl.Location = new System.Drawing.Point(87, 35);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(187, 38);
+            this.lbl.TabIndex = 0;
+            this.lbl.Text = "RESERVAS HOY";
             // 
             // panel4
             // 
@@ -635,48 +645,162 @@
             this.panel4.Size = new System.Drawing.Size(512, 248);
             this.panel4.TabIndex = 11;
             // 
-            // panel5
+            // lblhora
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
-            this.panel5.Location = new System.Drawing.Point(618, 126);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(346, 102);
-            this.panel5.TabIndex = 12;
+            this.lblhora.AutoSize = true;
+            this.lblhora.Font = new System.Drawing.Font("Microsoft Sans Serif", 40.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblhora.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lblhora.Location = new System.Drawing.Point(45, 58);
+            this.lblhora.Name = "lblhora";
+            this.lblhora.Size = new System.Drawing.Size(208, 76);
+            this.lblhora.TabIndex = 8;
+            this.lblhora.Text = "label1";
             // 
-            // panel6
+            // lblfecha
             // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
-            this.panel6.Location = new System.Drawing.Point(618, 269);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(346, 102);
-            this.panel6.TabIndex = 13;
+            this.lblfecha.AutoSize = true;
+            this.lblfecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblfecha.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.lblfecha.Location = new System.Drawing.Point(31, 149);
+            this.lblfecha.Name = "lblfecha";
+            this.lblfecha.Size = new System.Drawing.Size(92, 32);
+            this.lblfecha.TabIndex = 9;
+            this.lblfecha.Text = "label1";
+            // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+            this.panel3.Controls.Add(this.ChartCliente);
+            this.panel3.Location = new System.Drawing.Point(1009, 126);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(485, 859);
+            this.panel3.TabIndex = 10;
+            // 
+            // ChartCliente
+            // 
+            this.ChartCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ChartCliente.BackColor = System.Drawing.Color.Transparent;
+            chartArea16.BackColor = System.Drawing.Color.Transparent;
+            chartArea16.Name = "ChartArea1";
+            this.ChartCliente.ChartAreas.Add(chartArea16);
+            legend16.BackColor = System.Drawing.Color.Transparent;
+            legend16.ForeColor = System.Drawing.Color.White;
+            legend16.Name = "Legend1";
+            this.ChartCliente.Legends.Add(legend16);
+            this.ChartCliente.Location = new System.Drawing.Point(57, 73);
+            this.ChartCliente.Name = "ChartCliente";
+            series16.ChartArea = "ChartArea1";
+            series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series16.IsValueShownAsLabel = true;
+            series16.LabelForeColor = System.Drawing.Color.White;
+            series16.Legend = "Legend1";
+            series16.Name = "Series1";
+            this.ChartCliente.Series.Add(series16);
+            this.ChartCliente.Size = new System.Drawing.Size(396, 265);
+            this.ChartCliente.TabIndex = 5;
+            this.ChartCliente.Text = "chart1";
+            title16.ForeColor = System.Drawing.Color.White;
+            title16.Name = "Title1";
+            title16.Text = "Clientes más frecuentes";
+            this.ChartCliente.Titles.Add(title16);
+            // 
+            // chartDepartamento
+            // 
+            this.chartDepartamento.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.chartDepartamento.BackColor = System.Drawing.Color.Transparent;
+            chartArea15.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea15.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea15.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea15.AxisY.InterlacedColor = System.Drawing.Color.White;
+            chartArea15.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea15.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea15.AxisY.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea15.BackColor = System.Drawing.Color.Transparent;
+            chartArea15.Name = "ChartArea1";
+            this.chartDepartamento.ChartAreas.Add(chartArea15);
+            legend15.BackColor = System.Drawing.Color.Transparent;
+            legend15.ForeColor = System.Drawing.Color.White;
+            legend15.Name = "Reserva";
+            this.chartDepartamento.Legends.Add(legend15);
+            this.chartDepartamento.Location = new System.Drawing.Point(287, 379);
+            this.chartDepartamento.Name = "chartDepartamento";
+            this.chartDepartamento.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
+            series15.ChartArea = "ChartArea1";
+            series15.IsValueShownAsLabel = true;
+            series15.LabelForeColor = System.Drawing.Color.White;
+            series15.Legend = "Reserva";
+            series15.Name = "Departamento";
+            this.chartDepartamento.Series.Add(series15);
+            this.chartDepartamento.Size = new System.Drawing.Size(646, 642);
+            this.chartDepartamento.TabIndex = 7;
+            title15.ForeColor = System.Drawing.Color.White;
+            title15.Name = "Title1";
+            title15.Text = "Departamentos con más reservas";
+            this.chartDepartamento.Titles.Add(title15);
+            this.chartDepartamento.Click += new System.EventHandler(this.chartDepartamento_Click_1);
+            // 
+            // fechahora
+            // 
+            this.fechahora.Enabled = true;
+            this.fechahora.Tick += new System.EventHandler(this.fechahora_Tick_1);
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.White;
+            this.textBox1.Location = new System.Drawing.Point(41, 38);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(40, 38);
+            this.textBox1.TabIndex = 14;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.White;
+            this.textBox2.Location = new System.Drawing.Point(69, 29);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(40, 38);
+            this.textBox2.TabIndex = 15;
             // 
             // admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1782, 1033);
-            this.Controls.Add(this.panelContenedor);
+            this.Controls.Add(this.D);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.MaximumSize = new System.Drawing.Size(1920, 1080);
-            this.MinimumSize = new System.Drawing.Size(1366, 900);
+            this.MinimumSize = new System.Drawing.Size(1800, 1028);
             this.Name = "admin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "admin";
             this.Load += new System.EventHandler(this.admin_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.admin_MouseDown);
             this.panel1.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
             this.PanelSubMenuServicios.ResumeLayout(false);
             this.PanelSubMenuClientes.ResumeLayout(false);
             this.PanelSubMenuDeptos.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panelContenedor.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chartDepartamento)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ChartCliente)).EndInit();
-            this.panel3.ResumeLayout(false);
+            this.D.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ChartCliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDepartamento)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -689,25 +813,22 @@
         private FontAwesome.Sharp.IconButton iconButton17;
         private System.Windows.Forms.Panel PanelSubMenuServicios;
         private FontAwesome.Sharp.IconButton servReserva;
-        private FontAwesome.Sharp.IconButton servReportes;
         private FontAwesome.Sharp.IconButton servExtra;
         private FontAwesome.Sharp.IconButton servPagos;
         private FontAwesome.Sharp.IconButton servTransporte;
         private FontAwesome.Sharp.IconButton iconButton11;
         private System.Windows.Forms.Panel PanelSubMenuClientes;
         private FontAwesome.Sharp.IconButton clientesAdmCliente;
-        private FontAwesome.Sharp.IconButton clientesListar;
         private FontAwesome.Sharp.IconButton clienteUsers;
         private FontAwesome.Sharp.IconButton iconButton7;
         private System.Windows.Forms.Panel PanelSubMenuDeptos;
         private FontAwesome.Sharp.IconButton deptoCheck;
-        private FontAwesome.Sharp.IconButton deptoListar;
         private FontAwesome.Sharp.IconButton deptoAdm;
         private FontAwesome.Sharp.IconButton deptoInventario;
         private FontAwesome.Sharp.IconButton deptoMantencion;
         private FontAwesome.Sharp.IconButton iconButton18;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panelContenedor;
+        private System.Windows.Forms.Panel D;
         private FontAwesome.Sharp.IconButton BtnMaximizar;
         private FontAwesome.Sharp.IconButton BtnMinimizar;
         private System.Windows.Forms.DataVisualization.Charting.Chart ChartCliente;
@@ -719,5 +840,14 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel7;
+        private FontAwesome.Sharp.IconButton iconButton5;
+        private FontAwesome.Sharp.IconButton iconButton4;
+        private FontAwesome.Sharp.IconButton iconButton3;
+        private FontAwesome.Sharp.IconButton iconButton2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

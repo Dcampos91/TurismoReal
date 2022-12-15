@@ -254,5 +254,10 @@ namespace Turismo.Models
             List<PostViewReserva> lst = JsonConvert.DeserializeObject<List<PostViewReserva>>(respuesta);
             dgvReserva.DataSource = lst;
         }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

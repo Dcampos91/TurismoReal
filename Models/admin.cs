@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.OracleClient;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -15,12 +16,30 @@ namespace Turismo.Models
 {
     public partial class admin : Form
     {
+        #region Dlls para poder hacer el movimiento del Form
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        Rectangle sizeGripRectangle;
+        bool inSizeDrag = false;
+        const int GRIP_SIZE = 15;
+
+        int w = 0;
+        int h = 0;
+        #endregion
+
+
+
         OracleConnection ora = new OracleConnection("Data Source=orcl; User ID=C##TReal1; Password=oracle");
         OracleCommand cmd;
         OracleDataReader dr;
         public admin()
         {
             InitializeComponent();
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
         
 
@@ -28,6 +47,9 @@ namespace Turismo.Models
         {
             GrafDepartamento();
             ClienteFrecuente();
+            MaxId();
+            Check();
+
 
         }
         ArrayList Departamentos = new ArrayList();
@@ -58,7 +80,6 @@ namespace Turismo.Models
         private void ClienteFrecuente()
         {
 
-
             cmd = new OracleCommand("select c.NOM_CLIENTE ||' '|| c.APELLIDO_PATERNO ||' '|| c.APELLIDO_MATERNO as \"NOMBRE CLIENTE\", count(*) as RESERVA from reserva r, cliente c \r\nwhere r.usuario_id_usuario = c.usuario_id_usuario group by c.NOM_CLIENTE, c.APELLIDO_PATERNO, c.APELLIDO_MATERNO order by RESERVA desc", ora);
 
 
@@ -74,7 +95,29 @@ namespace Turismo.Models
             ora.Close();
 
         }
+        private void MaxId()
+        {
+            cmd = new OracleCommand("SELECT COUNT(*) \"Total Reservas\" FROM reserva", ora);            
+            {
+                ora.Open();
+                string codmax = Convert.ToString(cmd.ExecuteScalar());
+                int cod = Convert.ToInt32(codmax);
+                textBox1.Text = Convert.ToString(cod);
+                ora.Close();
+            }
+        }
 
+        private void Check()
+        {
+            cmd = new OracleCommand("SELECT COUNT(*) \"Total Check out\" FROM check_out", ora);
+            {
+                ora.Open();
+                string codmax = Convert.ToString(cmd.ExecuteScalar());
+                int cod = Convert.ToInt32(codmax);
+                textBox2.Text = Convert.ToString(cod);
+                ora.Close();
+            }
+        }
 
         private Form activeForm = null;
         private void openChildFormInPanel(Form childForm)
@@ -85,22 +128,13 @@ namespace Turismo.Models
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
-            panelContenedor.Controls.Add(childForm);
-            panelContenedor.Tag = childForm;
+            D.Controls.Add(childForm);
+            D.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
         }
 
-        //Drag Form
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-        private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
+        
 
 
         private int borderSize = 2;
@@ -274,11 +308,16 @@ namespace Turismo.Models
         private void iconButton17_Click(object sender, EventArgs e)
         {
             Application.Exit();
+            //openChildFormInPanel(new Login());
         }
+
+
+        
 
         private void BtnMaximizar_Click(object sender, EventArgs e)
         {
-
+            if (this.WindowState == FormWindowState.Normal) this.WindowState = FormWindowState.Maximized;
+            else this.WindowState = FormWindowState.Normal;
         }
 
         private void iconButton2_Click(object sender, EventArgs e)
@@ -305,6 +344,47 @@ namespace Turismo.Models
         private void chartDepartamento_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void iconButton18_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            openChildFormInPanel(new ListarReserva());
+        }
+
+        private void iconButton4_Click(object sender, EventArgs e)
+        {
+            openChildFormInPanel(new ListadoDepartamento());
+            
+        }
+
+        private void iconButton5_Click(object sender, EventArgs e)
+        {
+            openChildFormInPanel(new ListarUsuario());
+            
+        }
+
+        private void iconButton6_Click(object sender, EventArgs e)
+        {
+            openChildFormInPanel(new Reserva());
+        }
+
+        private void BtnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void admin_MouseDown(object sender, MouseEventArgs e)
+        {
+            //para poder arrastrar el formulario sin bordes
+
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+            w = this.Width;
+            h = this.Height;
         }
     }
 

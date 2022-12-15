@@ -83,18 +83,7 @@ namespace Turismo.Models
 
         private void Imprimir(object sender,PrintPageEventArgs e)
         {
-            Font font = new Font("Arial", 14, FontStyle.Regular, GraphicsUnit.Point);
-            int ancho = 200;
-            int y = 20;
-            //int altura = 50;
-            e.Graphics.DrawString("-- Listado de Item --", font, Brushes.Black, new RectangleF(0,10,120,20));
-            //e.Graphics.DrawString(lvLista.ToString(), font, Brushes.Black, new RectangleF(0, 10, 120, 20));
-
-            
-            
-
-
-
+          
         }
 
         private void button3_Click(object sender, EventArgs e)
