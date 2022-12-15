@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea16 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend16 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title16 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea15 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend15 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title15 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.iconButton5 = new FontAwesome.Sharp.IconButton();
@@ -48,7 +48,6 @@
             this.servReserva = new FontAwesome.Sharp.IconButton();
             this.servExtra = new FontAwesome.Sharp.IconButton();
             this.servPagos = new FontAwesome.Sharp.IconButton();
-            this.servTransporte = new FontAwesome.Sharp.IconButton();
             this.iconButton11 = new FontAwesome.Sharp.IconButton();
             this.PanelSubMenuClientes = new System.Windows.Forms.Panel();
             this.clientesAdmCliente = new FontAwesome.Sharp.IconButton();
@@ -67,8 +66,10 @@
             this.iconButton18 = new FontAwesome.Sharp.IconButton();
             this.D = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.lbl = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblhora = new System.Windows.Forms.Label();
@@ -77,8 +78,6 @@
             this.ChartCliente = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartDepartamento = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.fechahora = new System.Windows.Forms.Timer(this.components);
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.PanelSubMenuServicios.SuspendLayout();
@@ -120,7 +119,7 @@
             this.panel7.Controls.Add(this.iconButton4);
             this.panel7.Controls.Add(this.iconButton3);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 656);
+            this.panel7.Location = new System.Drawing.Point(0, 623);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(200, 101);
             this.panel7.TabIndex = 9;
@@ -191,7 +190,7 @@
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton2.IconSize = 30;
             this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.Location = new System.Drawing.Point(0, 618);
+            this.iconButton2.Location = new System.Drawing.Point(0, 585);
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.Size = new System.Drawing.Size(200, 38);
             this.iconButton2.TabIndex = 8;
@@ -224,11 +223,10 @@
             this.PanelSubMenuServicios.Controls.Add(this.servReserva);
             this.PanelSubMenuServicios.Controls.Add(this.servExtra);
             this.PanelSubMenuServicios.Controls.Add(this.servPagos);
-            this.PanelSubMenuServicios.Controls.Add(this.servTransporte);
             this.PanelSubMenuServicios.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelSubMenuServicios.Location = new System.Drawing.Point(0, 483);
             this.PanelSubMenuServicios.Name = "PanelSubMenuServicios";
-            this.PanelSubMenuServicios.Size = new System.Drawing.Size(200, 135);
+            this.PanelSubMenuServicios.Size = new System.Drawing.Size(200, 102);
             this.PanelSubMenuServicios.TabIndex = 6;
             // 
             // servReserva
@@ -241,7 +239,7 @@
             this.servReserva.IconChar = FontAwesome.Sharp.IconChar.None;
             this.servReserva.IconColor = System.Drawing.Color.Black;
             this.servReserva.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.servReserva.Location = new System.Drawing.Point(0, 96);
+            this.servReserva.Location = new System.Drawing.Point(0, 64);
             this.servReserva.Name = "servReserva";
             this.servReserva.Size = new System.Drawing.Size(200, 32);
             this.servReserva.TabIndex = 6;
@@ -259,7 +257,7 @@
             this.servExtra.IconChar = FontAwesome.Sharp.IconChar.None;
             this.servExtra.IconColor = System.Drawing.Color.Black;
             this.servExtra.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.servExtra.Location = new System.Drawing.Point(0, 64);
+            this.servExtra.Location = new System.Drawing.Point(0, 32);
             this.servExtra.Name = "servExtra";
             this.servExtra.Size = new System.Drawing.Size(200, 32);
             this.servExtra.TabIndex = 4;
@@ -277,30 +275,13 @@
             this.servPagos.IconChar = FontAwesome.Sharp.IconChar.None;
             this.servPagos.IconColor = System.Drawing.Color.Black;
             this.servPagos.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.servPagos.Location = new System.Drawing.Point(0, 32);
+            this.servPagos.Location = new System.Drawing.Point(0, 0);
             this.servPagos.Name = "servPagos";
             this.servPagos.Size = new System.Drawing.Size(200, 32);
             this.servPagos.TabIndex = 3;
             this.servPagos.Text = "Pagos";
             this.servPagos.UseVisualStyleBackColor = false;
-            // 
-            // servTransporte
-            // 
-            this.servTransporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(17)))), ((int)(((byte)(39)))));
-            this.servTransporte.Dock = System.Windows.Forms.DockStyle.Top;
-            this.servTransporte.FlatAppearance.BorderSize = 0;
-            this.servTransporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.servTransporte.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.servTransporte.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.servTransporte.IconColor = System.Drawing.Color.Black;
-            this.servTransporte.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.servTransporte.Location = new System.Drawing.Point(0, 0);
-            this.servTransporte.Name = "servTransporte";
-            this.servTransporte.Size = new System.Drawing.Size(200, 32);
-            this.servTransporte.TabIndex = 2;
-            this.servTransporte.Text = "Transporte";
-            this.servTransporte.UseVisualStyleBackColor = false;
-            this.servTransporte.Click += new System.EventHandler(this.servTransporte_Click);
+            this.servPagos.Click += new System.EventHandler(this.servPagos_Click);
             // 
             // iconButton11
             // 
@@ -599,6 +580,17 @@
             this.panel6.Size = new System.Drawing.Size(346, 102);
             this.panel6.TabIndex = 13;
             // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.White;
+            this.textBox2.Location = new System.Drawing.Point(69, 29);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(40, 38);
+            this.textBox2.TabIndex = 15;
+            // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -622,6 +614,17 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(346, 102);
             this.panel5.TabIndex = 12;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.White;
+            this.textBox1.Location = new System.Drawing.Point(41, 38);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(40, 38);
+            this.textBox1.TabIndex = 14;
             // 
             // lbl
             // 
@@ -682,29 +685,29 @@
             // 
             this.ChartCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ChartCliente.BackColor = System.Drawing.Color.Transparent;
-            chartArea16.BackColor = System.Drawing.Color.Transparent;
-            chartArea16.Name = "ChartArea1";
-            this.ChartCliente.ChartAreas.Add(chartArea16);
-            legend16.BackColor = System.Drawing.Color.Transparent;
-            legend16.ForeColor = System.Drawing.Color.White;
-            legend16.Name = "Legend1";
-            this.ChartCliente.Legends.Add(legend16);
+            chartArea1.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.Name = "ChartArea1";
+            this.ChartCliente.ChartAreas.Add(chartArea1);
+            legend1.BackColor = System.Drawing.Color.Transparent;
+            legend1.ForeColor = System.Drawing.Color.White;
+            legend1.Name = "Legend1";
+            this.ChartCliente.Legends.Add(legend1);
             this.ChartCliente.Location = new System.Drawing.Point(57, 73);
             this.ChartCliente.Name = "ChartCliente";
-            series16.ChartArea = "ChartArea1";
-            series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series16.IsValueShownAsLabel = true;
-            series16.LabelForeColor = System.Drawing.Color.White;
-            series16.Legend = "Legend1";
-            series16.Name = "Series1";
-            this.ChartCliente.Series.Add(series16);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.IsValueShownAsLabel = true;
+            series1.LabelForeColor = System.Drawing.Color.White;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.ChartCliente.Series.Add(series1);
             this.ChartCliente.Size = new System.Drawing.Size(396, 265);
             this.ChartCliente.TabIndex = 5;
             this.ChartCliente.Text = "chart1";
-            title16.ForeColor = System.Drawing.Color.White;
-            title16.Name = "Title1";
-            title16.Text = "Clientes más frecuentes";
-            this.ChartCliente.Titles.Add(title16);
+            title1.ForeColor = System.Drawing.Color.White;
+            title1.Name = "Title1";
+            title1.Text = "Clientes más frecuentes";
+            this.ChartCliente.Titles.Add(title1);
             // 
             // chartDepartamento
             // 
@@ -712,63 +715,41 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chartDepartamento.BackColor = System.Drawing.Color.Transparent;
-            chartArea15.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea15.AxisX.LineColor = System.Drawing.Color.White;
-            chartArea15.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
-            chartArea15.AxisY.InterlacedColor = System.Drawing.Color.White;
-            chartArea15.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea15.AxisY.LineColor = System.Drawing.Color.White;
-            chartArea15.AxisY.MajorGrid.LineColor = System.Drawing.Color.Transparent;
-            chartArea15.BackColor = System.Drawing.Color.Transparent;
-            chartArea15.Name = "ChartArea1";
-            this.chartDepartamento.ChartAreas.Add(chartArea15);
-            legend15.BackColor = System.Drawing.Color.Transparent;
-            legend15.ForeColor = System.Drawing.Color.White;
-            legend15.Name = "Reserva";
-            this.chartDepartamento.Legends.Add(legend15);
+            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea2.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea2.AxisY.InterlacedColor = System.Drawing.Color.White;
+            chartArea2.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea2.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea2.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.Name = "ChartArea1";
+            this.chartDepartamento.ChartAreas.Add(chartArea2);
+            legend2.BackColor = System.Drawing.Color.Transparent;
+            legend2.ForeColor = System.Drawing.Color.White;
+            legend2.Name = "Reserva";
+            this.chartDepartamento.Legends.Add(legend2);
             this.chartDepartamento.Location = new System.Drawing.Point(287, 379);
             this.chartDepartamento.Name = "chartDepartamento";
             this.chartDepartamento.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series15.ChartArea = "ChartArea1";
-            series15.IsValueShownAsLabel = true;
-            series15.LabelForeColor = System.Drawing.Color.White;
-            series15.Legend = "Reserva";
-            series15.Name = "Departamento";
-            this.chartDepartamento.Series.Add(series15);
+            series2.ChartArea = "ChartArea1";
+            series2.IsValueShownAsLabel = true;
+            series2.LabelForeColor = System.Drawing.Color.White;
+            series2.Legend = "Reserva";
+            series2.Name = "Departamento";
+            this.chartDepartamento.Series.Add(series2);
             this.chartDepartamento.Size = new System.Drawing.Size(646, 642);
             this.chartDepartamento.TabIndex = 7;
-            title15.ForeColor = System.Drawing.Color.White;
-            title15.Name = "Title1";
-            title15.Text = "Departamentos con más reservas";
-            this.chartDepartamento.Titles.Add(title15);
+            title2.ForeColor = System.Drawing.Color.White;
+            title2.Name = "Title1";
+            title2.Text = "Departamentos con más reservas";
+            this.chartDepartamento.Titles.Add(title2);
             this.chartDepartamento.Click += new System.EventHandler(this.chartDepartamento_Click_1);
             // 
             // fechahora
             // 
             this.fechahora.Enabled = true;
             this.fechahora.Tick += new System.EventHandler(this.fechahora_Tick_1);
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(41, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(40, 38);
-            this.textBox1.TabIndex = 14;
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(69, 29);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(40, 38);
-            this.textBox2.TabIndex = 15;
             // 
             // admin
             // 
@@ -815,7 +796,6 @@
         private FontAwesome.Sharp.IconButton servReserva;
         private FontAwesome.Sharp.IconButton servExtra;
         private FontAwesome.Sharp.IconButton servPagos;
-        private FontAwesome.Sharp.IconButton servTransporte;
         private FontAwesome.Sharp.IconButton iconButton11;
         private System.Windows.Forms.Panel PanelSubMenuClientes;
         private FontAwesome.Sharp.IconButton clientesAdmCliente;

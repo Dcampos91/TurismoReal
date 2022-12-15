@@ -62,7 +62,7 @@
             // 
             this.FechaIngreso.Location = new System.Drawing.Point(48, 234);
             this.FechaIngreso.MaxDate = new System.DateTime(2025, 12, 31, 0, 0, 0, 0);
-            this.FechaIngreso.MinDate = new System.DateTime(2022, 12, 13, 0, 0, 0, 0);
+            this.FechaIngreso.MinDate = new System.DateTime(2022, 12, 15, 0, 0, 0, 0);
             this.FechaIngreso.Name = "FechaIngreso";
             this.FechaIngreso.TabIndex = 1;
             // 

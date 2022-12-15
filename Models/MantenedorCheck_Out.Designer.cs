@@ -63,7 +63,7 @@
             // FechaSalida
             // 
             this.FechaSalida.Location = new System.Drawing.Point(39, 172);
-            this.FechaSalida.MinDate = new System.DateTime(2022, 12, 13, 0, 0, 0, 0);
+            this.FechaSalida.MinDate = new System.DateTime(2022, 12, 15, 0, 0, 0, 0);
             this.FechaSalida.Name = "FechaSalida";
             this.FechaSalida.TabIndex = 1;
             // 

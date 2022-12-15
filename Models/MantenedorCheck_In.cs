@@ -19,6 +19,7 @@ using JsonSerializer = System.Text.Json.JsonSerializer;
 using System.Runtime.InteropServices;
 using System.Data.OracleClient;
 using System.Data.SqlClient;
+using System.Linq.Expressions;
 
 namespace Turismo.Models
 {
@@ -111,37 +112,46 @@ namespace Turismo.Models
 
         private async void btnModificar_Click(object sender, EventArgs e)
         {
-            var buscar = txtBuscar.Text;
-            DateTime ingreso = FechaIngreso.SelectionStart;
-            int idReserva = int.Parse(cbxIDReserva.SelectedValue.ToString());
-
-            string url = "http://127.0.0.1:8000/checkIn/modificar/" + buscar;
-            var checkin = new HttpClient();
-            var Ingreso = ingreso.ToString("yyyy/MM/dd");            
-
-            PostViewCheckIn post = new PostViewCheckIn()
+            try 
             {
-                FECHA_CHECK_IN = Ingreso,
-                OBSERVACION = txtObservacion.Text,
-                RESERVA_ID_RESERVA = idReserva,
+                var buscar = txtBuscar.Text;
+                DateTime ingreso = FechaIngreso.SelectionStart;
+                int idReserva = int.Parse(cbxIDReserva.SelectedValue.ToString());
 
-            };
-            var data = JsonSerializer.Serialize<PostViewCheckIn>(post);
-            HttpContent content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
-            var httpResponse = await checkin.PostAsync(url, content);
+                string url = "http://127.0.0.1:8000/checkIn/modificar/" + buscar;
+                var checkin = new HttpClient();
+                var Ingreso = ingreso.ToString("yyyy/MM/dd");
 
-            if (httpResponse.IsSuccessStatusCode)
-            {
-                var result = await httpResponse.Content.ReadAsStringAsync();
+                PostViewCheckIn post = new PostViewCheckIn()
+                {
+                    FECHA_CHECK_IN = Ingreso,
+                    OBSERVACION = txtObservacion.Text,
+                    RESERVA_ID_RESERVA = idReserva,
 
-                var postResult = JsonSerializer.Deserialize<PostViewCheckIn>(result);
+                };
+                var data = JsonSerializer.Serialize<PostViewCheckIn>(post);
+                HttpContent content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+                var httpResponse = await checkin.PostAsync(url, content);
 
-                MessageBox.Show("Modificado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (httpResponse.IsSuccessStatusCode)
+                {
+                    var result = await httpResponse.Content.ReadAsStringAsync();
+
+                    var postResult = JsonSerializer.Deserialize<PostViewCheckIn>(result);
+
+                    MessageBox.Show("Modificado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Error al Modificar el ingreso del cliente, intenta de nuevo", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
             }
-            else
+            catch
             {
-                MessageBox.Show("Error al Modificar el ingreso del cliente, intenta de nuevo", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("NO se puede modificar", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         private void dgvCheckIn_CellContentClick(object sender, DataGridViewCellEventArgs e)

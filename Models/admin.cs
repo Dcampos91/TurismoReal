@@ -386,6 +386,12 @@ namespace Turismo.Models
             w = this.Width;
             h = this.Height;
         }
+
+        private void servPagos_Click(object sender, EventArgs e)
+        {
+            openChildFormInPanel(new ListadoPago());
+
+        }
     }
 
 }

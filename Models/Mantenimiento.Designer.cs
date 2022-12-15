@@ -131,7 +131,7 @@
             this.FechaIngreso.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.FechaIngreso.MaxDate = new System.DateTime(2024, 12, 31, 0, 0, 0, 0);
             this.FechaIngreso.MaxSelectionCount = 1;
-            this.FechaIngreso.MinDate = new System.DateTime(2022, 12, 15, 0, 0, 0, 0);
+            this.FechaIngreso.MinDate = new System.DateTime(2022, 12, 15, 12, 31, 19, 0);
             this.FechaIngreso.Name = "FechaIngreso";
             this.FechaIngreso.TabIndex = 7;
             this.FechaIngreso.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(101)))));
@@ -248,7 +248,7 @@
             this.FechaSalida.Margin = new System.Windows.Forms.Padding(8);
             this.FechaSalida.MaxDate = new System.DateTime(2025, 12, 31, 0, 0, 0, 0);
             this.FechaSalida.MaxSelectionCount = 1;
-            this.FechaSalida.MinDate = new System.DateTime(2022, 12, 15, 0, 0, 0, 0);
+            this.FechaSalida.MinDate = new System.DateTime(2022, 12, 15, 12, 31, 23, 0);
             this.FechaSalida.Name = "FechaSalida";
             this.FechaSalida.TabIndex = 17;
             this.FechaSalida.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(101)))));

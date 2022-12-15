@@ -58,7 +58,7 @@
             // FechaIngreso
             // 
             this.FechaIngreso.Location = new System.Drawing.Point(118, 123);
-            this.FechaIngreso.MinDate = new System.DateTime(2022, 12, 15, 0, 0, 0, 0);
+            this.FechaIngreso.MinDate = new System.DateTime(2022, 12, 15, 12, 31, 43, 0);
             this.FechaIngreso.Name = "FechaIngreso";
             this.FechaIngreso.TabIndex = 1;
             // 
@@ -85,7 +85,7 @@
             // FechaSalida
             // 
             this.FechaSalida.Location = new System.Drawing.Point(569, 123);
-            this.FechaSalida.MinDate = new System.DateTime(2022, 12, 15, 0, 0, 0, 0);
+            this.FechaSalida.MinDate = new System.DateTime(2022, 12, 15, 12, 31, 47, 0);
             this.FechaSalida.Name = "FechaSalida";
             this.FechaSalida.TabIndex = 4;
             // 
@@ -137,7 +137,7 @@
             // FechaEstado
             // 
             this.FechaEstado.Location = new System.Drawing.Point(1030, 123);
-            this.FechaEstado.MinDate = new System.DateTime(2022, 12, 15, 0, 0, 0, 0);
+            this.FechaEstado.MinDate = new System.DateTime(2022, 12, 15, 12, 31, 50, 0);
             this.FechaEstado.Name = "FechaEstado";
             this.FechaEstado.TabIndex = 9;
             // 

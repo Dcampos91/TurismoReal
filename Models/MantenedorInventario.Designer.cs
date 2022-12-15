@@ -57,7 +57,7 @@
             // 
             this.FechaInventario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.FechaInventario.Location = new System.Drawing.Point(36, 227);
-            this.FechaInventario.MinDate = new System.DateTime(2022, 12, 15, 0, 0, 0, 0);
+            this.FechaInventario.MinDate = new System.DateTime(2022, 12, 15, 12, 31, 4, 0);
             this.FechaInventario.Name = "FechaInventario";
             this.FechaInventario.TabIndex = 0;
             // 

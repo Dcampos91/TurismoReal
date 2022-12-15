@@ -173,6 +173,12 @@
     <Compile Include="Models\ListadoDepartamento.Designer.cs">
       <DependentUpon>ListadoDepartamento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\ListadoPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\ListadoPago.Designer.cs">
+      <DependentUpon>ListadoPago.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\ListarReserva.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -298,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Models\ListadoDepartamento.resx">
       <DependentUpon>ListadoDepartamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\ListadoPago.resx">
+      <DependentUpon>ListadoPago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Models\ListarReserva.resx">
       <DependentUpon>ListarReserva.cs</DependentUpon>
