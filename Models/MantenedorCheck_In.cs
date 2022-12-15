@@ -60,7 +60,7 @@ namespace Turismo.Models
         private void cargaUsuario()
         {
             ora.Open();
-            OracleCommand comando = new OracleCommand("select r.id_reserva, c.NOM_CLIENTE ||' '|| c.APELLIDO_PATERNO ||' '|| c.APELLIDO_MATERNO as \"NOMBRE CLIENTE\" from reserva r join cliente c on r.usuario_id_usuario =  c.usuario_id_usuario", ora);
+            OracleCommand comando = new OracleCommand("select r.id_reserva,r.departamento_id_departamento,d.nom_depto from reserva r, departamento d \r\nwhere r.departamento_id_departamento = d.id_departamento", ora);
             OracleDataAdapter data = new OracleDataAdapter(comando);
             DataTable dt = new DataTable();
             data.Fill(dt);
@@ -71,7 +71,7 @@ namespace Turismo.Models
             dt.Rows.InsertAt(fila, 0);
 
             cbxIDReserva.ValueMember = "id_reserva";
-            cbxIDReserva.DisplayMember = "NOMBRE CLIENTE";
+            cbxIDReserva.DisplayMember = "nom_depto";
             cbxIDReserva.DataSource = dt;
             ora.Close();
         }//modicar la query para cargar los datos en el combobox
