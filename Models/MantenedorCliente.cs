@@ -178,41 +178,49 @@ namespace Turismo.Models
                 lblrut.Text = "RUT VALIDO";
                 lblrut.ForeColor = Color.Green;
             }
-            int idUsuario = int.Parse(cbxUsuario.SelectedValue.ToString());
-            string url = "http://127.0.0.1:8000/cliente/crear/";
-            var cliente = new HttpClient();
-
-            PostViewCliente post = new PostViewCliente()
+            try 
             {
-                RUT_CLIENTE = rut,
-                NOM_CLIENTE = txtNombreCliente.Text,
-                APELLIDO_PATERNO = txtApellidoPaterno.Text,
-                APELLIDO_MATERNO = txtApellidoMaterno.Text,
-                EDAD = int.Parse(txtEdad.Text),
-                NACIONALIDAD = cbxNacionalidad.Text,
-                GENERO = cbxGenero.Text,
-                DIRECCION_CLIENTE = txtDireccion.Text,
-                TELEFONO = int.Parse(txtTelefono.Text),
-                EMAIL = txtDireccion.Text,
-                USUARIO_ID_USUARIO = idUsuario,
+                int idUsuario = int.Parse(cbxUsuario.SelectedValue.ToString());
+                string url = "http://127.0.0.1:8000/cliente/crear/";
+                var cliente = new HttpClient();
 
-            };
-            var data = JsonSerializer.Serialize<PostViewCliente>(post);
-            HttpContent content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
-            var httpResponse = await cliente.PostAsync(url, content);
+                PostViewCliente post = new PostViewCliente()
+                {
+                    RUT_CLIENTE = rut,
+                    NOM_CLIENTE = txtNombreCliente.Text,
+                    APELLIDO_PATERNO = txtApellidoPaterno.Text,
+                    APELLIDO_MATERNO = txtApellidoMaterno.Text,
+                    EDAD = int.Parse(txtEdad.Text),
+                    NACIONALIDAD = cbxNacionalidad.Text,
+                    GENERO = cbxGenero.Text,
+                    DIRECCION_CLIENTE = txtDireccion.Text,
+                    TELEFONO = int.Parse(txtTelefono.Text),
+                    EMAIL = txtDireccion.Text,
+                    USUARIO_ID_USUARIO = idUsuario,
 
-            if (httpResponse.IsSuccessStatusCode)
-            {
-                var result = await httpResponse.Content.ReadAsStringAsync();
+                };
+                var data = JsonSerializer.Serialize<PostViewCliente>(post);
+                HttpContent content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+                var httpResponse = await cliente.PostAsync(url, content);
 
-                var postResult = JsonSerializer.Deserialize<PostViewCliente>(result);
+                if (httpResponse.IsSuccessStatusCode)
+                {
+                    var result = await httpResponse.Content.ReadAsStringAsync();
 
-                MessageBox.Show("Creado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    var postResult = JsonSerializer.Deserialize<PostViewCliente>(result);
+
+                    MessageBox.Show("Creado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Error al crear el cliente intenta de nuevo", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Error al crear el cliente intenta de nuevo", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("NO se puede crear Clientes sin autirazación", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
 
         }
 
@@ -287,9 +295,17 @@ namespace Turismo.Models
 
         private async void btnActualizar_Click(object sender, EventArgs e)//Actualizar el datagrid
         {
-            string respuesta = await GetHttp();
-            List<PostViewCliente> lst = JsonConvert.DeserializeObject<List<PostViewCliente>>(respuesta);
-            dgvCliente.DataSource = lst;
+            try 
+            {
+                string respuesta = await GetHttp();
+                List<PostViewCliente> lst = JsonConvert.DeserializeObject<List<PostViewCliente>>(respuesta);
+                dgvCliente.DataSource = lst;
+            }
+            catch
+            {
+                MessageBox.Show("NO se encontraron Clientes", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
 
         }
         private void cargaUsuario()
@@ -312,42 +328,50 @@ namespace Turismo.Models
 
         private async void btnModificar_Click(object sender, EventArgs e)
         {
-            int idUsuario = int.Parse(cbxUsuario.SelectedValue.ToString());
-            var buscar = txtBuscarCliente.Text;
-            string url = "http://127.0.0.1:8000/cliente/modificar/"+buscar;
-            var cliente = new HttpClient();
-
-            PostViewCliente post = new PostViewCliente()
+            try 
             {
-                RUT_CLIENTE = txtRutCliente.Text,
-                NOM_CLIENTE = txtNombreCliente.Text,
-                APELLIDO_PATERNO = txtApellidoPaterno.Text,
-                APELLIDO_MATERNO = txtApellidoMaterno.Text,
-                EDAD = int.Parse(txtEdad.Text),
-                NACIONALIDAD = cbxNacionalidad.Text,
-                GENERO = cbxGenero.Text,
-                DIRECCION_CLIENTE = txtDireccion.Text,
-                TELEFONO = int.Parse(txtTelefono.Text),
-                EMAIL = txtDireccion.Text,
-                USUARIO_ID_USUARIO = idUsuario,
+                int idUsuario = int.Parse(cbxUsuario.SelectedValue.ToString());
+                var buscar = txtBuscarCliente.Text;
+                string url = "http://127.0.0.1:8000/cliente/modificar/" + buscar;
+                var cliente = new HttpClient();
 
-            };
-            var data = JsonSerializer.Serialize<PostViewCliente>(post);
-            HttpContent content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
-            var httpResponse = await cliente.PostAsync(url, content);
+                PostViewCliente post = new PostViewCliente()
+                {
+                    RUT_CLIENTE = txtRutCliente.Text,
+                    NOM_CLIENTE = txtNombreCliente.Text,
+                    APELLIDO_PATERNO = txtApellidoPaterno.Text,
+                    APELLIDO_MATERNO = txtApellidoMaterno.Text,
+                    EDAD = int.Parse(txtEdad.Text),
+                    NACIONALIDAD = cbxNacionalidad.Text,
+                    GENERO = cbxGenero.Text,
+                    DIRECCION_CLIENTE = txtDireccion.Text,
+                    TELEFONO = int.Parse(txtTelefono.Text),
+                    EMAIL = txtDireccion.Text,
+                    USUARIO_ID_USUARIO = idUsuario,
 
-            if (httpResponse.IsSuccessStatusCode)
-            {
-                var result = await httpResponse.Content.ReadAsStringAsync();
+                };
+                var data = JsonSerializer.Serialize<PostViewCliente>(post);
+                HttpContent content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+                var httpResponse = await cliente.PostAsync(url, content);
 
-                var postResult = JsonSerializer.Deserialize<PostViewCliente>(result);
+                if (httpResponse.IsSuccessStatusCode)
+                {
+                    var result = await httpResponse.Content.ReadAsStringAsync();
 
-                MessageBox.Show("Modificado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    var postResult = JsonSerializer.Deserialize<PostViewCliente>(result);
+
+                    MessageBox.Show("Modificado Correctamente", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Error al modificar el cliente intenta de nuevo", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Error al modificar el cliente intenta de nuevo", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("NO se encontraron Clientes para modificar", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
 
         }
 

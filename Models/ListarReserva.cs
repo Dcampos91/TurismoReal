@@ -130,7 +130,7 @@ namespace Turismo.Models
         private void btnInforme_Click(object sender, EventArgs e)
         {
             CrearPDF();
-            MessageBox.Show("Reporete Generado", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Reporte Generado", "Turismo Real", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private async void btnActualizar_Click(object sender, EventArgs e)
